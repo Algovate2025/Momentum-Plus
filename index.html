@@ -2992,7 +2992,7 @@ html { scroll-behavior: smooth; }
 </div>
 <h1>Das Beste aus zwei Welten</h1>
 <p>Du kennst unsere Trading-KIs. Du weißt, wie zuverlässig sie performen. Doch <span class="tooltip" data-tooltip="Trading mit Fremdkapital für maximale Gewinnhebel">Prop Trading</span> geht noch einen Schritt weiter.</p>
-<div class="hero-image" data-aos="fade-up" data-aos-delay="200"><div class="hero-lite"><div class="hero-lite__thumb"></div><div class="hero-lite__button"></div><div class="hero-lite__iframe"></div></div></div>
+<div class="hero-image" data-aos="fade-up" data-aos-delay="200"><div class="hero-lite" data-video="emUNNQQPkCM"><div class="hero-lite__thumb"></div><div class="hero-lite__button"></div><div class="hero-lite__iframe"></div></div></div>
 </div>
 </div>
 </section>
@@ -4640,5 +4640,20 @@ html { scroll-behavior: smooth; }
       ticking = true;
     }
   }, {passive:true});
-})();</script></body>
+})();</script><script>
+(function(){
+  var wrap = document.querySelector('.hero-lite');
+  if(!wrap) return;
+  var thumb = wrap.querySelector('.hero-lite__thumb');
+  if(!thumb) return;
+  var vid = wrap.getAttribute('data-video') || 'emUNNQQPkCM';
+  var maxres = 'https://i.ytimg.com/vi/' + vid + '/maxresdefault.jpg';
+  var hq = 'https://i.ytimg.com/vi/' + vid + '/hqdefault.jpg';
+  // Preload and set background
+  var img = new Image();
+  img.onload = function(){ thumb.style.backgroundImage = "url('" + maxres + "')"; };
+  img.onerror = function(){ thumb.style.backgroundImage = "url('" + hq + "')"; };
+  img.src = maxres;
+})();
+</script></body>
 </html>
