@@ -2837,7 +2837,7 @@
 .hero-lite { position: relative; width: 100%; border-radius: var(--radius-2xl); overflow: hidden; background: #000; }
 .hero-lite::before { content: ""; display: block; padding-top: 56.25%; }
 .hero-lite__thumb, .hero-lite__button, .hero-lite__iframe { position: absolute; inset: 0; }
-.hero-lite__thumb { background: url('https://i.ytimg.com/vi/emUNNQQPkCM/hqdefault.jpg').png') center/cover no-repeat; filter: brightness(0.9); }
+.hero-lite__thumb { background: url('momentum-thumb.png').png') center/cover no-repeat; filter: brightness(0.9); }
 .hero-lite__button { display:flex; align-items:center; justify-content:center; cursor:pointer; }
 .hero-lite__button::after {
   content:""; width: 68px; height: 48px; border-radius: 14px;
@@ -2851,6 +2851,15 @@
 }
 .hero-lite.loading .hero-lite__button { display:none; }
 .hero-lite__iframe iframe { position:absolute; inset:0; width:100%; height:100%; border:0; }
+
+@media (max-width: 768px){
+  .hero-lite__thumb{
+    background-size: contain !important;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-color: #000;
+  }
+}
 </style><style>
 /* === Modal (Glass) === */
 .modal-overlay {
@@ -2909,6 +2918,15 @@ html { scroll-behavior: smooth; }
 /* --- Hero video full bleed fix --- */
 .hero-image, .hero-lite { width: 100%; }
 .hero-lite__iframe, .hero-lite__thumb, .hero-lite__button { position:absolute; inset:0; width:100%; height:100%; }
+
+@media (max-width: 768px){
+  .hero-lite__thumb{
+    background-size: contain !important;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-color: #000;
+  }
+}
 </style><style>
 /* --- Center nav on mobile (final fix) --- */
 @media (max-width: 768px) {
@@ -2953,7 +2971,7 @@ html { scroll-behavior: smooth; }
     pointer-events: none;
   }
 }
-</style><link as_="image" href="momentum-thumb.png" rel="preload"/></head>
+</style><link as_="image" href="momentum-thumb.png" rel="preload"/><link as_="image" href="momentum-thumb.png" rel="preload"/></head>
 <body>
 <div class="bg-effects">
 <div class="bg-gradient"></div>
@@ -2992,7 +3010,7 @@ html { scroll-behavior: smooth; }
 </div>
 <h1>Das Beste aus zwei Welten</h1>
 <p>Du kennst unsere Trading-KIs. Du weißt, wie zuverlässig sie performen. Doch <span class="tooltip" data-tooltip="Trading mit Fremdkapital für maximale Gewinnhebel">Prop Trading</span> geht noch einen Schritt weiter.</p>
-<div class="hero-image" data-aos="fade-up" data-aos-delay="200"><div class="hero-lite" data-video="emUNNQQPkCM"><div class="hero-lite__thumb"></div><div class="hero-lite__button"></div><div class="hero-lite__iframe"></div></div></div>
+<div class="hero-image" data-aos="fade-up" data-aos-delay="200"><div class="hero-lite" data-video="emUNNQQPkCM" style="--hero-thumb: url('momentum-thumb.png')"><div class="hero-lite__thumb" style="background-image: url('momentum-thumb.png')"></div><div class="hero-lite__button"></div><div class="hero-lite__iframe"></div></div></div>
 </div>
 </div>
 </section>
@@ -4640,20 +4658,5 @@ html { scroll-behavior: smooth; }
       ticking = true;
     }
   }, {passive:true});
-})();</script><script>
-(function(){
-  var wrap = document.querySelector('.hero-lite');
-  if(!wrap) return;
-  var thumb = wrap.querySelector('.hero-lite__thumb');
-  if(!thumb) return;
-  var vid = wrap.getAttribute('data-video') || 'emUNNQQPkCM';
-  var maxres = 'https://i.ytimg.com/vi/' + vid + '/maxresdefault.jpg';
-  var hq = 'https://i.ytimg.com/vi/' + vid + '/hqdefault.jpg';
-  // Preload and set background
-  var img = new Image();
-  img.onload = function(){ thumb.style.backgroundImage = "url('" + maxres + "')"; };
-  img.onerror = function(){ thumb.style.backgroundImage = "url('" + hq + "')"; };
-  img.src = maxres;
-})();
-</script></body>
+})();</script></body>
 </html>
