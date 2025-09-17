@@ -1,0 +1,4643 @@
+<!DOCTYPE html>
+
+<html lang="de">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="KI-gestütztes Prop Trading – Starte ohne Vorerfahrung auf einem Instant Funded Account. Software handeln lassen, bis zu 90% Gewinnbeteiligung (anbieterabhängig)." name="description"/>
+<meta content="KI-Trading, Prop Trading, Trading Instant-Start, Automatisiertes Trading" name="keywords"/>
+<meta content="index, follow" name="robots"/>
+<meta content="Algovate-Plus" property="og:site_name"/>
+<meta content="Algovate-Plus" name="application-name"/>
+<title>Algovate-Plus – Instant-Funded Prop Trading mit KI</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="//images.unsplash.com" rel="dns-prefetch"/>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+<style>
+        /* ========================================
+           CSS VARIABLES & THEME SYSTEM
+        ======================================== */
+        :root {
+            /* Primary Colors */
+            --primary-50: #eef8ff;
+            --primary-100: #d1ecff;
+            --primary-200: #aedfff;
+            --primary-300: #7dd0ff;
+            --primary-400: #44b8ff;
+            --primary-500: #1a9eff;
+            --primary-600: #0284f5;
+            --primary-700: #0369e1;
+            --primary-800: #0757c7;
+            --primary-900: #0c4a9e;
+
+            /* Accent Colors */
+            --accent-50: #f0f4ff;
+            --accent-100: #e0e7ff;
+            --accent-200: #c7d2fe;
+            --accent-300: #a5b4fc;
+            --accent-400: #818cf8;
+            --accent-500: #6366f1;
+            --accent-600: #4f46e5;
+            --accent-700: #4338ca;
+            --accent-800: #3730a3;
+            --accent-900: #312e81;
+
+            /* Success Colors */
+            --success-50: #f0fdf4;
+            --success-100: #dcfce7;
+            --success-200: #bbf7d0;
+            --success-300: #86efac;
+            --success-400: #4ade80;
+            --success-500: #22c55e;
+            --success-600: #16a34a;
+            --success-700: #15803d;
+            --success-800: #166534;
+            --success-900: #14532d;
+
+            /* Warning Colors */
+            --warning-50: #fffbeb;
+            --warning-100: #fef3c7;
+            --warning-200: #fde68a;
+            --warning-300: #fcd34d;
+            --warning-400: #fbbf24;
+            --warning-500: #f59e0b;
+            --warning-600: #d97706;
+            --warning-700: #b45309;
+            --warning-800: #92400e;
+            --warning-900: #78350f;
+
+            /* Danger Colors */
+            --danger-50: #fef2f2;
+            --danger-100: #fee2e2;
+            --danger-200: #fecaca;
+            --danger-300: #fca5a5;
+            --danger-400: #f87171;
+            --danger-500: #ef4444;
+            --danger-600: #dc2626;
+            --danger-700: #b91c1c;
+            --danger-800: #991b1b;
+            --danger-900: #7f1d1d;
+
+            /* Neutral Colors */
+            --slate-50: #f8fafc;
+            --slate-100: #f1f5f9;
+            --slate-200: #e2e8f0;
+            --slate-300: #cbd5e1;
+            --slate-400: #94a3b8;
+            --slate-500: #64748b;
+            --slate-600: #475569;
+            --slate-700: #334155;
+            --slate-800: #1e293b;
+            --slate-900: #0f172a;
+            --slate-950: #020617;
+
+            /* Dark Theme */
+            --bg-primary: #0b0f19;
+            --bg-secondary: #111827;
+            --bg-tertiary: #1f2937;
+            --bg-elevated: rgba(255, 255, 255, 0.03);
+            --bg-glass: rgba(255, 255, 255, 0.04);
+            --bg-glass-strong: rgba(255, 255, 255, 0.08);
+            /* New for testimonials background separation */
+            --bg-card-testimonial: rgba(255, 255, 255, 0.04); 
+
+
+            /* Text Colors */
+            --text-primary: #ffffff;
+            --text-secondary: #f8fafc;
+            --text-tertiary: #cbd5e1;
+            --text-muted: #94a3b8;
+            --text-accent: var(--primary-400);
+            --text-success: var(--success-400);
+            --text-warning: var(--warning-400);
+            --text-danger: var(--danger-400);
+
+            /* Borders */
+            --border-primary: rgba(255, 255, 255, 0.08);
+            --border-secondary: rgba(255, 255, 255, 0.12);
+            --border-accent: rgba(26, 158, 255, 0.35);
+            --border-focus: rgba(26, 158, 255, 0.6);
+
+            /* Gradients */
+            --grad-primary: linear-gradient(135deg, #1a9eff 0%, #0369e1 50%, #0c4a9e 100%);
+            --grad-accent: linear-gradient(135deg, #818cf8 0%, #6366f1 50%, #4338ca 100%);
+            --grad-success: linear-gradient(135deg, #4ade80 0%, #22c55e 50%, #16a34a 100%);
+            --grad-gold: linear-gradient(135deg, #fbbf24 0%, #f59e0b 50%, #d97706 100%);
+            --grad-purple: linear-gradient(135deg, #a855f7 0%, #9333ea 50%, #7c3aed 100%);
+            --grad-cyan: linear-gradient(135deg, #06b6d4 0%, #0891b2 50%, #0e7490 100%);
+
+            /* Shadows (Optimized Glow for better agency feel) */
+            --shadow-xs: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+            --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+            --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            --shadow-glow-primary: 0 0 40px rgba(26, 158, 255, 0.1), 0 0 80px rgba(26, 158, 255, 0.05); /* Softer Glow */
+            --shadow-glow-cyan: 0 0 32px rgba(6, 182, 212, 0.15), 0 0 64px rgba(6, 182, 212, 0.08);
+
+            /* Typography */
+            --font-size-xs: 0.75rem;
+            --font-size-sm: 0.875rem;
+            --font-size-base: 1rem;
+            --font-size-lg: 1.25rem;
+            --font-size-xl: 1.563rem;
+            --font-size-2xl: 1.953rem;
+            --font-size-3xl: 2.441rem;
+            --font-size-4xl: 3.052rem;
+            --font-weight-normal: 400;
+            --font-weight-medium: 500;
+            --font-weight-semibold: 600;
+            --font-weight-bold: 700;
+            --line-height-tight: 1.2;
+            --line-height-normal: 1.5;
+            --line-height-relaxed: 1.7; /* Agency Standard for Dark Backgrounds */
+
+            /* Radius */
+            --radius-sm: 8px;
+            --radius-md: 12px;
+            --radius-lg: 16px;
+            --radius-xl: 20px;
+            --radius-2xl: 24px;
+            --radius-full: 9999px;
+
+            /* Spacing */
+            --spacing-1: 0.25rem;
+            --spacing-2: 0.5rem;
+            --spacing-3: 0.75rem;
+            --spacing-4: 1rem;
+            --spacing-5: 1.25rem;
+            --spacing-6: 1.5rem;
+            --spacing-8: 2rem;
+            --spacing-10: 2.5rem;
+            --spacing-12: 3rem;
+
+            /* Transitions */
+            --transition-default: all 200ms cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-fast: all 150ms cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-normal: all 200ms cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-slow: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
+
+            /* Z-Index */
+            --z-sticky: 1020;
+            --z-modal: 1050;
+            
+            /* Layout */
+            --container-max: 1320px;
+            --container-padding: clamp(1.5rem, 5vw, 4rem);
+            --touch-target-min: 44px;
+            --touch-target-comfortable: 48px;
+        }
+
+        /* ========================================
+           RESET & BASE STYLES
+        ======================================== */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        *, *::before, *::after {
+            max-width: 100%;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+            width: 100%;
+        }
+
+        body {
+            background: var(--bg-primary);
+            color: var(--text-secondary);
+            font-family: 'Sora', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: var(--line-height-relaxed); /* Agency Standard */
+            overflow-x: hidden;
+            font-size: var(--font-size-base);
+            -webkit-font-smoothing: antialiased;
+            width: 100%;
+            max-width: 100vw;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Sora', sans-serif;
+            font-weight: var(--font-weight-semibold);
+            line-height: var(--line-height-tight);
+            color: var(--text-primary);
+            letter-spacing: -0.025em;
+        }
+
+        /* ========================================
+           LAYOUT UTILITIES
+        ======================================== */
+        .container {
+            max-width: var(--container-max);
+            padding: 0 var(--container-padding);
+            margin: 0 auto;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .section {
+            padding: clamp(5rem, 10vw, 10rem) 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: clamp(4rem, 8vw, 8rem);
+        }
+
+        .section-header h2 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: var(--font-weight-bold);
+            margin-bottom: var(--spacing-5);
+            color: var(--text-primary);
+            letter-spacing: -0.02em;
+        }
+
+        .section-header p {
+            font-size: var(--font-size-xl);
+            color: var(--text-tertiary);
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: var(--line-height-relaxed);
+        }
+
+        /* ========================================
+           BACKGROUND EFFECTS
+        ======================================== */
+        .bg-effects {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -2;
+            overflow: hidden;
+        }
+
+        .bg-gradient {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background:
+                radial-gradient(ellipse 80% 50% at 20% -20%, rgba(26, 158, 255, 0.08) 0%, transparent 60%),
+                radial-gradient(ellipse 60% 50% at 80% 50%, rgba(99, 102, 241, 0.06) 0%, transparent 60%),
+                radial-gradient(ellipse 100% 80% at 40% 100%, rgba(34, 197, 94, 0.04) 0%, transparent 60%);
+        }
+
+        .floating-orbs {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+
+        .orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(60px);
+            opacity: 0.4;
+            animation: float 20s ease-in-out infinite;
+        }
+
+        .orb:nth-child(1) {
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(26, 158, 255, 0.3) 0%, transparent 70%);
+            top: 10%;
+            left: 10%;
+        }
+
+        .orb:nth-child(2) {
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, rgba(99, 102, 241, 0.25) 0%, transparent 70%);
+            top: 60%;
+            right: 10%;
+            animation-delay: 7s;
+        }
+
+        .orb:nth-child(3) {
+            width: 150px;
+            height: 150px;
+            background: radial-gradient(circle, rgba(34, 197, 94, 0.2) 0%, transparent 70%);
+            bottom: 20%;
+            left: 30%;
+            animation-delay: 14s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) translateX(0) scale(1); }
+            33% { transform: translateY(-30px) translateX(20px) scale(1.1); }
+            66% { transform: translateY(20px) translateX(-20px) scale(0.9); }
+        }
+
+        /* ========================================
+           NAVIGATION
+        ======================================== */
+        .nav {
+            position: fixed;
+            top: 1rem;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: var(--z-sticky);
+            background: var(--bg-glass-strong);
+            backdrop-filter: blur(24px) saturate(180%);
+            border: 1px solid var(--border-primary);
+            border-radius: var(--radius-full);
+            padding: 0.5rem;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 0.25rem;
+            box-shadow: var(--shadow-xl), var(--shadow-glow-primary);
+            transition: var(--transition-slow);
+            width: fit-content;
+            max-width: min(800px, calc(100vw - 2rem));
+        }
+
+        .nav:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: var(--border-secondary);
+            box-shadow: var(--shadow-2xl), var(--shadow-glow-primary);
+        }
+
+        .nav a {
+            font-weight: var(--font-weight-medium);
+            font-size: var(--font-size-sm);
+            padding: 0.75rem 1.5rem;
+            border-radius: var(--radius-full);
+            transition: var(--transition-default);
+            white-space: nowrap;
+            position: relative;
+            overflow: hidden;
+            color: var(--text-tertiary);
+            min-height: var(--touch-target-min);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .nav a::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: var(--grad-primary);
+            opacity: 0;
+            transition: var(--transition-default);
+            border-radius: var(--radius-full);
+            transform: scale(0.8);
+        }
+
+        .nav a:hover::before {
+            opacity: 0.1;
+            transform: scale(1);
+        }
+
+        .nav a:hover {
+            color: var(--text-primary);
+            transform: translateY(-1px);
+        }
+
+        .nav a.active {
+            color: var(--text-primary);
+            background: var(--bg-elevated);
+            border: 1px solid var(--border-accent);
+            box-shadow: var(--shadow-glow-primary);
+        }
+
+        /* ========================================
+           BUTTONS
+        ======================================== */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--spacing-2);
+            padding: var(--spacing-4) var(--spacing-8);
+            border-radius: var(--radius-full);
+            font-weight: var(--font-weight-semibold);
+            font-size: var(--font-size-base);
+            transition: var(--transition-default);
+            cursor: pointer;
+            border: none;
+            text-decoration: none;
+            position: relative;
+            overflow: hidden;
+            min-width: 200px;
+            justify-content: center;
+            min-height: var(--touch-target-comfortable);
+        }
+
+        .btn-primary {
+            background: var(--grad-primary);
+            color: var(--text-primary);
+            box-shadow: var(--shadow-lg), var(--shadow-glow-primary);
+            border: 1px solid var(--border-accent);
+        }
+
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.25), transparent);
+            transition: left 0.8s ease;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-xl), var(--shadow-glow-primary);
+        }
+
+        .btn-primary:hover::before {
+            left: 100%;
+        }
+
+        .btn-secondary {
+            background: var(--bg-glass-strong);
+            color: var(--text-secondary);
+            border: 1px solid var(--border-primary);
+            backdrop-filter: blur(16px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .btn-secondary:hover {
+            background: var(--bg-glass);
+            border-color: var(--border-accent);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg), 0 0 15px rgba(26, 158, 255, 0.4); 
+        }
+
+        .btn i {
+            transition: var(--transition-default);
+        }
+
+        .btn:hover i {
+            transform: translateX(3px);
+        }
+
+        .btn.loading {
+            pointer-events: none;
+            opacity: 0.7;
+        }
+
+        .btn.loading::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            border: 2px solid transparent;
+            border-top: 2px solid currentColor;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        /* ========================================
+           CARDS
+        ======================================== */
+        .card {
+            background: var(--bg-glass-strong);
+            border: 1px solid var(--border-primary);
+            border-radius: var(--radius-xl);
+            padding: var(--spacing-8);
+            backdrop-filter: blur(24px) saturate(180%);
+            transition: var(--transition-default);
+            position: relative;
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(26, 158, 255, 0.08), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .card::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: var(--grad-primary);
+            opacity: 0;
+            transition: var(--transition-default);
+            border-radius: var(--radius-xl);
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            border-color: var(--border-accent);
+            box-shadow: 0 15px 30px -5px rgba(0,0,0,0.4), var(--shadow-glow-primary); /* Enhanced hover shadow */
+        }
+
+        .card:hover::before {
+            left: 100%;
+        }
+
+        .card:hover::after {
+            opacity: 0.03;
+        }
+
+        .card > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* ========================================
+           HERO SECTION
+        ======================================== */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            text-align: center;
+            max-width: 100%;
+            margin: 0 auto;
+            padding-top: 120px;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--spacing-2);
+            background: var(--bg-glass-strong);
+            border: 1px solid var(--border-accent);
+            padding: var(--spacing-2) var(--spacing-5);
+            border-radius: var(--radius-full);
+            font-size: var(--font-size-sm);
+            font-weight: var(--font-weight-semibold);
+            color: var(--text-accent);
+            margin-bottom: var(--spacing-10);
+            backdrop-filter: blur(16px);
+            box-shadow: var(--shadow-lg), 0 0 32px rgba(26, 158, 255, 0.25);
+            animation: pulse-glow 4s ease-in-out infinite;
+        }
+
+        @keyframes pulse-glow {
+            0%, 100% { box-shadow: var(--shadow-lg), 0 0 32px rgba(26, 158, 255, 0.25); }
+            50% { box-shadow: var(--shadow-xl), 0 0 48px rgba(26, 158, 255, 0.4); }
+        }
+
+        .hero-badge i {
+            color: var(--text-accent);
+            animation: rotate 6s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-weight: var(--font-weight-bold);
+            margin-bottom: var(--spacing-6);
+            background: linear-gradient(135deg, var(--text-primary) 0%, var(--text-accent) 40%, var(--accent-400) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+        }
+
+        .hero p {
+            font-size: clamp(1.125rem, 2.5vw, 1.375rem);
+            color: var(--text-tertiary);
+            margin-bottom: var(--spacing-12);
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: var(--line-height-relaxed);
+        }
+
+        .hero-cta {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: var(--spacing-4);
+            margin-bottom: var(--spacing-16);
+            width: 100%;
+        }
+
+        .hero-image {
+            width: 100%;
+            margin: 0 auto;
+            max-width: 100%;
+            padding: 0;
+            box-sizing: border-box;
+            border-radius: var(--radius-2xl);
+            overflow: hidden;
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 0; 
+        }
+
+        /* ========================================
+           PROFESSIONAL STEPS SECTION - OPTIMIZED
+        ======================================== */
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: var(--spacing-8);
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .steps::before {
+            content: '';
+            position: absolute;
+            top: 40px;
+            left: 10%;
+            right: 10%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--primary-500), var(--primary-400), var(--primary-500), transparent);
+            z-index: 0;
+            opacity: 0.3;
+        }
+
+        @media (max-width: 768px) {
+            .steps::before {
+                display: none;
+            }
+        }
+
+        .step {
+            text-align: center;
+            position: relative;
+            z-index: 1;
+            background: var(--bg-glass-strong);
+            border: 1px solid var(--border-primary);
+            border-radius: var(--radius-2xl);
+            padding: var(--spacing-8);
+            backdrop-filter: blur(24px);
+            transition: var(--transition-slow);
+            box-shadow: var(--shadow-lg);
+            overflow: hidden;
+        }
+
+        .step::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(26, 158, 255, 0.08), transparent);
+            transition: left 0.8s ease;
+        }
+
+        .step::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: var(--grad-primary);
+            opacity: 0;
+            transition: var(--transition-slow);
+            border-radius: var(--radius-2xl);
+            z-index: -1;
+        }
+
+        .step:hover {
+            transform: translateY(-12px);
+            border-color: var(--border-accent);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5), var(--shadow-glow-primary); /* Deep drop shadow */
+        }
+
+        .step:hover::before {
+            left: 100%;
+        }
+
+        .step:hover::after {
+            opacity: 0.05;
+        }
+
+        .step > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        .step-icon-container {
+            position: relative;
+            margin: 0 auto var(--spacing-6);
+            width: 120px;
+            height: 120px;
+        }
+
+        .step-number {
+            width: 120px;
+            height: 120px;
+            background: var(--grad-primary);
+            color: var(--text-primary);
+            border-radius: var(--radius-2xl);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: var(--font-size-2xl);
+            font-weight: var(--font-weight-bold);
+            box-shadow: var(--shadow-xl), var(--shadow-glow-primary);
+            position: relative;
+            overflow: hidden;
+            transition: var(--transition-slow);
+        }
+        
+        /* Icon glow inside the circle */
+        .step .step-icon {
+            color: var(--text-primary);
+            text-shadow: 0 0 15px rgba(255, 255, 255, 0.6);
+        }
+
+        .step-number::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: conic-gradient(from 0deg, var(--primary-400), var(--accent-400), var(--primary-600), var(--primary-400));
+            animation: rotate-slow 8s linear infinite;
+            opacity: 0;
+            transition: var(--transition-slow);
+        }
+
+        .step:hover .step-number::before {
+            opacity: 0.3;
+        }
+
+        .step-icon {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: var(--font-size-3xl);
+            color: var(--text-primary);
+            opacity: 0;
+            transition: var(--transition-slow);
+            z-index: 2;
+        }
+
+        .step:hover .step-icon {
+            opacity: 1;
+        }
+
+        .step:hover .step-number {
+            transform: scale(1.05);
+        }
+
+        .step-number::after {
+            content: '';
+            position: absolute;
+            inset: -8px;
+            border: 2px solid var(--primary-400);
+            border-radius: var(--radius-2xl);
+            opacity: 0;
+            animation: pulse-ring-continuous 3s ease-out infinite;
+        }
+
+        @keyframes pulse-ring-continuous {
+            0%, 70% {
+                transform: scale(1);
+                opacity: 0;
+            }
+            10%, 60% {
+                opacity: 0.4;
+            }
+            100% {
+                transform: scale(1.2);
+                opacity: 0;
+            }
+        }
+
+        .step h3 {
+            font-size: var(--font-size-xl);
+            margin-bottom: var(--spacing-4);
+            color: var(--text-primary);
+            font-weight: var(--font-weight-bold);
+            line-height: var(--line-height-tight);
+        }
+
+        .step p {
+            color: var(--text-tertiary);
+            line-height: var(--line-height-relaxed); 
+            font-size: var(--font-size-base);
+            margin-top: var(--spacing-4); 
+            margin-bottom: var(--spacing-4);
+        }
+
+        .step-status {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(34, 197, 94, 0.1);
+            color: var(--success-400);
+            padding: 0.5rem 1rem;
+            border-radius: var(--radius-full);
+            font-size: var(--font-size-sm);
+            font-weight: var(--font-weight-semibold);
+            border: 1px solid rgba(34, 197, 94, 0.3);
+            margin-top: var(--spacing-2);
+        }
+
+        .step-status i {
+            font-size: var(--font-size-xs);
+        }
+
+        .step-timing {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: var(--bg-tertiary);
+            color: var(--text-accent);
+            padding: 0.25rem 0.75rem;
+            border-radius: var(--radius-full);
+            font-size: var(--font-size-xs);
+            font-weight: var(--font-weight-semibold);
+            border: 1px solid var(--border-accent);
+            backdrop-filter: blur(8px);
+        }
+
+        .steps-cta {
+            text-align: center;
+            margin-top: var(--spacing-12);
+            padding: var(--spacing-8);
+            background: linear-gradient(135deg, rgba(26, 158, 255, 0.1), rgba(99, 102, 241, 0.05));
+            border: 1px solid var(--border-accent);
+            border-radius: var(--radius-2xl);
+            backdrop-filter: blur(16px);
+        }
+
+        .steps-cta h3 {
+            font-size: var(--font-size-2xl);
+            font-weight: var(--font-weight-bold);
+            color: var(--text-primary);
+            margin-bottom: var(--spacing-4);
+        }
+
+        .steps-cta p {
+            color: var(--text-tertiary);
+            margin-bottom: var(--spacing-6);
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        @keyframes rotate-slow {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        @media (max-width: 768px) {
+            .steps {
+                grid-template-columns: 1fr;
+                gap: var(--spacing-6);
+            }
+
+            .step {
+                padding: var(--spacing-6);
+            }
+
+            .step-icon-container {
+                width: 100px;
+                height: 100px;
+            }
+
+            .step-number {
+                width: 100px;
+                height: 100px;
+                font-size: var(--font-size-xl);
+            }
+
+            .step-icon {
+                font-size: var(--font-size-2xl);
+            }
+
+            .steps-progress {
+                flex-direction: column;
+                gap: 0.75rem;
+            }
+
+            .progress-item::after {
+                display: none;
+            }
+
+            .progress-item {
+                flex-direction: row;
+                width: 100%;
+            }
+
+            .steps-cta {
+                padding: var(--spacing-6);
+            }
+        }
+
+        /* ========================================
+           FEATURES SECTION - OPTIMIZED
+        ======================================== */
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--spacing-6);
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .feature {
+            text-align: left; /* NEU: Links ausgerichtet */
+            background: var(--bg-glass-strong);
+            border: 1px solid var(--border-primary);
+            border-radius: var(--radius-2xl);
+            padding: var(--spacing-8);
+            backdrop-filter: blur(24px) saturate(180%);
+            transition: var(--transition-slow);
+            position: relative;
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+            cursor: pointer;
+        }
+
+        .feature:hover {
+            transform: translateY(-8px);
+            border-color: var(--border-accent);
+            box-shadow: var(--shadow-2xl), var(--shadow-glow-primary);
+        }
+
+        .feature-icon-container {
+            position: relative;
+            margin: 0 0 var(--spacing-6) 0; /* NEU: Links ausgerichtet */
+            width: 80px; 
+            height: 80px; 
+        }
+
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--grad-primary);
+            border-radius: var(--radius-2xl);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: var(--font-size-2xl); 
+            color: var(--text-primary);
+            box-shadow: var(--shadow-xl), var(--shadow-glow-primary);
+            position: relative;
+            overflow: hidden;
+            transition: var(--transition-slow);
+        }
+
+        .feature:hover .feature-icon {
+            transform: scale(1.05) rotateY(5deg);
+            box-shadow: var(--shadow-2xl), var(--shadow-glow-primary);
+            animation: feature-bounce 0.8s ease;
+        }
+
+        @keyframes feature-bounce {
+            0%, 20%, 60%, 100% { transform: scale(1.05) rotateY(5deg); }
+            40% { transform: scale(1.1) rotateY(8deg); }
+            80% { transform: scale(1.08) rotateY(6deg); }
+        }
+
+        .feature h3 {
+            font-size: var(--font-size-xl);
+            margin-bottom: var(--spacing-4);
+            color: var(--text-primary);
+            font-weight: var(--font-weight-bold);
+            text-align: left; /* NEU: Links ausgerichtet */
+        }
+
+        .feature p {
+            color: var(--text-tertiary);
+            line-height: var(--line-height-relaxed);
+            text-align: left; /* NEU: Links ausgerichtet */
+        }
+
+        /* ========================================
+           STATS SECTION
+        ======================================== */
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: var(--spacing-8);
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .stat {
+            text-align: center;
+            background: var(--bg-glass-strong);
+            border: 1px solid var(--border-primary);
+            border-radius: var(--radius-2xl);
+            padding: var(--spacing-8) var(--spacing-6);
+            backdrop-filter: blur(24px) saturate(180%);
+            transition: var(--transition-slow);
+            position: relative;
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+            cursor: pointer;
+        }
+
+        .stat:hover {
+            transform: translateY(-12px);
+            border-color: var(--border-accent);
+            box-shadow: var(--shadow-2xl), var(--shadow-glow-primary);
+        }
+
+        .stat-value {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: var(--font-weight-bold);
+            background: linear-gradient(135deg, var(--primary-400), var(--accent-400), var(--primary-600));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: var(--spacing-3);
+            line-height: 1;
+            white-space: nowrap;
+            overflow: visible;
+        }
+
+        .stat-label {
+            color: var(--text-tertiary);
+            font-size: var(--font-size-base);
+            font-weight: var(--font-weight-semibold);
+        }
+
+        /* ========================================
+           TESTIMONIALS SECTION - OPTIMIZED
+        ======================================== */
+        .testimonials {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            gap: var(--spacing-8);
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--spacing-6);
+        }
+
+        .testimonial {
+            position: relative;
+            background: var(--bg-card-testimonial); /* Slightly lighter background to stand out */
+        }
+
+        /* FIX: Parent container for aspect ratio control */
+        .testimonial-media {
+            width: 100%;
+            height: auto;
+            overflow: hidden;
+            border-radius: var(--radius-xl);
+            margin-bottom: var(--spacing-4);
+        }
+        
+        /* CSS für Hochformat (9:16) */
+        .testimonial-media .yt-portrait {
+            width: 100%;
+            aspect-ratio: 9 / 16; /* Erzwingt Hochformat */
+            height: auto;
+            object-fit: cover; /* Wichtig: Füllt den Container und beschneidet, wenn nötig */
+        }
+        
+        /* CSS für Querformat (16:9), wenn es im Hochformat-Container genutzt wird */
+        /* Wir nutzen hier 9/16 für alle, um einen einheitlichen Block zu erzwingen,
+           müssen aber object-fit verwenden, um das Bild im Container zu halten. */
+        .testimonial-media .yt-landscape {
+            width: 100%;
+            aspect-ratio: 9 / 16; /* Erzwingt Hochformat-Containergröße */
+            height: auto;
+            object-fit: cover; /* Wichtig: Füllt den Container und beschneidet, wenn nötig */
+        }
+
+
+        .testimonial-content {
+            color: inherit;
+            font-style: normal; 
+            color: var(--text-secondary);
+            margin-bottom: var(--spacing-6);
+            font-size: var(--font-size-lg);
+            line-height: var(--line-height-relaxed);
+            margin-top: 1rem;
+            /* NEU: Subtiler Text-Glow für das Zitat */
+            text-shadow: 0 0 5px rgba(255, 255, 255, 0.1), 
+                         0 0 10px rgba(255, 255, 255, 0.05);
+        }
+
+        .testimonial-rating {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: var(--spacing-4);
+        }
+
+        .stars {
+            display: flex;
+            gap: 0.25rem;
+        }
+
+        .star {
+            color: #fbbf24;
+            font-size: var(--font-size-base);
+        }
+
+        .star.empty {
+            color: var(--slate-600);
+        }
+
+        .rating-text {
+            font-size: var(--font-size-sm);
+            color: var(--text-tertiary);
+            font-weight: var(--font-weight-medium);
+            margin-left: 0.5rem;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-4);
+        }
+
+        .author-avatar {
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--border-accent);
+            box-shadow: var(--shadow-lg), var(--shadow-glow-primary);
+            cursor: pointer;
+            transition: var(--transition-normal);
+        }
+
+        .author-avatar:hover {
+            transform: scale(1.05);
+            border-color: var(--primary-400);
+            box-shadow: var(--shadow-xl), 0 0 25px rgba(26, 158, 255, 0.4);
+        }
+
+        .author-info h4 {
+            font-size: var(--font-size-base);
+            margin-bottom: var(--spacing-1);
+            color: var(--text-primary);
+            font-weight: var(--font-weight-semibold);
+        }
+
+        .author-info p {
+            color: var(--text-tertiary);
+            font-size: var(--font-size-sm);
+        }
+
+        .author-location {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.25rem;
+            background: rgba(26, 158, 255, 0.1);
+            color: var(--primary-400);
+            padding: 0.25rem 0.5rem;
+            border-radius: var(--radius-sm);
+            font-size: var(--font-size-xs);
+            font-weight: var(--font-weight-medium);
+            margin-top: 0.25rem;
+            border: 1px solid rgba(26, 158, 255, 0.2);
+        }
+
+        /* ========================================
+           FAQ SECTION
+        ======================================== */
+        .faq {
+            max-width: 100%;
+            margin: 0;
+        }
+
+        .faq-item {
+            background: var(--bg-glass-strong);
+            border: 1px solid var(--border-primary);
+            border-radius: var(--radius-2xl);
+            margin-bottom: var(--spacing-5);
+            cursor: pointer;
+            transition: var(--transition-default);
+            overflow: hidden;
+            backdrop-filter: blur(24px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .faq-item:hover {
+            border-color: var(--border-accent);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-xl), var(--shadow-glow-primary);
+        }
+
+        .faq-item.active {
+            border-color: var(--border-accent);
+            background: var(--bg-glass);
+            box-shadow: var(--shadow-xl), var(--shadow-glow-primary);
+        }
+
+        .faq-question {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: var(--spacing-8) var(--spacing-10);
+            font-weight: var(--font-weight-semibold);
+            color: var(--text-primary);
+            font-size: var(--font-size-lg);
+        }
+
+        .faq-icon {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: var(--bg-elevated);
+            border: 1px solid var(--border-primary);
+            transition: var(--transition-default);
+            flex-shrink: 0;
+        }
+
+        .faq-item.active .faq-icon {
+            background: var(--grad-primary);
+            color: var(--text-primary);
+            transform: rotate(45deg) scale(1.1);
+            box-shadow: var(--shadow-glow-primary);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            color: var(--text-tertiary);
+            line-height: var(--line-height-relaxed);
+        }
+
+        .faq-answer.show {
+            max-height: 400px;
+            padding: 0 var(--spacing-10) var(--spacing-8);
+        }
+
+        /* ========================================
+           CTA SECTION - PREMIUM VERSION
+        ======================================== */
+        .cta-section {
+            /* Changed to a darker, more premium gradient */
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); 
+            padding: clamp(5rem, 12vw, 8rem) 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            margin: var(--spacing-32) 0 0;
+            border-top: 1px solid rgba(26, 158, 255, 0.2);
+            box-shadow: 0 0 60px rgba(26, 158, 255, 0.1);
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: url('https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?q=80&w=1000') center/cover;
+            opacity: 0.05; /* Reduced opacity for darker background */
+            z-index: 0;
+        }
+
+        .cta-section::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 50% 50%, rgba(26, 158, 255, 0.1) 0%, transparent 60%);
+            animation: cta-pulse 4s ease-in-out infinite;
+        }
+
+        @keyframes cta-pulse {
+            0%, 100% { transform: scale(1); opacity: 0.3; }
+            50% { transform: scale(1.1); opacity: 0.5; }
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 1;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .cta-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--grad-primary);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            padding: 0.5rem 1.5rem;
+            border-radius: var(--radius-full);
+            font-size: var(--font-size-sm);
+            font-weight: var(--font-weight-bold);
+            color: white;
+            margin-bottom: 2rem;
+            backdrop-filter: blur(10px);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            box-shadow: var(--shadow-xl), var(--shadow-glow-primary);
+        }
+
+        .cta-badge i {
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+        }
+
+        .cta-section h2 {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: var(--font-weight-bold);
+            margin-bottom: var(--spacing-6);
+            color: var(--text-primary); 
+            line-height: 1.1;
+            text-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+            background: linear-gradient(135deg, var(--primary-400) 0%, var(--primary-100) 50%, var(--primary-400) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .cta-section p {
+            font-size: clamp(1.125rem, 2.5vw, 1.5rem);
+            margin-bottom: 3rem;
+            color: var(--text-tertiary);
+            line-height: var(--line-height-relaxed);
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+            align-items: center;
+        }
+
+        .cta-section .btn-primary {
+            background: var(--grad-primary);
+            color: white;
+            border: 1px solid var(--primary-300);
+            padding: 1rem 2.5rem;
+            font-size: 1.1rem;
+            font-weight: var(--font-weight-bold);
+            box-shadow: 0 10px 40px rgba(26, 158, 255, 0.4);
+            position: relative;
+            overflow: hidden;
+            min-width: 280px;
+        }
+
+        .cta-section .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.35), transparent);
+            transition: left 0.8s ease;
+        }
+
+        .cta-section .btn-primary:hover {
+            background: var(--grad-primary);
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 15px 50px rgba(26, 158, 255, 0.6);
+        }
+
+        .cta-section .btn-primary:hover::before {
+            left: 100%;
+        }
+
+        .cta-section .btn-secondary {
+            background: var(--bg-glass-strong);
+            color: var(--text-secondary);
+            border: 1px solid var(--border-primary);
+            backdrop-filter: blur(16px);
+            min-width: 280px;
+            padding: 1rem 2.5rem;
+            font-size: 1.1rem;
+            font-weight: var(--font-weight-semibold);
+        }
+
+        .cta-section .btn-secondary:hover {
+            background: var(--bg-glass);
+            border-color: var(--border-accent);
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: var(--shadow-xl), 0 0 25px rgba(26, 158, 255, 0.4); 
+        }
+
+        .cta-support {
+            display: inline-flex;
+            align-items: center;
+            gap: 1rem;
+            background: var(--bg-glass-strong);
+            border: 1px solid var(--border-primary);
+            padding: 1rem 2rem;
+            border-radius: var(--radius-2xl);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+            color: var(--text-tertiary);
+            font-size: 1rem;
+            font-weight: var(--font-weight-medium);
+            margin-top: 2rem; 
+        }
+
+        .cta-support:hover {
+            background: var(--bg-glass);
+            transform: scale(1.02);
+            box-shadow: var(--shadow-xl), 0 0 20px rgba(26, 158, 255, 0.2);
+            border-color: var(--border-accent);
+        }
+
+        .cta-support i {
+            font-size: 1.5rem;
+            color: var(--primary-400);
+            animation: telegram-bounce 3s ease-in-out infinite;
+        }
+
+        @keyframes telegram-bounce {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            25% { transform: translateY(-3px) rotate(-5deg); }
+            75% { transform: translateY(-3px) rotate(5deg); }
+        }
+
+        .cta-support strong {
+            color: var(--text-primary);
+            font-size: 1.1rem;
+        }
+        /* New styling for the small text block */
+        .cta-small-support-text {
+            margin-top: 2rem; 
+            font-size: 14px; 
+            opacity: 0.8;
+            color: var(--text-tertiary);
+        }
+
+        .cta-features {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-top: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .cta-feature {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 0.95rem;
+        }
+
+        .cta-feature i {
+            color: #4ade80;
+            font-size: 1.2rem;
+        }
+
+        /* ========================================
+           FOOTER
+        ======================================== */
+        .footer {
+            background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%);
+            padding: var(--spacing-20) 0 var(--spacing-10);
+            border-top: 1px solid var(--border-primary);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .footer-content {
+            text-align: center;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: var(--spacing-10);
+            margin-bottom: var(--spacing-10);
+        }
+
+        .footer-links a {
+            color: var(--text-tertiary);
+            font-weight: var(--font-weight-medium);
+            font-size: var(--font-size-base);
+            transition: var(--transition-default);
+            position: relative;
+            padding: var(--spacing-2) 0;
+        }
+
+        .footer-links a:hover {
+            color: var(--text-accent);
+            transform: translateY(-2px);
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: var(--spacing-5);
+            margin-bottom: var(--spacing-10);
+        }
+
+        .social-link {
+            width: 60px;
+            height: 60px;
+            background: var(--bg-glass-strong);
+            border: 1px solid var(--border-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-tertiary);
+            transition: var(--transition-default);
+            backdrop-filter: blur(16px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .social-link:hover {
+            background: var(--grad-primary);
+            color: var(--text-primary);
+            transform: translateY(-4px) scale(1.1);
+            box-shadow: var(--shadow-xl), var(--shadow-glow-primary);
+            border-color: var(--border-accent);
+        }
+
+        .copyright {
+            color: var(--text-tertiary);
+            font-size: var(--font-size-sm);
+            line-height: var(--line-height-relaxed);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .copyright strong {
+            color: var(--text-accent);
+        }
+
+        /* ========================================
+           FLOATING CTA
+        ======================================== */
+        .floating-cta {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary-500), var(--primary-700));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: var(--shadow-xl), 0 0 40px rgba(26, 158, 255, 0.4);
+            z-index: 999;
+            cursor: pointer;
+            transition: var(--transition-normal);
+            border: none;
+        }
+
+        .floating-cta:hover {
+            transform: scale(1.1);
+            box-shadow: var(--shadow-2xl), 0 0 50px rgba(26, 158, 255, 0.6);
+        }
+
+        .floating-cta i {
+            font-size: 24px;
+            color: white;
+        }
+
+        /* ========================================
+           LIVE SIGNAL
+        ======================================== */
+        .live-signal {
+            position: fixed;
+            top: 2rem;
+            right: 2rem;
+            background: linear-gradient(135deg, rgba(34, 197, 94, 0.95), rgba(22, 163, 74, 0.95));
+            border: 2px solid rgba(34, 197, 94, 0.5);
+            border-radius: 16px;
+            padding: 1.25rem 1.5rem;
+            backdrop-filter: blur(30px);
+            transform: translateX(120%);
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 1000;
+            min-width: 320px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 30px rgba(34, 197, 94, 0.3);
+            color: #ffffff;
+        }
+
+        .live-signal.show {
+            transform: translateX(0);
+        }
+
+        .live-signal.negative {
+            background: linear-gradient(135deg, rgba(239, 68, 68, 0.95), rgba(220, 38, 38, 0.95));
+            border-color: rgba(239, 68, 68, 0.5);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 30px rgba(239, 68, 68, 0.3);
+        }
+
+        .signal-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .signal-icon {
+            width: 24px;
+            height: 24px;
+            background: rgba(255, 255, 255, 0.25);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+        }
+
+        .signal-title {
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+
+        .signal-time {
+            margin-left: auto;
+            font-size: 0.75rem;
+            opacity: 0.9;
+            font-weight: 500;
+        }
+
+        .signal-pair {
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+            letter-spacing: 0.5px;
+        }
+
+        .signal-action {
+            font-size: 0.85rem;
+            opacity: 0.95;
+            margin-bottom: 0.75rem;
+            font-weight: 500;
+        }
+
+        .signal-result {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 0.75rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.25);
+        }
+
+        .signal-result-label {
+            font-size: 0.8rem;
+            opacity: 0.9;
+            font-weight: 500;
+        }
+
+        .signal-result-value {
+            font-weight: 800;
+            font-size: 1.1rem;
+            text-shadow: 0 0 10px currentColor;
+        }
+
+        /* ========================================
+           TOAST NOTIFICATIONS
+        ======================================== */
+        .toast {
+            position: fixed;
+            top: 120px;
+            right: 2rem;
+            z-index: 1001;
+            background: var(--bg-glass-strong);
+            border: 1px solid var(--border-accent);
+            border-radius: var(--radius-lg);
+            padding: 1rem 1.5rem;
+            min-width: 320px;
+            backdrop-filter: blur(24px);
+            box-shadow: var(--shadow-xl), 0 0 30px rgba(26, 158, 255, 0.3);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            color: var(--text-secondary);
+            font-weight: var(--font-weight-medium);
+        }
+
+        .toast.success {
+            border-color: rgba(34, 197, 94, 0.4);
+            box-shadow: var(--shadow-xl), 0 0 30px rgba(34, 197, 94, 0.2);
+        }
+
+        .toast.success i {
+            color: var(--success-400);
+            font-size: var(--font-size-lg);
+        }
+
+        .fade-in {
+            animation: fadeIn 0.5s ease forwards;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ========================================
+           SIMULATOR SECTION
+        ======================================== */
+        .growth-container {
+            max-width: 100%;
+            margin: 0 auto;
+            background: linear-gradient(135deg, rgba(255,255,255,0.15), rgba(255,255,255,0.05));
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 24px;
+            padding: 2.5rem;
+            backdrop-filter: blur(40px) saturate(1.8);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .growth-header {
+            text-align: center;
+            margin-bottom: 2.5rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .growth-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #1a9eff, #6366f1, #22c55e);
+            background-size: 200% 200%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 0.5rem;
+            animation: gradient-shift 4s ease infinite;
+            filter: drop-shadow(0 0 20px rgba(26, 158, 255, 0.3));
+        }
+
+        @keyframes gradient-shift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        .growth-subtitle {
+            color: #cbd5e1;
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+
+        .growth-description {
+            color: #94a3b8;
+            font-size: 1rem;
+            max-width: 650px;
+            margin: 0 auto;
+            line-height: var(--line-height-relaxed);
+        }
+
+        .chart-wrapper {
+            position: relative;
+            height: 450px;
+            margin: 2.5rem 0;
+            background: linear-gradient(135deg, rgba(255,255,255,0.08), rgba(255,255,255,0.02));
+            border: 1px solid rgba(255,255,255,0.15);
+            border-radius: 20px;
+            padding: 2rem;
+            backdrop-filter: blur(20px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2), inset 0 1px 0 rgba(255,255,255,0.1);
+            overflow: hidden;
+        }
+
+        .control-panel {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin: 2.5rem 0;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2.5rem;
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, rgba(255,255,255,0.08), rgba(255,255,255,0.02));
+            border: 1px solid rgba(255,255,255,0.15);
+            border-radius: 20px;
+            padding: 2rem 1.5rem;
+            text-align: center;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(20px);
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px) scale(1.02);
+            border-color: #1a9eff;
+            box-shadow: 0 25px 50px rgba(26, 158, 255, 0.25), 0 0 30px rgba(26, 158, 255, 0.3);
+        }
+
+        .stat-value {
+            font-size: 2.2rem;
+            font-weight: 800;
+            margin-bottom: 0.75rem;
+            transition: all 0.3s ease;
+            text-shadow: 0 0 20px currentColor;
+        }
+
+        .stat-value.primary { color: #1a9eff; }
+        .stat-value.success { color: #22c55e; }
+        .stat-value.neutral { color: #ffffff; }
+
+        .no-wrap {
+            white-space: nowrap !important;
+            word-break: keep-all !important;
+            overflow-wrap: normal !important;
+            display: inline-block !important;
+        }
+
+        .progress-section {
+            margin: 2rem 0;
+            background: linear-gradient(135deg, rgba(255,255,255,0.08), rgba(255,255,255,0.02));
+            border: 1px solid rgba(255,255,255,0.15);
+            border-radius: 16px;
+            padding: 1.5rem;
+            backdrop-filter: blur(20px);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .progress-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.25rem;
+            font-size: 0.95rem;
+            font-weight: 600;
+            position: relative;
+            z-index: 2;
+        }
+
+        .progress-bar {
+            height: 12px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 6px;
+            overflow: hidden;
+            margin-bottom: 0.75rem;
+            position: relative;
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #22c55e 0%, #1a9eff 50%, #6366f1 100%);
+            border-radius: 6px;
+            width: 0%;
+            transition: width 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 0 20px rgba(26, 158, 255, 0.5), inset 0 1px 0 rgba(255,255,255,0.3);
+        }
+
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: currentColor;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 1000;
+            animation: particle-float 2s ease-out forwards;
+        }
+
+        @keyframes particle-float {
+            0% { opacity: 1; transform: translateY(0) scale(1); }
+            100% { opacity: 0; transform: translateY(-100px) scale(0); }
+        }
+
+        /* ========================================
+           COMPARISON MATRIX
+        ======================================== */
+        .comparison-matrix {
+            max-width: 1200px; 
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border-primary);
+            border-radius: var(--radius-2xl);
+            overflow: hidden;
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+        }
+
+        .mobile-toggle {
+            display: none;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+            background: rgba(255, 255, 255, 0.04);
+            padding: 0.25rem;
+            border-radius: 16px;
+            position: relative;
+        }
+
+        .toggle-option {
+            padding: 0.75rem;
+            background: transparent;
+            border: none;
+            color: var(--slate-300);
+            font-weight: var(--font-weight-semibold);
+            border-radius: var(--radius-md);
+            transition: var(--transition-default);
+            cursor: pointer;
+            font-family: inherit;
+            font-size: var(--font-size-sm);
+        }
+
+        .toggle-option.active {
+            background: var(--primary-500);
+            color: var(--text-primary);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .desktop-matrix { display: block; }
+        .mobile-matrix { display: none; }
+
+        .matrix-header {
+            display: grid;
+            grid-template-columns: 250px 1fr 1fr;
+            background: linear-gradient(135deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02));
+            border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .matrix-cell {
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+        }
+
+        .matrix-cell.empty {
+            background: transparent;
+        }
+
+        .matrix-cell.premium {
+            background: linear-gradient(135deg, rgba(26, 158, 255, 0.08), rgba(26, 158, 255, 0.03));
+            border-left: 3px solid var(--primary-500);
+            padding-top: 3rem;
+        }
+
+        .recommended-badge {
+            position: absolute;
+            top: 1rem;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--primary-500);
+            color: var(--text-primary);
+            padding: 0.4rem 1.25rem;
+            border-radius: var(--radius-full);
+            font-size: 0.75rem;
+            font-weight: var(--font-weight-bold);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            box-shadow: 0 2px 10px rgba(26, 158, 255, 0.3);
+            z-index: 2;
+        }
+
+        .matrix-cell h3 {
+            font-size: var(--font-size-lg);
+            font-weight: var(--font-weight-bold);
+            margin-bottom: var(--spacing-2);
+        }
+
+        .subtitle {
+            color: var(--slate-300);
+            font-size: var(--font-size-sm);
+        }
+
+        .matrix-row {
+            display: grid;
+            grid-template-columns: 250px 1fr 1fr;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+            transition: var(--transition-default);
+        }
+
+        .matrix-row:hover {
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        .matrix-cell.category {
+            background: rgba(255, 255, 255, 0.02);
+            font-weight: var(--font-weight-semibold);
+            flex-direction: row;
+            justify-content: flex-start;
+            gap: 1rem;
+            padding-left: 2.5rem;
+            font-size: 0.95rem;
+        }
+
+        .matrix-cell.category svg {
+            width: 28px;
+            height: 28px;
+            flex-shrink: 0;
+        }
+
+        .big-value {
+            font-size: 1.875rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.02em;
+        }
+
+        .value.positive .big-value {
+            color: var(--success-400);
+            text-shadow: 0 0 30px rgba(74, 222, 128, 0.4);
+        }
+
+        .value.negative .big-value {
+            color: var(--danger-400);
+            opacity: 0.85;
+        }
+
+        .value.neutral .big-value {
+            color: var(--warning-400);
+        }
+
+        .small-text {
+            font-size: var(--font-size-sm);
+            opacity: 0.7;
+            line-height: var(--line-height-normal);
+        }
+
+        .matrix-summary {
+            display: grid;
+            grid-template-columns: 250px 1fr 1fr;
+            background: linear-gradient(135deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02));
+            border-top: 2px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .matrix-cell.winner {
+            background: linear-gradient(135deg, rgba(34, 197, 94, 0.15), rgba(34, 197, 94, 0.05));
+        }
+
+        .trophy-icon {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .score-visual {
+            width: 100%;
+            max-width: 200px;
+            height: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: var(--radius-full);
+            overflow: hidden;
+            margin: 1rem 0;
+        }
+
+        .score-bar {
+            height: 100%;
+            background: var(--danger-400);
+            width: 0%;
+            transition: width 2s ease-out;
+            border-radius: var(--radius-full);
+        }
+
+        .score-bar.winning {
+            background: var(--grad-success);
+            animation: fillBarWin 2s ease-out forwards;
+        }
+
+        @keyframes fillBarWin {
+            to { width: 100%; }
+        }
+
+        .winner-label {
+            margin-top: 1rem;
+            background: var(--success-500);
+            color: var(--text-primary);
+            padding: 0.5rem 1.25rem;
+            border-radius: var(--radius-full);
+            font-weight: var(--font-weight-bold);
+            font-size: var(--font-size-sm);
+            letter-spacing: 0.05em;
+            box-shadow: 0 4px 20px rgba(34, 197, 94, 0.4);
+        }
+
+        .mobile-card {
+            background: var(--bg-glass-strong);
+            border: 1px solid var(--border-primary);
+            border-radius: var(--radius-xl);
+            padding: 2.5rem 1.5rem 1.5rem 1.5rem;
+            margin-bottom: 1rem;
+            margin-top: 1rem;
+            position: relative;
+            transition: var(--transition-default);
+        }
+
+        .mobile-card[data-card="classic"] {
+            display: none;
+        }
+
+        .mobile-card[data-card="algovate"] {
+            display: block;
+        }
+
+        .mobile-card.active {
+            border-color: var(--border-accent);
+            background: linear-gradient(135deg, rgba(26, 158, 255, 0.08), rgba(26, 158, 255, 0.03));
+        }
+
+        .mobile-card-badge {
+            position: absolute;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--primary-500);
+            color: var(--text-primary);
+            padding: 0.3rem 1rem;
+            border-radius: var(--radius-full);
+            font-size: 0.7rem;
+            font-weight: var(--font-weight-bold);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
+            z-index: 10;
+            box-shadow: 0 2px 8px rgba(26, 158, 255, 0.3);
+        }
+
+        .mobile-card-header {
+            text-align: center;
+            padding-bottom: 1.5rem;
+            padding-top: 1.5rem;
+            border-bottom: 1px solid var(--border-primary);
+            margin-bottom: 1.5rem;
+        }
+
+        .mobile-metrics {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .metric-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            padding: 1rem;
+            background: var(--bg-elevated);
+            border-radius: var(--radius-lg);
+        }
+
+        .metric-icon {
+            flex-shrink: 0;
+            width: 40px;
+            height: 40px;
+            background: rgba(26, 158, 255, 0.1);
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .metric-content {
+            flex: 1;
+            text-align: left;
+        }
+
+        .metric-label {
+            font-size: var(--font-size-sm);
+            color: var(--slate-300);
+            margin-bottom: 0.25rem;
+        }
+
+        .metric-value {
+            font-size: var(--font-size-lg);
+            font-weight: var(--font-weight-bold);
+            margin-bottom: 0.25rem;
+        }
+
+        .metric-value.positive { color: var(--success-400); }
+        .metric-value.negative { color: var(--danger-400); }
+        .metric-value.neutral { color: var(--warning-400); }
+
+        .metric-detail {
+            font-size: var(--font-size-xs);
+            color: var(--slate-400);
+        }
+
+        .mobile-score {
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--border-primary);
+            text-align: center;
+        }
+
+        .mobile-score.winner {
+            background: linear-gradient(135deg, rgba(34, 197, 94, 0.1), rgba(34, 197, 94, 0.05));
+            border-radius: var(--radius-lg);
+            padding: 1rem;
+            margin: 1.5rem -1rem -1rem;
+        }
+
+        .trophy {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .roi-calculator-mini {
+            max-width: 1200px; 
+            margin: 2rem auto; 
+            background: var(--bg-elevated);
+            border: 1px solid var(--border-primary);
+            border-radius: var(--radius-lg);
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .roi-calculator-mini h3 {
+            font-size: var(--font-size-xl);
+            margin-bottom: 1.5rem;
+        }
+
+        .savings-display {
+            display: flex;
+            justify-content: space-around;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .saving-item {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .saving-item .label {
+            color: var(--slate-300);
+            font-size: var(--font-size-sm);
+        }
+
+        .saving-item .value {
+            font-size: var(--font-size-2xl);
+            font-weight: var(--font-weight-bold);
+            color: var(--success-400);
+        }
+
+        .comparison-cta {
+            text-align: center;
+            margin-top: 1.5rem;
+        }
+
+        .comparison-cta .cta-text {
+            margin-bottom: 0.8rem;
+            color: var(--text-secondary);
+        }
+
+        /* ========================================
+           UTILITY CLASSES
+        ======================================== */
+        .tooltip {
+            position: relative;
+            cursor: help;
+            color: var(--primary-500);
+        }
+
+        .tooltip::after {
+            content: attr(data-tooltip);
+            position: absolute;
+            bottom: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border-secondary);
+            border-radius: var(--radius-md);
+            padding: 0.5rem 0.75rem;
+            font-size: var(--font-size-xs);
+            color: var(--text-secondary);
+            white-space: nowrap;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition-fast);
+            z-index: 100;
+            margin-bottom: 0.5rem;
+            backdrop-filter: blur(16px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .tooltip:hover::after {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        :focus-visible {
+            outline: 2px solid color-mix(in srgb, var(--primary-500), white 10%);
+            outline-offset: 2px;
+            border-radius: 12px;
+        }
+
+        /* ========================================
+           RESPONSIVE STYLES
+        ======================================== */
+        @media (max-width: 768px) {
+            :root {
+                --container-padding: 1rem;
+            }
+
+            .bg-effects {
+                width: 100vw;
+                height: 100vh;
+                max-width: 100vw;
+                max-height: 100vh;
+            }
+
+            .orb { display: none; }
+
+            .nav {
+                position: static;
+                margin: 1rem auto 0.5rem auto;
+                max-width: calc(100vw - 2rem);
+                padding: 0.5rem;
+                gap: 0.125rem;
+            }
+
+            .hero-content {
+                padding-top: 80px; 
+            }
+
+            .nav a {
+                font-size: var(--font-size-xs);
+                padding: 0.625rem 1rem;
+                min-height: var(--touch-target-min);
+                flex: 1;
+                min-width: calc(50% - 0.125rem);
+            }
+
+            .hero-cta {
+                flex-direction: column;
+                align-items: center;
+                width: 100%;
+            }
+
+            .btn {
+                width: 100%;
+                max-width: 300px;
+            }
+
+            .steps {
+                grid-template-columns: 1fr;
+                gap: var(--spacing-6);
+            }
+
+            .steps::before { display: none; }
+
+            .step {
+                padding: var(--spacing-6);
+            }
+
+            .step-icon-container {
+                width: 100px;
+                height: 100px;
+            }
+
+            .step-number {
+                width: 100px;
+                height: 100px;
+                font-size: var(--font-size-xl);
+            }
+
+            .step-icon {
+                font-size: var(--font-size-2xl);
+            }
+
+            .features {
+                grid-template-columns: 1fr;
+                gap: var(--spacing-5);
+            }
+
+            .feature {
+                padding: var(--spacing-6);
+            }
+
+            .feature-icon-container {
+                width: 80px;
+                height: 80px;
+            }
+
+            .feature-icon {
+                width: 80px;
+                height: 80px;
+                font-size: var(--font-size-2xl);
+            }
+
+            .testimonials {
+                grid-template-columns: 1fr;
+            }
+
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stats {
+                grid-template-columns: repeat(2, 1fr);
+                gap: var(--spacing-6);
+            }
+
+            .stat {
+                padding: var(--spacing-6) var(--spacing-4);
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .footer-links {
+                flex-direction: column;
+                gap: var(--spacing-5);
+            }
+
+            .floating-cta {
+                width: var(--touch-target-comfortable);
+                height: var(--touch-target-comfortable);
+                bottom: 1.5rem;
+                right: 1.5rem;
+            }
+
+            .floating-cta i {
+                font-size: 20px;
+            }
+
+            .toast {
+                top: 100px;
+                left: 1rem;
+                right: 1rem;
+                min-width: auto;
+            }
+
+            .control-panel {
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
+            }
+
+            .chart-wrapper {
+                height: 350px;
+                padding: 1.5rem;
+            }
+
+            .live-signal {
+                top: 1rem;
+                left: 1rem;
+                right: 1rem;
+                min-width: auto;
+                transform: translateY(-120%);
+                border-radius: 12px;
+            }
+
+            .live-signal.show {
+                transform: translateY(0);
+            }
+
+            .desktop-matrix { display: none; }
+            .mobile-matrix { display: block; }
+            .mobile-toggle { display: grid; }
+
+            .mobile-toggle::after {
+                content: '👆 Empfohlen';
+                position: absolute;
+                top: -25px;
+                right: 25%;
+                transform: translateX(50%);
+                color: var(--success-400);
+                font-size: var(--font-size-semibold);
+                animation: bounce 2s ease-in-out infinite;
+                white-space: nowrap;
+            }
+
+            @keyframes bounce {
+                0%, 100% { transform: translateX(50%) translateY(0); }
+                50% { transform: translateX(50%) translateY(-5px); }
+            }
+
+            .toggle-option.active[data-option="algovate"] {
+                animation: pulse-glow 2s ease-in-out infinite;
+                box-shadow: 0 0 20px rgba(26, 158, 255, 0.6);
+            }
+
+            .toggle-option.active[data-option="algovate"]::before {
+                content: '';
+                position: absolute;
+                top: -50%;
+                left: -50%;
+                width: 200%;
+                height: 200%;
+                background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+                animation: shine 3s ease-in-out infinite;
+            }
+
+            @keyframes pulse-glow {
+                0%, 100% {
+                    box-shadow: 0 0 20px rgba(26, 158, 255, 0.6), inset 0 0 10px rgba(255, 255, 255, 0.1);
+                    transform: scale(1);
+                }
+                50% {
+                    box-shadow: 0 0 30px rgba(26, 158, 255, 0.8), 0 0 40px rgba(26, 158, 255, 0.4), inset 0 0 15px rgba(255, 255, 255, 0.2);
+                    transform: scale(1.02);
+                }
+            }
+
+            @keyframes shine {
+                0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+                50%, 100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+            }
+
+            .roi-calculator-mini {
+                padding: 1.5rem;
+            }
+
+            .savings-display {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+
+            .saving-item .value {
+                font-size: 1.5rem;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .stats-grid {
+                display: grid !important;
+                grid-template-columns: 1fr 1fr !important;
+                gap: var(--spacing-4, 16px) !important;
+            }
+
+            .stats-grid .stat-card {
+                width: 100% !important;
+            }
+
+            .stats-grid .stat-card:nth-child(1),
+            .stats-grid .stat-card:nth-child(2) {
+                grid-column: 1 / -1 !important;
+                padding: 10px 12px !important;
+                min-height: auto !important;
+                border-radius: 12px !important;
+            }
+
+            .stats-grid .stat-card:nth-child(1) .stat-value,
+            .stats-grid .stat-card:nth-child(2) .stat-value {
+                margin-bottom: 4px !important;
+                line-height: 1.05 !important;
+                font-size: clamp(12px, 4.2vw, 18px) !important;
+            }
+
+            .stats-grid .stat-card:nth-child(1) .stat-label,
+            .stats-grid .stat-card:nth-child(2) .stat-label,
+            .stats-grid .stat-card:nth-child(3) .stat-label,
+            .stats-grid .stat-card:nth-child(4) .stat-label {
+                font-size: 12px !important;
+                line-height: 1.2 !important;
+                margin-top: 2px !important;
+                opacity: 0.9;
+            }
+
+            .stats-grid .stat-card:nth-child(3) .stat-value,
+            .stats-grid .stat-card:nth-child(4) .stat-value {
+                font-size: clamp(12px, 4.2vw, 18px) !important;
+                line-height: 1.08 !important;
+            }
+
+            .stats-grid .stat-card:nth-child(n+3) {
+                grid-column: auto !important;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .nav a {
+                font-size: 11px;
+                padding: 0.5rem 0.75rem;
+                min-width: calc(33.333% - 0.125rem);
+            }
+
+            .stats {
+                grid-template-columns: 1fr;
+                gap: var(--spacing-4);
+            }
+
+            .stat {
+                padding: var(--spacing-5) var(--spacing-3);
+            }
+
+            #current-balance .no-wrap,
+            #total-profit .no-wrap {
+                font-size: clamp(12px, 4.2vw, 18px);
+                line-height: 1.08;
+            }
+        }
+
+        @media (max-width: 420px) {
+            .hero-content {
+                padding-top: 60px;
+            }
+            #current-balance .no-wrap,
+            #total-profit .no-wrap {
+                font-size: clamp(11px, 3.8vw, 17px);
+                line-height: 1.06;
+            }
+        }
+
+        @media (max-width: 360px) {
+            #current-balance .no-wrap,
+            #total-profit .no-wrap {
+                font-size: clamp(10px, 3.6vw, 16px);
+                line-height: 1.05;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.001ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.001ms !important;
+                scroll-behavior: auto !important;
+            }
+        }
+    </style>
+<style>
+/* === FIX: Force 4 step cards in one row on desktop === */
+@media (min-width: 1024px) {
+  .steps {
+    display: grid !important;
+    grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+    gap: var(--spacing-8);
+  }
+}
+/* Keep mobile/tablet as-is (single/auto columns already defined) */
+</style>
+<style>
+  /* === FIX: Give step cards more top padding so pills aren't overlapping === */
+  .steps .step {
+    padding-top: calc(var(--spacing-8) + 2.25rem) !important;
+  }
+  @media (min-width: 1024px) {
+    .steps .step {
+      padding-top: calc(var(--spacing-8) + 2.75rem) !important;
+    }
+  }
+  /* Ensure the pill sits above content */
+  .steps .step .step-timing {
+    top: 0.5rem !important;
+    right: 0.75rem !important;
+    z-index: 3 !important;
+  }
+</style>
+<style>
+  /* === FIX: Center the top navigation on desktop === */
+  @media (min-width: 1024px) {
+    .nav {
+      display: flex !important;
+      justify-content: center !important;
+      align-items: center !important;
+      gap: clamp(1rem, 2vw, 2rem);
+      width: 100% !important;
+      max-width: 1080px;
+      margin-left: auto !important;
+      margin-right: auto !important;
+      position: relative !important;
+      left: auto !important;
+      right: auto !important;
+      transform: none !important;
+      text-align: center;
+    }
+    .nav > a {
+      display: inline-flex;
+      align-items: center;
+      white-space: nowrap;
+      float: none !important;
+    }
+  }
+</style>
+<style>
+  /* === FIX: Footer links a touch lower (more top spacing) === */
+  footer .footer-links,
+  footer .footer-legal,
+  footer .legal-links,
+  footer .footer-bottom {
+    padding-top: 10px !important;
+    margin-top: 8px !important;
+  }
+</style>
+<style>
+/* === NEU: Video Testimonials Konsistenz Fix === */
+/* Setzt die Avatare auf 64px für alle und korrigiert die Abstände */
+.testimonials-grid .author-avatar {
+    width: 64px !important;
+    height: 64px !important;
+    flex-shrink: 0;
+    margin-right: 0 !important;
+}
+
+/* Konsistente Abstände für den Autorenbereich */
+.testimonials-grid .testimonial-author {
+    gap: var(--spacing-4); /* 1rem */
+    margin-top: 1rem !important;
+}
+
+/* Stellt sicher, dass die Text-Container richtig formatiert sind */
+.testimonials-grid .testimonial-content {
+    margin-top: 1rem !important;
+    margin-bottom: var(--spacing-6) !important;
+}
+
+/* Temporär: Entleert die alte Sasscha Card ID, die das Layout von Alex beschädigte */
+#testimonial-alex {
+  display: block !important; 
+  position: static !important;
+  padding-bottom: var(--spacing-8) !important;
+}
+#testimonial-alex .testimonial-author {
+  position: static !important;
+  bottom: auto !important;
+  left: auto !important;
+}
+#testimonial-alex .testimonial-text {
+  margin-bottom: var(--spacing-6) !important;
+}
+</style>
+<style>
+/* === Mobile fix: hide green '👆 Empfohlen' hint above toggle === */
+@media (max-width: 768px) {
+  .mobile-toggle::after { display: none !important; content: "" !important; }
+}
+</style><style>
+/* === Desktop spacing tweak for comparison headers === */
+@media (min-width: 1024px) {
+  .comparison-matrix .matrix-header .matrix-cell.option { padding-top: 3.5rem !important; } /* +0.5rem */
+  .comparison-matrix .matrix-header .matrix-cell.option.premium { padding-top: 4.25rem !important; } /* extra for badge */
+}
+</style><style>
+/* === Lite YouTube Embed for Hero === */
+.hero-lite { position: relative; width: 100%; border-radius: var(--radius-2xl); overflow: hidden; background: #000; }
+.hero-lite::before { content: ""; display: block; padding-top: 56.25%; }
+.hero-lite__thumb, .hero-lite__button, .hero-lite__iframe { position: absolute; inset: 0; }
+.hero-lite__thumb { background: url('momentum-thumb.png').png') center/cover no-repeat; filter: brightness(0.9); }
+.hero-lite__button { display:flex; align-items:center; justify-content:center; cursor:pointer; }
+.hero-lite__button::after {
+  content:""; width: 68px; height: 48px; border-radius: 14px;
+  background: rgba(0,0,0,0.6);
+  box-shadow: 0 0 24px rgba(0,0,0,0.35);
+}
+.hero-lite__button::before {
+  content:""; position:absolute; width:0; height:0;
+  border-left: 18px solid #fff; border-top: 12px solid transparent; border-bottom: 12px solid transparent;
+  transform: translateX(6px);
+}
+.hero-lite.loading .hero-lite__button { display:none; }
+.hero-lite__iframe iframe { position:absolute; inset:0; width:100%; height:100%; border:0; }
+</style><style>
+/* === Modal (Glass) === */
+.modal-overlay {
+  position: fixed; inset: 0; display: none; place-items: center;
+  background: rgba(0,0,0,0.55); backdrop-filter: blur(6px);
+  z-index: 9999; opacity: 0; transition: opacity .25s ease;
+}
+.modal-overlay.open { display: grid; opacity: 1; }
+.modal {
+  width: min(880px, 92vw); max-height: 86vh; overflow: hidden;
+  background: var(--bg-glass-strong, rgba(17,24,39,.72));
+  border: 1px solid var(--border-primary, rgba(255,255,255,.08));
+  border-radius: var(--radius-2xl, 20px);
+  box-shadow: 0 20px 50px rgba(0,0,0,.5);
+  transform: translateY(12px); transition: transform .25s ease;
+}
+.modal-overlay.open .modal { transform: translateY(0); }
+.modal-header {
+  display:flex; align-items:center; justify-content:space-between;
+  padding: 18px 22px; border-bottom: 1px solid rgba(255,255,255,.06);
+}
+.modal-title { font-size: 1.25rem; font-weight: 700; }
+.modal-close {
+  appearance: none; border: 0; background: transparent; color: var(--text-secondary,#cbd5e1);
+  font-size: 20px; line-height: 1; cursor: pointer; padding: 6px 8px; border-radius: 10px;
+}
+.modal-close:hover { background: rgba(255,255,255,.06); }
+.modal-body {
+  padding: 20px 22px; overflow: auto; max-height: calc(86vh - 64px);
+}
+.modal-body h3 { font-size: 1.05rem; margin: 1rem 0 .5rem; }
+.modal-body p, .modal-body li { color: var(--text-secondary,#cbd5e1); line-height: 1.6; }
+.modal-body a { color: var(--text-accent,#1a9eff); text-decoration: none; }
+.modal-body a:hover { text-decoration: underline; }
+@media (max-width: 640px) {
+  .modal { width: 94vw; }
+  .modal-header { padding: 14px 16px; }
+  .modal-body { padding: 16px; }
+}
+</style><style>
+/* Ensure anchor positions account for top spacing */
+#how-it-works, #simulator, #difference, #video-testimonials, #faq {
+  scroll-margin-top: 96px;
+}
+html { scroll-behavior: smooth; }
+</style><style>
+/* === FIX: Keep 'Monat 1 von 6' on one line, especially on mobile === */
+#current-month { white-space: nowrap; }
+</style><style>
+.icon-signal { display:inline-block; vertical-align:middle; }
+.why .card .icon, .feature .icon, .benefit .icon { color: var(--primary-500, #1a9eff); }
+</style><link as_="image" href="./Design ohne Titel (6).png" rel="preload"/><style>
+/* --- No wrap for stat label --- */
+.stat-label { white-space: nowrap; }
+</style><style>
+/* --- Hero video full bleed fix --- */
+.hero-image, .hero-lite { width: 100%; }
+.hero-lite__iframe, .hero-lite__thumb, .hero-lite__button { position:absolute; inset:0; width:100%; height:100%; }
+</style><style>
+/* --- Center nav on mobile (final fix) --- */
+@media (max-width: 768px) {
+  nav.nav {
+    position: fixed !important;
+    top: 1rem;
+    left: 0;
+    right: 0;
+    width: fit-content;
+    max-width: calc(100vw - 2rem);
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.125rem;
+    transform: none !important;
+    z-index: 1000;
+  }
+  nav.nav a { 
+    display: inline-flex; 
+    align-items: center;
+    text-align: center;
+  }
+}
+</style><style>
+/* --- Extra space below fixed nav before hero badge (mobile) --- */
+@media (max-width: 768px) {
+  .hero-badge { 
+    margin-top: 4.5rem !important; /* add clear space under fixed nav */
+  }
+}
+</style><style>
+/* --- Mobile nav: hide on scroll --- */
+@media (max-width: 768px) {
+  nav.nav {
+    transition: transform .25s ease, opacity .25s ease;
+    will-change: transform;
+  }
+  nav.nav.nav-hide {
+    transform: translateY(-140%);
+    opacity: 0.0;
+    pointer-events: none;
+  }
+}
+</style></head>
+<body>
+<div class="bg-effects">
+<div class="bg-gradient"></div>
+<div class="floating-orbs">
+<div class="orb"></div>
+<div class="orb"></div>
+<div class="orb"></div>
+</div>
+</div>
+<div class="live-signal" id="live-signal">
+<div class="signal-header">
+<div class="signal-icon">📈</div>
+<div class="signal-title">Live Trade</div>
+<div class="signal-time">Jetzt</div>
+</div>
+<div class="signal-content">
+<div class="signal-pair" id="signal-pair">EUR/USD</div>
+<div class="signal-action" id="signal-action">Buy-Position eröffnet</div>
+</div>
+<div class="signal-result">
+<span class="signal-result-label">P&amp;L:</span>
+<span class="signal-result-value" id="signal-pnl">+€1,200</span>
+</div>
+</div>
+<button aria-label="Zum Rechner scrollen" class="floating-cta" id="floating-cta">
+<i class="fas fa-calculator"></i>
+</button>
+<nav class="nav" data-aos="fade-down">
+<a class="active" href="#"><span>Home</span></a><a href="#simulator"><span>Renditerechner</span></a><a href="#how-it-works"><span>So funktioniert's</span></a><a href="#difference"><span>Der Unterschied</span></a><a href="#video-testimonials"><span>Erfolgsgeschichten</span></a><a href="#faq"><span>FAQ</span></a></nav>
+<section class="hero">
+<div class="container">
+<div class="hero-content" data-aos="fade-up">
+<div class="hero-badge">
+<i class="fas fa-robot"></i>
+<span>Für bestehende <span class="tooltip" data-tooltip="Nutzer unserer automatisierten Trading-Algorithmen">KI-Nutzer</span></span>
+</div>
+<h1>Das Beste aus zwei Welten</h1>
+<p>Du kennst unsere Trading-KIs. Du weißt, wie zuverlässig sie performen. Doch <span class="tooltip" data-tooltip="Trading mit Fremdkapital für maximale Gewinnhebel">Prop Trading</span> geht noch einen Schritt weiter.</p>
+<div class="hero-image" data-aos="fade-up" data-aos-delay="200"><div class="hero-lite"><div class="hero-lite__thumb"></div><div class="hero-lite__button"></div><div class="hero-lite__iframe"></div></div></div>
+</div>
+</div>
+</section>
+<section class="section" id="simulator">
+<div class="container">
+<div class="growth-container">
+<div class="growth-header">
+<h2 class="growth-title">KI-Trading Simulation</h2>
+<p class="growth-subtitle">So entwickelt sich Ihr Kapital mit unseren Automatik-Trades</p>
+<p class="growth-description">
+                        Erleben Sie live, wie sich Ihr Prop-Trading-Kapital durch unsere KI-generierten Automatik-Trades entwickelt.
+                        Jeder Punkt steht für einen ausgeführten Trade mit dem entsprechenden Gewinn oder Verlust.
+                    </p>
+</div>
+<div class="progress-section">
+<div class="progress-header">
+<span>Simulation Progress</span>
+<span id="current-month">Monat 1 von 6</span>
+</div>
+<div class="progress-bar">
+<div class="progress-fill" id="timeline-fill"></div>
+</div>
+</div>
+<div class="chart-wrapper">
+<canvas id="growthChart"></canvas>
+</div>
+<div class="control-panel">
+<button class="btn" id="startBtn" onclick="startAnimation()">
+                        ▶️ Simulation starten
+                    </button>
+<button class="btn secondary" disabled="" id="pauseBtn" onclick="pauseAnimation()">
+                        ⏸️ Pause
+                    </button>
+<button class="btn secondary" id="resetBtn" onclick="resetAnimation()">
+                        🔄 Zurücksetzen
+                    </button>
+</div>
+<div class="stats-grid">
+<div class="stat-card">
+<div class="stat-value primary" id="current-balance"><span class="no-wrap"><span class="countup" data-countup="100000" data-decimals="0" data-prefix="€">€100,000</span></span></div>
+<div class="stat-label">Aktueller Kontostand</div>
+</div>
+<div class="stat-card">
+<div class="stat-value success" id="total-profit"><span class="no-wrap"><span class="countup" data-countup="0" data-decimals="0" data-prefix="€">€0</span></span></div>
+<div class="stat-label">Gesamtgewinn</div>
+</div>
+<div class="stat-card">
+<div class="stat-value neutral" id="monthly-return">0,0%</div>
+<div class="stat-label">Aktuelle Monatsrendite</div>
+</div>
+<div class="stat-card">
+<div class="stat-value neutral" id="signals-executed">0</div>
+<div class="stat-label">Trades umgesetzt</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<main>
+<section class="section" id="how-it-works">
+<div class="container">
+<div class="section-header">
+<h2>4-Schritte-Turbo: Mit KI zu bis zu 200.000€ Fremdkapital</h2>
+<p>Maximale Flexibilität, minimales Risiko: Vom Zugang bis zur Auszahlung – klar, schnell und regelkonform.</p>
+</div>
+<div class="steps" data-aos="fade-up" data-aos-delay="150">
+<div class="step card">
+<div class="step-timing">~5 Min</div>
+<div class="step-icon-container">
+<div class="step-number">1</div>
+<i class="fas fa-key step-icon"></i>
+</div>
+<h3>KI meistert die Challenge</h3>
+<p>Mit unserer speziell entwickelten Trading-KI sicherst du dir den Zugang zu Fremdkapital-Programmen. Sie besteht die Evaluierungs-Challenge zuverlässig – dort, wo sonst 98 % der Trader scheitern.</p>
+</div>
+<div class="step card">
+<div class="step-timing">0 € Risiko</div>
+<div class="step-icon-container">
+<div class="step-number">2</div>
+<i class="fas fa-handshake step-icon"></i>
+</div>
+<h3>Fremdkapital erhalten</h3>
+<p>Nach der erfolgreichen Challenge handelst du direkt mit bis zu 200.000 € Fremdkapital – ohne eigene Einlage, ohne riskante Umwege.</p>
+</div>
+<div class="step card">
+<div class="step-timing">Automatisiert</div>
+<div class="step-icon-container">
+<div class="step-number">3</div>
+<i class="fas fa-robot step-icon"></i>
+</div>
+<h3>Exklusive Live-Signale</h3>
+<p>Erhalte Premium-Signale direkt von unserem Expertenteam – blitzschnelle Entries mit SL &amp; TP, entwickelt für maximale Performance auf deinem Fremdkapitalkonto.</p>
+</div>
+<div class="step card">
+<div class="step-timing">Deine Gewinne</div>
+<div class="step-icon-container">
+<div class="step-number">4</div>
+<i class="fas fa-trophy step-icon"></i>
+</div>
+<h3>Auszahlen &amp; skalieren</h3>
+<p>Sichere dir deine Gewinne – mit bis zu 90 % Gewinnbeteiligung – und steigere dein Handelskapital auf das nächste Level.</p>
+</div>
+</div>
+<div class="steps-cta" data-aos="fade-up" data-aos-delay="300">
+<a class="btn btn-primary" href="#simulator">
+<i class="fas fa-calculator"></i>
+                        Rendite mit Fremdkapital berechnen
+                    </a>
+<a class="btn btn-secondary" href="#video-testimonials">
+<i class="fas fa-play-circle"></i>
+                        Video-Erfahrungen ansehen
+                    </a>
+</div>
+</div>
+</section>
+<section class="section" id="difference">
+<div class="container">
+<div class="section-header" data-aos="fade-up">
+<h2>Der entscheidende Unterschied</h2>
+<p>Klassisches KI-Trading mit eigenem Kapital vs. Momentum Plus Prop Trading</p>
+</div>
+<div class="mobile-toggle">
+<button class="toggle-option" data-option="classic">Klassisches Trading</button>
+<button class="toggle-option active" data-option="algovate">Momentum Plus</button>
+</div>
+<div class="comparison-matrix" data-aos="fade-up" data-aos-delay="200">
+<div class="desktop-matrix">
+<div class="matrix-header">
+<div class="matrix-cell empty"></div>
+<div class="matrix-cell option standard">
+<h3>Klassisches KI-Trading</h3>
+<span class="subtitle">Mit eigenem Kapital</span>
+</div>
+<div class="matrix-cell option premium">
+<div class="recommended-badge">
+<svg fill="currentColor" height="14" viewbox="0 0 24 24" width="14">
+<path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+</svg>
+<span>EMPFOHLEN</span>
+</div>
+<h3>Momentum Plus</h3>
+<span class="subtitle">Prop Trading mit KI</span>
+</div>
+</div>
+<div class="matrix-row">
+<div class="matrix-cell category">
+<svg fill="currentColor" height="24" style="color: #1a9eff;" viewbox="0 0 24 24" width="24">
+<path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm.31-8.86c-1.77-.45-2.34-.94-2.34-1.67 0-.84.79-1.43 2.1-1.43 1.38 0 1.9.66 1.94 1.64h1.71c-.05-1.34-.87-2.57-2.49-2.97V5H10.9v1.69c-1.51.32-2.72 1.3-2.72 2.81 0 1.79 1.49 2.69 3.66 3.21 1.95.46 2.34 1.15 2.34 1.87 0 .53-.39 1.39-2.1 1.39-1.6 0-2.23-.72-2.32-1.64H8.04c.1 1.7 1.36 2.66 2.86 2.97V19h2.34v-1.67c1.52-.29 2.72-1.16 2.73-2.77-.01-2.2-1.9-2.96-3.66-3.42z"></path>
+</svg>
+<span>Benötigtes Startkapital</span>
+</div>
+<div class="matrix-cell value negative">
+<span class="big-value">10.000 - 50.000 €</span>
+<span class="small-text">Eigenes Risiko</span>
+</div>
+<div class="matrix-cell value positive">
+<span class="big-value">0 €</span>
+<span class="small-text">Fremdkapital bis 200k</span>
+</div>
+</div>
+<div class="matrix-row">
+<div class="matrix-cell category">
+<svg fill="currentColor" height="24" style="color: #1a9eff;" viewbox="0 0 24 24" width="24">
+<path d="M12 2L4 7v6c0 5.55 3.84 10.74 8 12 4.16-1.26 8-6.45 8-12V7l-8-5zm0 2.18l6 3.71v5.01c0 4.47-2.98 8.58-6 9.83-3.02-1.25-6-5.36-6-9.83V7.89l6-3.71zM11 7h2v5h-2V7zm0 7h2v2h-2v-2z"></path>
+</svg>
+<span>Kapitalrisiko</span>
+</div>
+<div class="matrix-cell value negative">
+<span class="big-value">100%</span>
+<span class="small-text">Totalverlust möglich</span>
+</div>
+<div class="matrix-cell value positive">
+<span class="big-value">0%</span>
+<span class="small-text">Kein eigenes Kapital</span>
+</div>
+</div>
+<div class="matrix-row">
+<div class="matrix-cell category">
+<svg fill="currentColor" height="24" style="color: #1a9eff;" viewbox="0 0 24 24" width="24">
+<path d="M3.5 18.49l6-6.01 4 4L22 6.92l-1.41-1.41-7.09 7.97-4-4L2 16.99z"></path>
+<path d="M3 17h2v4H3zm4 0h2v4H7zm4 0h2v4h-2zm4 0h2v4h-2zm4 0h2v4h-2z" opacity="0.3"></path>
+</svg>
+<span>Gewinnpotenzial (monatlich)</span>
+</div>
+<div class="matrix-cell value neutral">
+<span class="big-value">500 - 2.500 €</span>
+<span class="small-text">Bei 10k Eigenkapital</span>
+</div>
+<div class="matrix-cell value positive">
+<span class="big-value">4.500 - 9.000 €</span>
+<span class="small-text">Bei 100k Fremdkapital</span>
+</div>
+</div>
+<div class="matrix-summary">
+<div class="matrix-cell empty"></div>
+<div class="matrix-cell summary">
+<div class="score-visual">
+<div class="score-bar"></div>
+</div>
+<span class="score-text">0 von 3 Vorteilen</span>
+</div>
+<div class="matrix-cell summary winner">
+<div class="trophy-icon">🏆</div>
+<div class="score-visual">
+<div class="score-bar winning"></div>
+</div>
+<span class="score-text">3 von 3 Vorteilen</span>
+<div class="winner-label">KLARER SIEGER</div>
+</div>
+</div>
+</div>
+<div class="mobile-matrix">
+<div class="mobile-card" data-card="classic">
+<div class="mobile-card-header">
+<h3>Klassisches KI-Trading</h3>
+<span class="subtitle">Mit eigenem Kapital</span>
+</div>
+<div class="mobile-metrics">
+<div class="metric-item">
+<div class="metric-icon">
+<svg fill="currentColor" height="24" style="color: #1a9eff;" viewbox="0 0 24 24" width="24">
+<path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm.31-8.86c-1.77-.45-2.34-.94-2.34-1.67 0-.84.79-1.43 2.1-1.43 1.38 0 1.9.66 1.94 1.64h1.71c-.05-1.34-.87-2.57-2.49-2.97V5H10.9v1.69c-1.51.32-2.72 1.3-2.72 2.81 0 1.79 1.49 2.69 3.66 3.21 1.95.46 2.34 1.15 2.34 1.87 0 .53-.39 1.39-2.1 1.39-1.6 0-2.23-.72-2.32-1.64H8.04c.1 1.7 1.36 2.66 2.86 2.97V19h2.34v-1.67c1.52-.29 2.72-1.16 2.73-2.77-.01-2.2-1.9-2.96-3.66-3.42z"></path>
+</svg>
+</div>
+<div class="metric-content">
+<div class="metric-label">Startkapital</div>
+<div class="metric-value negative">10.000 - 50.000 €</div>
+<div class="metric-detail">Eigenes Risiko</div>
+</div>
+</div>
+<div class="metric-item">
+<div class="metric-icon">
+<svg fill="currentColor" height="24" style="color: #1a9eff;" viewbox="0 0 24 24" width="24">
+<path d="M12 2L4 7v6c0 5.55 3.84 10.74 8 12 4.16-1.26 8-6.45 8-12V7l-8-5zm0 2.18l6 3.71v5.01c0 4.47-2.98 8.58-6 9.83-3.02-1.25-6-5.36-6-9.83V7.89l6-3.71zM11 7h2v5h-2V7zm0 7h2v2h-2v-2z"></path>
+</svg>
+</div>
+<div class="metric-content">
+<div class="metric-label">Kapitalrisiko</div>
+<div class="metric-value negative">100%</div>
+<div class="metric-detail">Totalverlust möglich</div>
+</div>
+</div>
+<div class="metric-item">
+<div class="metric-icon">
+<svg fill="currentColor" height="24" style="color: #1a9eff;" viewbox="0 0 24 24" width="24">
+<path d="M3.5 18.49l6-6.01 4 4L22 6.92l-1.41-1.41-7.09 7.97-4-4L2 16.99z"></path>
+<path d="M3 17h2v4H3zm4 0h2v4H7zm4 0h2v4h-2zm4 0h2v4h-2zm4 0h2v4h-2z" opacity="0.3"></path>
+</svg>
+</div>
+<div class="metric-content">
+<div class="metric-label">Gewinnpotenzial</div>
+<div class="metric-value neutral">500 - 2.500 €</div>
+<div class="metric-detail">Bei 10k Eigenkapital</div>
+</div>
+</div>
+</div>
+<div class="mobile-score">
+<span class="score-text">0 von 3 Vorteilen</span>
+</div>
+</div>
+<div class="mobile-card active" data-card="algovate">
+<div class="mobile-card-badge">
+<svg fill="currentColor" height="14" viewbox="0 0 24 24" width="14">
+<path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+</svg>
+<span>EMPFOHLEN</span>
+</div>
+<div class="mobile-card-header">
+<h3>Momentum Plus</h3>
+<span class="subtitle">Prop Trading mit KI</span>
+</div>
+<div class="mobile-metrics">
+<div class="metric-item">
+<div class="metric-icon">
+<svg fill="currentColor" height="24" style="color: #1a9eff;" viewbox="0 0 24 24" width="24">
+<path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm.31-8.86c-1.77-.45-2.34-.94-2.34-1.67 0-.84.79-1.43 2.1-1.43 1.38 0 1.9.66 1.94 1.64h1.71c-.05-1.34-.87-2.57-2.49-2.97V5H10.9v1.69c-1.51.32-2.72 1.3-2.72 2.81 0 1.79 1.49 2.69 3.66 3.21 1.95.46 2.34 1.15 2.34 1.87 0 .53-.39 1.39-2.1 1.39-1.6 0-2.23-.72-2.32-1.64H8.04c.1 1.7 1.36 2.66 2.86 2.97V19h2.34v-1.67c1.52-.29 2.72-1.16 2.73-2.77-.01-2.2-1.9-2.96-3.66-3.42z"></path>
+</svg>
+</div>
+<div class="metric-content">
+<div class="metric-label">Startkapital</div>
+<div class="metric-value positive">0 €</div>
+<div class="metric-detail">Fremdkapital bis 200k</div>
+</div>
+</div>
+<div class="metric-item">
+<div class="metric-icon">
+<svg fill="currentColor" height="24" style="color: #1a9eff;" viewbox="0 0 24 24" width="24">
+<path d="M12 2L4 7v6c0 5.55 3.84 10.74 8 12 4.16-1.26 8-6.45 8-12V7l-8-5zm0 2.18l6 3.71v5.01c0 4.47-2.98 8.58-6 9.83-3.02-1.25-6-5.36-6-9.83V7.89l6-3.71zM11 7h2v5h-2V7zm0 7h2v2h-2v-2z"></path>
+</svg>
+</div>
+<div class="metric-content">
+<div class="metric-label">Kapitalrisiko</div>
+<div class="metric-value positive">0%</div>
+<div class="metric-detail">Kein eigenes Kapital</div>
+</div>
+</div>
+<div class="metric-item">
+<div class="metric-icon">
+<svg fill="currentColor" height="24" style="color: #1a9eff;" viewbox="0 0 24 24" width="24">
+<path d="M3.5 18.49l6-6.01 4 4L22 6.92l-1.41-1.41-7.09 7.97-4-4L2 16.99z"></path>
+<path d="M3 17h2v4H3zm4 0h2v4H7zm4 0h2v4h-2zm4 0h2v4h-2zm4 0h2v4h-2z" opacity="0.3"></path>
+</svg>
+</div>
+<div class="metric-content">
+<div class="metric-label">Gewinnpotenzial</div>
+<div class="metric-value positive">4.500 - 9.000 €</div>
+<div class="metric-detail">Bei 100k Fremdkapital</div>
+</div>
+</div>
+</div>
+<div class="mobile-score winner">
+<div class="trophy">🏆</div>
+<span class="score-text">3 von 3 Vorteilen</span>
+<div class="winner-label">KLARER SIEGER</div>
+</div>
+</div>
+</div>
+</div>
+<div class="roi-calculator-mini" data-aos="fade-up" data-aos-delay="300">
+<h3>Ihre persönliche Ersparnis</h3>
+<div class="savings-display">
+<div class="saving-item">
+<span class="label">Eigenkapital gespart:</span>
+<span class="value">200.000 €</span>
+</div>
+<div class="saving-item">
+<span class="label">Zusätzlicher Gewinn/Jahr:</span>
+<span class="value">+64.800 €</span>
+</div>
+</div>
+</div>
+<div class="comparison-cta" data-aos="fade-up" data-aos-delay="400">
+<p class="cta-text">Warum mit eigenem Kapital riskieren, wenn Sie mit Fremdkapital mehr verdienen?</p>
+<a class="btn btn-primary" href="#">
+<svg fill="currentColor" height="18" style="display: inline-block; vertical-align: middle;" viewbox="0 0 24 24" width="18">
+<path d="M9.19 6.35c-2.04 2.29-3.44 5.58-3.57 5.89L2 10.69l4.05-4.05c.47-.47 1.15-.68 1.81-.55L9.19 6.35zm11.17 6.27c.16-.31 1.53-3.85 3.56-5.89l-1.33-.26c-.66-.13-1.34.08-1.81.55l-4.05 4.05 3.63 1.55zm.65-2.69c.61-.61.61-1.61 0-2.22L19.43 6.03c-.61-.61-1.61-.61-2.22 0l-1.93 1.93c-1.6 1.6-2.99 3.62-3.93 5.05-.36.54-.36 1.28 0 1.82.93 1.43 2.33 3.45 3.93 5.05l1.93 1.93c.61.61 1.61.61 2.22 0l1.58-1.58c.61-.61.61-1.61 0-2.22l-1.93-1.93c-.62-.62-1.14-1.27-1.58-1.93.44-.66.96-1.31 1.58-1.93L21.01 9.93z"></path>
+<path d="M8.07 14.88l-3.59 3.59c-.14.14-.14.36 0 .51l2.54 2.54c.14.14.36.14.51 0l3.59-3.59c-.34-.52-.77-1.04-1.23-1.5-.46-.46-.98-.89-1.5-1.23l-.32-.32z" opacity="0.3"></path>
+</svg>
+<span>MIT MOMENTUM PLUS STARTEN</span>
+</a>
+</div>
+</div>
+</section>
+<section class="section" id="video-testimonials">
+<div class="container">
+<div class="section-header" data-aos="fade-up">
+<h2>Erfolgsgeschichten im Video</h2>
+<p>Echte Stimmen aus der Community – kompakt, authentisch, auf den Punkt</p>
+</div>
+<div class="testimonials-grid" data-aos="fade-up" data-aos-delay="150">
+<div class="testimonial card" id="testimonial-alex">
+<div class="testimonial-media">
+<iframe allow="fullscreen; picture-in-picture" allowfullscreen="True" class="yt yt-portrait" loading="lazy" src="https://www.youtube-nocookie.com/embed/MDgioUJoUVg?controls=1&amp;modestbranding=1&amp;rel=0&amp;playsinline=1" style="width:100%; border:0; border-radius:var(--radius-xl); aspect-ratio: 9/16;" title="Erfolgsgeschichte – Miriam S."></iframe>
+</div>
+<div class="testimonial-content">"Fremdkapital + Trading-KI ist der echte Gamechanger: Schon wenige Prozent reichen für ein wahnsinniges Nebeneinkommen – und das Beste: Es läuft automatisiert."</div>
+<div class="testimonial-author">
+<img alt="Miriam S." class="author-avatar" loading="lazy" src="https://i.imgur.com/W7jvxi4.jpg"/>
+<div class="author-info">
+<h4>Sascha</h4>
+<p>Vollzeit, Köln</p>
+</div>
+</div>
+</div>
+<div class="testimonial card" id="testimonial-alex-card">
+<div class="testimonial-media">
+<iframe allow="fullscreen; picture-in-picture" allowfullscreen="True" class="yt yt-portrait" loading="lazy" src="https://www.youtube-nocookie.com/embed/jUJpNDGiJlM?controls=1&amp;modestbranding=1&amp;rel=0&amp;playsinline=1" style="width:100%; border:0; border-radius:var(--radius-xl); aspect-ratio: 9/16;" title="Erfolgsgeschichte – Alex"></iframe>
+</div>
+<div class="testimonial-content">
+        „Ich kopiere die Signale 1 zu 1 – kein Stress, kein Rätselraten.
+        Nach wenigen Tagen habe ich schon die erste Auszahlung gesehen.“
+    </div>
+<div class="testimonial-author">
+<img alt="Alex" class="author-avatar" loading="lazy" src="https://i.imgur.com/kkQvzca.jpg"/>
+<div class="author-info">
+<h4>Alex</h4>
+<p>Vollzeit, Köln</p>
+</div>
+</div>
+</div>
+<div class="testimonial card">
+<div class="testimonial-media">
+<iframe allow="fullscreen; picture-in-picture" allowfullscreen="True" class="yt yt-portrait" loading="lazy" src="https://www.youtube-nocookie.com/embed/XMN_yV6Kw3A?controls=1&amp;modestbranding=1&amp;rel=0&amp;playsinline=1" style="width:100%; border:0; border-radius:var(--radius-xl); aspect-ratio: 9/16;" title="Erfolgsgeschichte – Daniel P."></iframe>
+</div>
+<div class="testimonial-content">
+                            "Bis zu 90 % Gewinnbeteiligung – anbieterabhängig. Für mich war der Wechsel ein No-Brainer."
+                        </div>
+<div class="testimonial-author">
+<img alt="Daniel P." class="author-avatar" loading="lazy" src="https://i.imgur.com/Q77K1XU.jpg"/>
+<div class="author-info">
+<h4>Jörg</h4>
+<p>Side-Hustle, Hamburg</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="section">
+<div class="container">
+<div class="section-header" data-aos="fade-up">
+<h2>Warum Momentum Plus?</h2>
+<p>Die wichtigsten Vorteile auf einen Blick</p>
+</div>
+<div class="features" data-aos="fade-up" data-aos-delay="150">
+<div class="feature card">
+<div class="feature-icon-container">
+<div class="feature-icon"><i class="fas fa-piggy-bank"></i></div>
+</div>
+<h3>Ohne Eigenkapital</h3>
+<p>Handle direkt auf einem Fremdkapital-Konto – verzichte auf hohes Eigenkapital.</p>
+</div>
+<div class="feature card">
+<div class="feature-icon-container">
+<div class="feature-icon">
+<svg aria-hidden="true" class="icon-signal" fill="none" height="24" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+<rect fill="currentColor" height="7" opacity="0.7" rx="1.5" width="3" x="3" y="14"></rect>
+<rect fill="currentColor" height="11" opacity="0.85" rx="1.5" width="3" x="9" y="10"></rect>
+<rect fill="currentColor" height="15" rx="1.5" width="3" x="15" y="6"></rect>
+<path d="M3 8 C7 4, 13 4, 21 8" fill="none" opacity="0.7" stroke="currentColor" stroke-width="1.5"></path>
+<polyline fill="none" opacity="0.9" points="12,4 14,4 14,2" stroke="currentColor" stroke-width="1.5"></polyline>
+</svg>
+</div>
+</div>
+<h3>Experten Signale</h3>
+<p>Erhalte Premium-Signale direkt von unserem Expertenteam – blitzschnelle Entries mit SL &amp; TP</p>
+</div>
+<div class="feature card">
+<div class="feature-icon-container">
+<div class="feature-icon"><i class="fas fa-hand-holding-usd"></i></div>
+</div>
+<h3>Bis zu 90 % Gewinnsplit</h3>
+<p>Behalte je nach Anbieter &amp; Kontomodell den Großteil deiner Gewinne.</p>
+</div>
+</div>
+</div>
+</section>
+<section class="section" id="testimonials">
+<div class="container">
+<div class="section-header" data-aos="fade-up">
+<h2>Das sagen unsere Kunden</h2>
+<p>Echte Erfahrungsberichte von Tradern, die mit unserer KI erfolgreich geworden sind</p>
+</div>
+<div class="testimonials" data-aos="fade-up" data-aos-delay="200">
+<div class="testimonial card" onclick="window.open('https://www.provenexpert.com/de-de/algovate/', '_blank')">
+<div class="testimonial-rating">
+<div class="stars">
+<i class="fas fa-star star"></i>
+<i class="fas fa-star star"></i>
+<i class="fas fa-star star"></i>
+<i class="fas fa-star star"></i>
+<i class="fas fa-star star"></i>
+</div>
+<span class="rating-text">5,0 von 5 Sternen</span>
+</div>
+<div class="testimonial-content">"Endlich mal ein System das hält was es verspricht!!!!<br/><br/>Nach eineinhalb Jahren sehe ich immer noch kontinuierliche Gewinne und das Beste: Ich musste bisher NICHTS tun bis auf einmalig 15 Minuten einrichten. Ich bin rundum glücklich und sage mal Danke"</div>
+<div class="testimonial-author">
+<img alt="Daniel Schmidt" class="author-avatar" loading="lazy" onclick="openTestimonialModal('daniel')" src="https://images.unsplash.com/photo-1456327102063-fb5054efe647?q=80&amp;w=2070&amp;auto=format&amp;fit=crop&amp;ixlib=rb-4.1.0&amp;ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"/>
+<div class="author-info">
+<h4>Benjamin Kramer</h4>
+<p>Kunde seit 2023</p>
+<div class="author-location">
+<i class="fas fa-map-marker-alt"></i>
+<span>Berlin, Deutschland</span>
+</div>
+</div>
+</div>
+</div>
+<div class="testimonial card" onclick="window.open('https://www.provenexpert.com/de-de/algovate/', '_blank')">
+<div class="testimonial-rating">
+<div class="stars">
+<i class="fas fa-star star"></i>
+<i class="fas fa-star star"></i>
+<i class="fas fa-star star"></i>
+<i class="fas fa-star star"></i>
+<i class="fas fa-star star"></i>
+</div>
+<span class="rating-text">5,0 von 5 Sternen</span>
+</div>
+<div class="testimonial-content">"Ich habe viele so Systeme getestet doch das hier ist wirklich das erste was funktioniert wie es beworben wird 😂<br/>Nach vier Monaten hats meine Erwartungen echt übertroffen. Krass finde ich, dass die KI in schwierigen Marktsituationen so stabil bleibt.<br/><br/>Deshalb einfach selber testen!"</div>
+<div class="testimonial-author">
+<img alt="Anna Kowalski" class="author-avatar" loading="lazy" onclick="openTestimonialModal('anna')" src="https://images.unsplash.com/photo-1558203728-00f45181dd84?q=80&amp;w=800&amp;auto=format&amp;fit=crop&amp;ixlib=rb-4.1.0"/>
+<div class="author-info">
+<h4>Jakob Paul</h4>
+<p>Kunde seit März 2025</p>
+<div class="author-location">
+<i class="fas fa-map-marker-alt"></i>
+<span>München, Deutschland</span>
+</div>
+</div>
+</div>
+</div>
+<div class="testimonial card" onclick="window.open('https://www.provenexpert.com/de-de/algovate/', '_blank')">
+<div class="testimonial-rating">
+<div class="stars">
+<i class="fas fa-star star"></i>
+<i class="fas fa-star star"></i>
+<i class="fas fa-star star"></i>
+<i class="fas fa-star star"></i>
+<i class="fas fa-star star"></i>
+</div>
+<span class="rating-text">5,0 von 5 Sternen</span>
+</div>
+<div class="testimonial-content">"Ich war immer unsicher, ob ich sowas machen soll, weil ich gar keinen Plan von Trading habe. Die AI ist super easy einzurichten und dann nur laufen lassen und zuschauen, wie der Kontostand wächst. Bin echt happy damit!!👍🏻"</div>
+<div class="testimonial-author">
+<img alt="Sarah Müller" class="author-avatar" loading="lazy" onclick="openTestimonialModal('sarah')" src="https://images.unsplash.com/photo-1654110455429-cf322b40a906?q=80&amp;w=800&amp;auto=format&amp;fit=crop&amp;ixlib=rb-4.1.0"/>
+<div class="author-info">
+<h4>Andy Bachmann</h4>
+<p>Kunde seit Januar 2025</p>
+<div class="author-location">
+<i class="fas fa-map-marker-alt"></i>
+<span>Hamburg, Deutschland</span>
+</div>
+</div>
+</div>
+</div>
+<div class="testimonial card" onclick="window.open('https://www.provenexpert.com/de-de/algovate/', '_blank')">
+<div class="testimonial-rating">
+<div class="stars">
+<i class="fas fa-star star"></i>
+<i class="fas fa-star star"></i>
+<i class="fas fa-star star"></i>
+<i class="fas fa-star star"></i>
+<i class="fas fa-star star"></i>
+</div>
+<span class="rating-text">5,0 von 5 Sternen</span>
+</div>
+<div class="testimonial-content">"I love it!!!<br/>Habe selbst keine Zeit, mich stundenlang in Tradingstrategien einzuarbeiten – mit der KI muss ich das auch nicht. Ich hab gesehen, dass es funktioniert, und das reicht mir. Weiter so und danke ans Team!"</div>
+<div class="testimonial-author">
+<img alt="Marcus Weber" class="author-avatar" loading="lazy" onclick="openTestimonialModal('marcus')" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&amp;h=150&amp;fit=crop&amp;crop=face"/>
+<div class="author-info">
+<h4>R. Lang</h4>
+<p>Kunde seit Dezember 2024</p>
+<div class="author-location">
+<i class="fas fa-map-marker-alt"></i>
+<span>Frankfurt, Deutschland</span>
+</div>
+</div>
+</div>
+</div>
+<div class="testimonial card" onclick="window.open('https://www.provenexpert.com/de-de/algovate/', '_blank')">
+<div class="testimonial-rating">
+<div class="stars">
+<i class="fas fa-star star"></i>
+<i class="fas fa-star star"></i>
+<i class="fas fa-star star"></i>
+<i class="fas fa-star star"></i>
+<i class="fas fa-star star empty"></i>
+</div>
+<span class="rating-text">4,0 von 5 Sternen</span>
+</div>
+<div class="testimonial-content">"Am Anfang war ich arg skeptisch, jetzt bin ich echt glücklich den Schritt gewagt zu haben...<br/>Die KI arbeitet einfach so genau und ich musste wirklich nichts tun außer einmal alles einrichten – das hat 20 Minuten gebraucht.<br/><br/>Bin super zufrieden!!!!"</div>
+<div class="testimonial-author">
+<img alt="Thomas Schneider" class="author-avatar" loading="lazy" onclick="openTestimonialModal('thomas')" src="https://images.unsplash.com/photo-1736194689767-9e3c4e7bd7f6?q=80&amp;w=1065&amp;auto=format&amp;fit=crop&amp;ixlib=rb-4.1.0&amp;ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"/>
+<div class="author-info">
+<h4>Levi Kruse</h4>
+<p>Kunde seit Juni 2025</p>
+<div class="author-location">
+<i class="fas fa-map-marker-alt"></i>
+<span>Köln, Deutschland</span>
+</div>
+</div>
+</div>
+</div>
+<div class="testimonial card" onclick="window.open('https://www.provenexpert.com/de-de/algovate/', '_blank')">
+<div class="testimonial-rating">
+<div class="stars">
+<i class="fas fa-star star"></i>
+<i class="fas fa-star star"></i>
+<i class="fas fa-star star"></i>
+<i class="fas fa-star star"></i>
+<i class="fas fa-star star"></i>
+</div>
+<span class="rating-text">5,0 von 5 Sternen</span>
+</div>
+<div class="testimonial-content">"Seit eineinhalb Jahren nutze ich das System und bin total happy!<br/><br/>Die Einrichtung hat nur ein paar Minuten gedauert, seitdem läuft alles von alleine. Keine komplizierten Strategien selbst lernen, kein Stress und konstante Ergebnisse. Endlich eine Komplettlösung, die hält, was sie verspricht!!!"</div>
+<div class="testimonial-author">
+<img alt="Jessica Wagner" class="author-avatar" loading="lazy" onclick="openTestimonialModal('jessica')" src="https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&amp;w=987&amp;auto=format&amp;fit=crop&amp;ixlib=rb-4.1.0"/>
+<div class="author-info">
+<h4>Marko</h4>
+<p>Kunde seit 2024</p>
+<div class="author-location">
+<i class="fas fa-map-marker-alt"></i>
+<span>Stuttgart, Deutschland</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section><section class="section" id="faq">
+<div class="container">
+<div class="section-header" data-aos="fade-up">
+<h2>Häufige Fragen</h2>
+<p>Alles, was KI-Nutzer über Prop Trading wissen müssen</p>
+</div>
+<div class="faq" data-aos="fade-up" data-aos-delay="200">
+<div class="faq-item" onclick="toggleFAQ(0)">
+<div class="faq-question">
+<span>Ist das legal und sicher?</span>
+<div class="faq-icon">
+<i class="fas fa-plus"></i>
+</div>
+</div>
+<div class="faq-answer">
+<p>Ja, Prop Trading ist ein reguliertes Geschäftsmodell. Du erhältst echtes Kapital – ohne Risiko für dein eigenes Geld. Alle Partner-Firmen sind vollständig lizenziert und reguliert.</p>
+</div>
+</div>
+<div class="faq-item" onclick="toggleFAQ(1)">
+<div class="faq-question">
+<span>Wie schwer ist es, die Automatik-Trades umzusetzen?</span>
+<div class="faq-icon">
+<i class="fas fa-plus"></i>
+</div>
+</div>
+<div class="faq-answer">
+<p>Sehr einfach. Du erhältst eine klare Anleitung zum Setup der Software. Die meisten Automatik-Trades sind in unter 5 Minuten umgesetzt.</p>
+</div>
+</div>
+<div class="faq-item" onclick="toggleFAQ(2)">
+<div class="faq-question">
+<span>Was passiert, wenn ich einen Fehler mache?</span>
+<div class="faq-icon">
+<i class="fas fa-plus"></i>
+</div>
+</div>
+<div class="faq-answer">
+<p>Du riskierst kein eigenes Kapital. Im schlimmsten Fall wird das Konto deaktiviert – ohne finanzielle Folgen für dich. Unser Support hilft dir bei allen Fragen zur korrekten Umsetzung.</p>
+</div>
+</div>
+<div class="faq-item" onclick="toggleFAQ(3)">
+<div class="faq-question">
+<span>Gibt es laufende Kosten?</span>
+<div class="faq-icon">
+<i class="fas fa-plus"></i>
+</div>
+</div>
+<div class="faq-answer">
+<p>Die Kosten variieren je nach gewähltem Anbieter und Kontomodell. Details erhältst du in der persönlichen Beratung.</p>
+</div>
+</div>
+<div class="faq-item" onclick="toggleFAQ(4)">
+<div class="faq-question">
+<span>Kann ich meine bisherigen KI-Strategien weiter nutzen?</span>
+<div class="faq-icon">
+<i class="fas fa-plus"></i>
+</div>
+</div>
+<div class="faq-answer">
+<p>Absolut! Prop Trading ist eine Ergänzung, kein Ersatz. Du kannst parallel beide Systeme nutzen und so deine Gesamtrendite maximieren.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="cta-section">
+<div class="container">
+<div class="cta-content" data-aos="fade-up">
+<div class="cta-badge">
+<i class="fas fa-bolt"></i>
+<span>Turbo-Start für KI-Nutzer</span>
+</div>
+<h2>Maximiere dein Potenzial: Trading-KI trifft Prop Trading</h2>
+<p>Nutze unser bewährtes System und starte noch heute mit bis zu 200.000 € Fremdkapital. Deine KI-Strategien, multipliziert mit professionellem Kapital – für maximale Rendite.</p>
+<div class="cta-buttons">
+<a class="btn btn-secondary" href="https://calendly.com/infoalgovate/30min" rel="noopener" target="_blank">
+                            Kostenloses Beratungsgespräch buchen
+                            <i class="fas fa-calendar-alt"></i>
+</a>
+</div>
+</div>
+</div>
+</section>
+</main>
+<footer class="footer">
+<div class="container">
+<div class="footer-content" data-aos="fade-up">
+<div class="footer-links"><a data-modal="#modal-legal" href="#" role="button">Legal Disclosure</a>
+<a data-modal="#modal-contact" href="#" role="button">Kontakt</a>
+<a data-modal="#modal-partner" href="#" role="button">Partner werden</a>
+<a data-modal="#modal-risk" href="#" role="button">Risikohinweise</a>
+</div>
+<div class="social-links"><a class="social-link" data-telegram="true" href="https://t.me/ki_supporter" target="_blank">
+<i class="fab fa-telegram"></i>
+</a></div>
+<div class="copyright">
+<p>© 2025 Momentum Plus. Alle Rechte vorbehalten.</p>
+<p><strong>Risikohinweis:</strong> Trading beinhaltet Risiken. Vergangene Performance ist kein Indikator für zukünftige Ergebnisse. Investieren Sie nur Kapital, dessen Verlust Sie sich leisten können.</p>
+</div>
+</div>
+</div>
+</footer>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+        // ========================================
+        // CONFIGURATION & UTILITIES
+        // ========================================
+        const CONFIG = {
+            animationDuration: 1000,
+            mobileBreakpoint: 768,
+            debounceDelay: 150
+        };
+
+        const Utils = {
+            isMobile: () => window.innerWidth <= CONFIG.mobileBreakpoint,
+            debounce: (func, wait) => {
+                let timeout;
+                return function executedFunction(...args) {
+                    const later = () => {
+                        clearTimeout(timeout);
+                        func(...args);
+                    };
+                    clearTimeout(timeout);
+                    timeout = setTimeout(later, wait);
+                };
+            },
+            formatCurrency: (value) => {
+                return new Intl.NumberFormat('de-DE', {
+                    style: 'currency',
+                    currency: 'EUR',
+                    maximumFractionDigits: 0
+                }).format(value);
+            }
+        };
+
+        // ========================================
+        // AOS INITIALIZATION
+        // ========================================
+        if (!Utils.isMobile()) {
+            AOS.init({
+                duration: 1000,
+                once: true,
+                easing: 'ease-out-cubic',
+                offset: 100
+            });
+        } else {
+            AOS.init({
+                duration: 0,
+                once: true,
+                disable: true
+            });
+        }
+
+        // ========================================
+        // NAVIGATION
+        // ========================================
+        const Navigation = {
+            init() {
+                this.updateActiveLink();
+                window.addEventListener('scroll', Utils.debounce(() => this.updateActiveLink(), 100), { passive: true });
+                this.setupSmoothScrolling();
+            },
+
+            updateActiveLink() {
+                if (Utils.isMobile()) return;
+                
+                const sections = document.querySelectorAll('section[id]');
+                const navLinks = document.querySelectorAll('.nav a');
+                let current = '';
+                
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    // Adjusted offset for better visibility in fixed header scenario
+                    if (window.scrollY >= sectionTop - 250) { 
+                        current = section.getAttribute('id');
+                    }
+                });
+
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    const linkHref = link.getAttribute('href').substring(1);
+                    if (linkHref === current || (current === 'simulator' && linkHref === 'simulator') || (current === '' && link.getAttribute('href') === '#')) {
+                         link.classList.add('active');
+                    }
+                });
+
+                // Special handling for Home link when at the very top
+                if (window.scrollY < 200) {
+                    navLinks.forEach(link => {
+                         link.classList.remove('active');
+                         if (link.getAttribute('href') === '#') {
+                             link.classList.add('active');
+                         }
+                    });
+                }
+            },
+
+            setupSmoothScrolling() {
+                document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                    anchor.addEventListener('click', function (e) {
+                        e.preventDefault();
+                        const targetId = this.getAttribute('href');
+                        const target = document.querySelector(targetId === '#' ? 'body' : targetId);
+                        if (target) {
+                            // Find element to scroll to (for body/home scroll to top)
+                            const elementToScrollTo = targetId === '#' ? document.body : target;
+                            
+                            if (targetId === '#') {
+                                window.scrollTo({
+                                    top: 0,
+                                    behavior: Utils.isMobile() ? 'auto' : 'smooth'
+                                });
+                            } else {
+                                elementToScrollTo.scrollIntoView({
+                                    behavior: Utils.isMobile() ? 'auto' : 'smooth',
+                                    block: 'start'
+                                });
+                            }
+                        }
+                    });
+                });
+            }
+        };
+
+
+        // ========================================
+        // SIMULATOR
+        // ========================================
+        let chart, animationInterval, currentDataPoint = 0, isAnimating = false;
+
+        const tradingData = {
+            labels: [
+                'Start', 'Woche 1', 'Woche 2', 'Woche 3', 'Monat 1',
+                'Woche 5', 'Woche 6', 'Woche 7', 'Monat 2',
+                'Woche 9', 'Woche 10', 'Woche 11', 'Monat 3',
+                'Woche 13', 'Woche 14', 'Woche 15', 'Monat 4',
+                'Woche 17', 'Woche 18', 'Woche 19', 'Monat 5',
+                'Woche 21', 'Woche 22', 'Woche 23', 'Monat 6'
+            ],
+            balances: [
+                100000, 101200, 102800, 101900, 103500,
+                104200, 105800, 104500, 106800,
+                107500, 109200, 108100, 110400,
+                111800, 113200, 112100, 114600,
+                115900, 117800, 116400, 118900,
+                120200, 122100, 121500, 123800
+            ],
+            signals: [
+                { week: 1, profit: 1200, pair: 'EUR/USD', action: 'Buy' },
+                { week: 2, profit: 1600, pair: 'GBP/JPY', action: 'Sell' },
+                { week: 3, profit: -900, pair: 'USD/CHF', action: 'Buy' },
+                { week: 4, profit: 1600, pair: 'EUR/GBP', action: 'Sell' },
+                { week: 5, profit: 700, pair: 'AUD/USD', action: 'Buy' },
+                { week: 6, profit: 1600, pair: 'USD/CAD', action: 'Sell' },
+                { week: 7, profit: -1300, pair: 'NZD/USD', action: 'Buy' },
+                { week: 8, profit: 2300, pair: 'EUR/JPY', action: 'Sell' },
+                { week: 9, profit: 700, pair: 'GBP/USD', action: 'Buy' },
+                { week: 10, profit: 1700, pair: 'AUD/CAD', action: 'Sell' },
+                { week: 11, profit: -1100, pair: 'USD/JPY', action: 'Buy' },
+                { week: 12, profit: 2300, pair: 'EUR/CHF', action: 'Sell' },
+                { week: 13, profit: 1400, pair: 'CAD/JPY', action: 'Buy' },
+                { week: 14, profit: 1400, pair: 'GBP/CHF', action: 'Sell' },
+                { week: 15, profit: -1100, pair: 'EUR/AUD', action: 'Buy' },
+                { week: 16, profit: 2500, pair: 'USD/NOK', action: 'Sell' },
+                { week: 17, profit: 1300, pair: 'GBP/AUD', action: 'Buy' },
+                { week: 18, profit: 1900, pair: 'EUR/CAD', action: 'Sell' },
+                { week: 19, profit: -1400, pair: 'CHF/JPY', action: 'Buy' },
+                { week: 20, profit: 2500, pair: 'AUD/JPY', action: 'Sell' },
+                { week: 21, profit: 1300, pair: 'USD/SEK', action: 'Buy' },
+                { week: 22, profit: 1900, pair: 'NZD/CAD', action: 'Sell' },
+                { week: 23, profit: -600, pair: 'EUR/NOK', action: 'Buy' },
+                { week: 24, profit: 2300, pair: 'GBP/NZD', action: 'Sell' }
+            ]
+        };
+
+        function initChart() {
+            const ctx = document.getElementById('growthChart').getContext('2d');
+            
+            chart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: [],
+                    datasets: [{
+                        label: 'Kontostand (€)',
+                        data: [],
+                        borderColor: '#1a9eff',
+                        backgroundColor: 'rgba(26, 158, 255, 0.1)',
+                        borderWidth: 4,
+                        fill: true,
+                        tension: 0.4
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    animation: {
+                        duration: 1200,
+                        easing: 'easeInOutQuart'
+                    },
+                    plugins: {
+                        legend: { display: false },
+                        tooltip: {
+                            backgroundColor: 'rgba(0, 0, 0, 0.9)',
+                            titleColor: '#ffffff',
+                            bodyColor: '#ffffff',
+                            borderColor: '#1a9eff',
+                            borderWidth: 2,
+                            padding: 16,
+                            cornerRadius: 12,
+                            displayColors: false,
+                            callbacks: {
+                                label: function(context) {
+                                    return `📊 Kontostand: ${Utils.formatCurrency(context.parsed.y)}`;
+                                }
+                            }
+                        }
+                    },
+                    scales: {
+                        x: {
+                            grid: { color: 'rgba(255, 255, 255, 0.1)' },
+                            ticks: { color: '#94a3b8' }
+                        },
+                        y: {
+                            grid: { color: 'rgba(255, 255, 255, 0.1)' },
+                            ticks: {
+                                color: '#94a3b8',
+                                callback: function(value) {
+                                    return Utils.formatCurrency(value);
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+        function updateStats(dataPoint) {
+            const currentBalance = tradingData.balances[dataPoint];
+            const initialBalance = tradingData.balances[0];
+            const totalProfit = currentBalance - initialBalance;
+            const currentMonth = Math.min(Math.ceil((dataPoint + 1) / 4.16), 6);
+            let monthlyReturn = 0;
+
+            if (dataPoint > 0) {
+                const monthStartIndex = Math.max(0, Math.floor((dataPoint - 1) / 4.16) * 4.16);
+                const monthStartBalance = tradingData.balances[Math.floor(monthStartIndex)];
+                monthlyReturn = ((currentBalance / monthStartBalance - 1) * 100);
+            }
+
+            document.getElementById('current-balance').innerHTML = `<span class="no-wrap">${Utils.formatCurrency(currentBalance)}</span>`;
+            document.getElementById('total-profit').innerHTML = `<span class="no-wrap">${Utils.formatCurrency(totalProfit)}</span>`;
+            document.getElementById('monthly-return').textContent = monthlyReturn.toFixed(1) + '%';
+            document.getElementById('signals-executed').textContent = Math.floor(dataPoint * 0.8);
+
+            const progress = (dataPoint / (tradingData.labels.length - 1)) * 100;
+            document.getElementById('timeline-fill').style.width = progress + '%';
+            document.getElementById('current-month').textContent = `Monat ${currentMonth} von 6`;
+        }
+
+        function showLiveSignal(signal) {
+            const liveSignal = document.getElementById('live-signal');
+            document.getElementById('signal-pair').textContent = signal.pair;
+            document.getElementById('signal-action').textContent = `${signal.action}-Position eröffnet`;
+            document.getElementById('signal-pnl').textContent = `${signal.profit > 0 ? '+' : ''}${Utils.formatCurrency(signal.profit)}`;
+
+            if (signal.profit > 0) {
+                liveSignal.classList.remove('negative');
+                document.querySelector('.signal-icon').textContent = '📈';
+            } else {
+                liveSignal.classList.add('negative');
+                document.querySelector('.signal-icon').textContent = '📉';
+            }
+
+            liveSignal.classList.add('show');
+            setTimeout(() => {
+                liveSignal.classList.remove('show');
+            }, 8000);
+        }
+
+        function startAnimation() {
+            if (isAnimating) return;
+            isAnimating = true;
+            document.getElementById('startBtn').disabled = true;
+            document.getElementById('pauseBtn').disabled = false;
+
+            animationInterval = setInterval(() => {
+                if (currentDataPoint < tradingData.labels.length) {
+                    chart.data.labels.push(tradingData.labels[currentDataPoint]);
+                    chart.data.datasets[0].data.push(tradingData.balances[currentDataPoint]);
+                    chart.update('active');
+                    updateStats(currentDataPoint);
+
+                    const signal = tradingData.signals.find(s => s.week === currentDataPoint);
+                    if (signal) {
+                        setTimeout(() => showLiveSignal(signal), 800);
+                    }
+                    currentDataPoint++;
+                } else {
+                    pauseAnimation();
+                    document.getElementById('startBtn').innerHTML = '✅ Simulation beendet';
+                }
+            }, 1800);
+        }
+
+        function pauseAnimation() {
+            isAnimating = false;
+            clearInterval(animationInterval);
+            document.getElementById('startBtn').disabled = false;
+            document.getElementById('pauseBtn').disabled = true;
+        }
+
+        function resetAnimation() {
+            pauseAnimation();
+            currentDataPoint = 0;
+            chart.data.labels = [];
+            chart.data.datasets[0].data = [];
+            chart.update();
+            updateStats(0);
+            document.getElementById('startBtn').innerHTML = '▶️ Simulation starten';
+            document.getElementById('startBtn').disabled = false;
+        }
+
+        // ========================================
+        // COMPARISON TOGGLE
+        // ========================================
+        document.querySelectorAll('.toggle-option').forEach(button => {
+            button.addEventListener('click', function() {
+                document.querySelectorAll('.toggle-option').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+                
+                const option = this.dataset.option;
+                const classicCard = document.querySelector('[data-card="classic"]');
+                const algovateCard = document.querySelector('[data-card="algovate"]');
+                
+                if (option === 'classic') {
+                    classicCard.style.display = 'block';
+                    algovateCard.style.display = 'none';
+                } else {
+                    classicCard.style.display = 'none';
+                    algovateCard.style.display = 'block';
+                }
+            });
+        });
+
+        // ========================================
+        // FAQ FUNCTIONALITY
+        // ========================================
+        function toggleFAQ(index) {
+            const faqItems = document.querySelectorAll('.faq-item');
+            const faqItem = faqItems[index];
+            const answer = faqItem.querySelector('.faq-answer');
+            const icon = faqItem.querySelector('.faq-icon i');
+
+            faqItems.forEach((item, i) => {
+                if (i !== index) {
+                    item.classList.remove('active');
+                    const otherAnswer = item.querySelector('.faq-answer');
+                    otherAnswer.classList.remove('show');
+                    otherAnswer.style.maxHeight = '0'; // Added for improved transition
+                    const otherIcon = item.querySelector('.faq-icon i');
+                    otherIcon.classList.remove('fa-minus');
+                    otherIcon.classList.add('fa-plus');
+                }
+            });
+
+            faqItem.classList.toggle('active');
+            answer.classList.toggle('show');
+
+            if (answer.classList.contains('show')) {
+                icon.classList.remove('fa-plus');
+                icon.classList.add('fa-minus');
+                // Set max-height dynamically for smooth transition
+                answer.style.maxHeight = answer.scrollHeight + 30 + "px"; 
+            } else {
+                icon.classList.remove('fa-minus');
+                icon.classList.add('fa-plus');
+                answer.style.maxHeight = '0';
+            }
+        }
+
+        // ========================================
+        // FLOATING CTA
+        // ========================================
+        document.getElementById('floating-cta').addEventListener('click', () => {
+            document.getElementById('simulator').scrollIntoView({
+                behavior: Utils.isMobile() ? 'auto' : 'smooth',
+                block: 'start'
+            });
+        });
+
+        // ========================================
+        // INITIALIZATION
+        // ========================================
+        document.addEventListener('DOMContentLoaded', function() {
+            Navigation.init();
+            initChart();
+            updateStats(0);
+        });
+    </script>
+<script>
+        // ========================================
+        // CONFIGURATION & UTILITIES
+        // ========================================
+        const CONFIG = {
+            animationDuration: 1000,
+            mobileBreakpoint: 768,
+            debounceDelay: 150
+        };
+
+        const Utils = {
+            isMobile: () => window.innerWidth <= CONFIG.mobileBreakpoint,
+            debounce: (func, wait) => {
+                let timeout;
+                return function executedFunction(...args) {
+                    const later = () => {
+                        clearTimeout(timeout);
+                        func(...args);
+                    };
+                    clearTimeout(timeout);
+                    timeout = setTimeout(later, wait);
+                };
+            },
+            formatCurrency: (value) => {
+                return new Intl.NumberFormat('de-DE', {
+                    style: 'currency',
+                    currency: 'EUR',
+                    maximumFractionDigits: 0
+                }).format(value);
+            }
+        };
+
+        // ========================================
+        // AOS INITIALIZATION
+        // ========================================
+        if (!Utils.isMobile()) {
+            AOS.init({
+                duration: 1000,
+                once: true,
+                easing: 'ease-out-cubic',
+                offset: 100
+            });
+        } else {
+            AOS.init({
+                duration: 0,
+                once: true,
+                disable: true
+            });
+        }
+
+        // ========================================
+        // NAVIGATION
+        // ========================================
+        const Navigation = {
+            init() {
+                this.updateActiveLink();
+                window.addEventListener('scroll', Utils.debounce(() => this.updateActiveLink(), 100), { passive: true });
+                this.setupSmoothScrolling();
+            },
+
+            updateActiveLink() {
+                if (Utils.isMobile()) return;
+                
+                const sections = document.querySelectorAll('section[id]');
+                const navLinks = document.querySelectorAll('.nav a');
+                let current = '';
+                
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    // Adjusted offset for better visibility in fixed header scenario
+                    if (window.scrollY >= sectionTop - 250) { 
+                        current = section.getAttribute('id');
+                    }
+                });
+
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    const linkHref = link.getAttribute('href').substring(1);
+                    if (linkHref === current || (current === 'simulator' && linkHref === 'simulator') || (current === '' && link.getAttribute('href') === '#')) {
+                         link.classList.add('active');
+                    }
+                });
+
+                // Special handling for Home link when at the very top
+                if (window.scrollY < 200) {
+                    navLinks.forEach(link => {
+                         link.classList.remove('active');
+                         if (link.getAttribute('href') === '#') {
+                             link.classList.add('active');
+                         }
+                    });
+                }
+            },
+
+            setupSmoothScrolling() {
+                document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                    anchor.addEventListener('click', function (e) {
+                        e.preventDefault();
+                        const targetId = this.getAttribute('href');
+                        const target = document.querySelector(targetId === '#' ? 'body' : targetId);
+                        if (target) {
+                            // Find element to scroll to (for body/home scroll to top)
+                            const elementToScrollTo = targetId === '#' ? document.body : target;
+                            
+                            if (targetId === '#') {
+                                window.scrollTo({
+                                    top: 0,
+                                    behavior: Utils.isMobile() ? 'auto' : 'smooth'
+                                });
+                            } else {
+                                elementToScrollTo.scrollIntoView({
+                                    behavior: Utils.isMobile() ? 'auto' : 'smooth',
+                                    block: 'start'
+                                });
+                            }
+                        }
+                    });
+                });
+            }
+        };
+
+
+        // ========================================
+        // SIMULATOR
+        // ========================================
+        let chart, animationInterval, currentDataPoint = 0, isAnimating = false;
+
+        const tradingData = {
+            labels: [
+                'Start', 'Woche 1', 'Woche 2', 'Woche 3', 'Monat 1',
+                'Woche 5', 'Woche 6', 'Woche 7', 'Monat 2',
+                'Woche 9', 'Woche 10', 'Woche 11', 'Monat 3',
+                'Woche 13', 'Woche 14', 'Woche 15', 'Monat 4',
+                'Woche 17', 'Woche 18', 'Woche 19', 'Monat 5',
+                'Woche 21', 'Woche 22', 'Woche 23', 'Monat 6'
+            ],
+            balances: [
+                100000, 101200, 102800, 101900, 103500,
+                104200, 105800, 104500, 106800,
+                107500, 109200, 108100, 110400,
+                111800, 113200, 112100, 114600,
+                115900, 117800, 116400, 118900,
+                120200, 122100, 121500, 123800
+            ],
+            signals: [
+                { week: 1, profit: 1200, pair: 'EUR/USD', action: 'Buy' },
+                { week: 2, profit: 1600, pair: 'GBP/JPY', action: 'Sell' },
+                { week: 3, profit: -900, pair: 'USD/CHF', action: 'Buy' },
+                { week: 4, profit: 1600, pair: 'EUR/GBP', action: 'Sell' },
+                { week: 5, profit: 700, pair: 'AUD/USD', action: 'Buy' },
+                { week: 6, profit: 1600, pair: 'USD/CAD', action: 'Sell' },
+                { week: 7, profit: -1300, pair: 'NZD/USD', action: 'Buy' },
+                { week: 8, profit: 2300, pair: 'EUR/JPY', action: 'Sell' },
+                { week: 9, profit: 700, pair: 'GBP/USD', action: 'Buy' },
+                { week: 10, profit: 1700, pair: 'AUD/CAD', action: 'Sell' },
+                { week: 11, profit: -1100, pair: 'USD/JPY', action: 'Buy' },
+                { week: 12, profit: 2300, pair: 'EUR/CHF', action: 'Sell' },
+                { week: 13, profit: 1400, pair: 'CAD/JPY', action: 'Buy' },
+                { week: 14, profit: 1400, pair: 'GBP/CHF', action: 'Sell' },
+                { week: 15, profit: -1100, pair: 'EUR/AUD', action: 'Buy' },
+                { week: 16, profit: 2500, pair: 'USD/NOK', action: 'Sell' },
+                { week: 17, profit: 1300, pair: 'GBP/AUD', action: 'Buy' },
+                { week: 18, profit: 1900, pair: 'EUR/CAD', action: 'Sell' },
+                { week: 19, profit: -1400, pair: 'CHF/JPY', action: 'Buy' },
+                { week: 20, profit: 2500, pair: 'AUD/JPY', action: 'Sell' },
+                { week: 21, profit: 1300, pair: 'USD/SEK', action: 'Buy' },
+                { week: 22, profit: 1900, pair: 'NZD/CAD', action: 'Sell' },
+                { week: 23, profit: -600, pair: 'EUR/NOK', action: 'Buy' },
+                { week: 24, profit: 2300, pair: 'GBP/NZD', action: 'Sell' }
+            ]
+        };
+
+        function initChart() {
+            const ctx = document.getElementById('growthChart').getContext('2d');
+            
+            chart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: [],
+                    datasets: [{
+                        label: 'Kontostand (€)',
+                        data: [],
+                        borderColor: '#1a9eff',
+                        backgroundColor: 'rgba(26, 158, 255, 0.1)',
+                        borderWidth: 4,
+                        fill: true,
+                        tension: 0.4
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    animation: {
+                        duration: 1200,
+                        easing: 'easeInOutQuart'
+                    },
+                    plugins: {
+                        legend: { display: false },
+                        tooltip: {
+                            backgroundColor: 'rgba(0, 0, 0, 0.9)',
+                            titleColor: '#ffffff',
+                            bodyColor: '#ffffff',
+                            borderColor: '#1a9eff',
+                            borderWidth: 2,
+                            padding: 16,
+                            cornerRadius: 12,
+                            displayColors: false,
+                            callbacks: {
+                                label: function(context) {
+                                    return `📊 Kontostand: ${Utils.formatCurrency(context.parsed.y)}`;
+                                }
+                            }
+                        }
+                    },
+                    scales: {
+                        x: {
+                            grid: { color: 'rgba(255, 255, 255, 0.1)' },
+                            ticks: { color: '#94a3b8' }
+                        },
+                        y: {
+                            grid: { color: 'rgba(255, 255, 255, 0.1)' },
+                            ticks: {
+                                color: '#94a3b8',
+                                callback: function(value) {
+                                    return Utils.formatCurrency(value);
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+        function updateStats(dataPoint) {
+            const currentBalance = tradingData.balances[dataPoint];
+            const initialBalance = tradingData.balances[0];
+            const totalProfit = currentBalance - initialBalance;
+            const currentMonth = Math.min(Math.ceil((dataPoint + 1) / 4.16), 6);
+            let monthlyReturn = 0;
+
+            if (dataPoint > 0) {
+                const monthStartIndex = Math.max(0, Math.floor((dataPoint - 1) / 4.16) * 4.16);
+                const monthStartBalance = tradingData.balances[Math.floor(monthStartIndex)];
+                monthlyReturn = ((currentBalance / monthStartBalance - 1) * 100);
+            }
+
+            document.getElementById('current-balance').innerHTML = `<span class="no-wrap">${Utils.formatCurrency(currentBalance)}</span>`;
+            document.getElementById('total-profit').innerHTML = `<span class="no-wrap">${Utils.formatCurrency(totalProfit)}</span>`;
+            document.getElementById('monthly-return').textContent = monthlyReturn.toFixed(1) + '%';
+            document.getElementById('signals-executed').textContent = Math.floor(dataPoint * 0.8);
+
+            const progress = (dataPoint / (tradingData.labels.length - 1)) * 100;
+            document.getElementById('timeline-fill').style.width = progress + '%';
+            document.getElementById('current-month').textContent = `Monat ${currentMonth} von 6`;
+        }
+
+        function showLiveSignal(signal) {
+            const liveSignal = document.getElementById('live-signal');
+            document.getElementById('signal-pair').textContent = signal.pair;
+            document.getElementById('signal-action').textContent = `${signal.action}-Position eröffnet`;
+            document.getElementById('signal-pnl').textContent = `${signal.profit > 0 ? '+' : ''}${Utils.formatCurrency(signal.profit)}`;
+
+            if (signal.profit > 0) {
+                liveSignal.classList.remove('negative');
+                document.querySelector('.signal-icon').textContent = '📈';
+            } else {
+                liveSignal.classList.add('negative');
+                document.querySelector('.signal-icon').textContent = '📉';
+            }
+
+            liveSignal.classList.add('show');
+            setTimeout(() => {
+                liveSignal.classList.remove('show');
+            }, 8000);
+        }
+
+        function startAnimation() {
+            if (isAnimating) return;
+            isAnimating = true;
+            document.getElementById('startBtn').disabled = true;
+            document.getElementById('pauseBtn').disabled = false;
+
+            animationInterval = setInterval(() => {
+                if (currentDataPoint < tradingData.labels.length) {
+                    chart.data.labels.push(tradingData.labels[currentDataPoint]);
+                    chart.data.datasets[0].data.push(tradingData.balances[currentDataPoint]);
+                    chart.update('active');
+                    updateStats(currentDataPoint);
+
+                    const signal = tradingData.signals.find(s => s.week === currentDataPoint);
+                    if (signal) {
+                        setTimeout(() => showLiveSignal(signal), 800);
+                    }
+                    currentDataPoint++;
+                } else {
+                    pauseAnimation();
+                    document.getElementById('startBtn').innerHTML = '✅ Simulation beendet';
+                }
+            }, 1800);
+        }
+
+        function pauseAnimation() {
+            isAnimating = false;
+            clearInterval(animationInterval);
+            document.getElementById('startBtn').disabled = false;
+            document.getElementById('pauseBtn').disabled = true;
+        }
+
+        function resetAnimation() {
+            pauseAnimation();
+            currentDataPoint = 0;
+            chart.data.labels = [];
+            chart.data.datasets[0].data = [];
+            chart.update();
+            updateStats(0);
+            document.getElementById('startBtn').innerHTML = '▶️ Simulation starten';
+            document.getElementById('startBtn').disabled = false;
+        }
+
+        // ========================================
+        // COMPARISON TOGGLE
+        // ========================================
+        document.querySelectorAll('.toggle-option').forEach(button => {
+            button.addEventListener('click', function() {
+                document.querySelectorAll('.toggle-option').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+                
+                const option = this.dataset.option;
+                const classicCard = document.querySelector('[data-card="classic"]');
+                const algovateCard = document.querySelector('[data-card="algovate"]');
+                
+                if (option === 'classic') {
+                    classicCard.style.display = 'block';
+                    algovateCard.style.display = 'none';
+                } else {
+                    classicCard.style.display = 'none';
+                    algovateCard.style.display = 'block';
+                }
+            });
+        });
+
+        // ========================================
+        // FAQ FUNCTIONALITY
+        // ========================================
+        function toggleFAQ(index) {
+            const faqItems = document.querySelectorAll('.faq-item');
+            const faqItem = faqItems[index];
+            const answer = faqItem.querySelector('.faq-answer');
+            const icon = faqItem.querySelector('.faq-icon i');
+
+            faqItems.forEach((item, i) => {
+                if (i !== index) {
+                    item.classList.remove('active');
+                    item.querySelector('.faq-answer').classList.remove('show');
+                    const otherIcon = item.querySelector('.faq-icon i');
+                    otherIcon.classList.remove('fa-minus');
+                    otherIcon.classList.add('fa-plus');
+                }
+            });
+
+            faqItem.classList.toggle('active');
+            answer.classList.toggle('show');
+
+            if (answer.classList.contains('show')) {
+                icon.classList.remove('fa-plus');
+                icon.classList.add('fa-minus');
+                // Set max-height dynamically for smooth transition
+                answer.style.maxHeight = answer.scrollHeight + 30 + "px"; 
+            } else {
+                icon.classList.remove('fa-minus');
+                icon.classList.add('fa-plus');
+                answer.style.maxHeight = '0';
+            }
+        }
+
+        // ========================================
+        // FLOATING CTA
+        // ========================================
+        document.getElementById('floating-cta').addEventListener('click', () => {
+            document.getElementById('simulator').scrollIntoView({
+                behavior: Utils.isMobile() ? 'auto' : 'smooth',
+                block: 'start'
+            });
+        });
+
+        // ========================================
+        // INITIALIZATION
+        // ========================================
+        document.addEventListener('DOMContentLoaded', function() {
+            Navigation.init();
+            initChart();
+            updateStats(0);
+        });
+    </script><div class="modal-overlay" id="modal-legal"><div aria-labelledby="modal-legal-title" aria-modal="true" class="modal" role="dialog"><div class="modal-header"><div class="modal-title" id="modal-legal-title">Legal Disclosure</div><button aria-label="Schließen" class="modal-close">✕</button></div><div class="modal-body">
+<h3>Verantwortlicher, KI Trading-Solutions</h3>
+<p>KI Trading-Solutions</p>
+<h3>Kontakt</h3>
+<p>E‑Mail: <a href="mailto:info@momentumplus.tech">info@momentumplus.tech</a></p>
+<p>Telegram: <a href="https://t.me/ki_supporter" target="_blank">@ki_supporter</a></p>
+<h3>Hinweise</h3>
+<ul>
+<li>Diese Website enthält Informationen zu automatisierten Trading‑Systemen.</li>
+<li>Vergangene Ergebnisse sind kein verlässlicher Indikator für zukünftige Resultate.</li>
+</ul>
+</div></div></div><div class="modal-overlay" id="modal-contact"><div aria-labelledby="modal-contact-title" aria-modal="true" class="modal" role="dialog"><div class="modal-header"><div class="modal-title" id="modal-contact-title">Kontakt</div><button aria-label="Schließen" class="modal-close">✕</button></div><div class="modal-body">
+<p>Wir helfen dir gern weiter.</p>
+<ul>
+<li>E‑Mail: <a href="mailto:info@momentumplus.tech">info@momentumplus.tech</a></li>
+<li>Telegram: <a href="https://t.me/ki_supporter" target="_blank">@ki_supporter</a></li>
+</ul>
+<p>Antwortzeit: Mo–Fr, 10–18 Uhr (CET).</p>
+</div></div></div><div class="modal-overlay" id="modal-partner"><div aria-labelledby="modal-partner-title" aria-modal="true" class="modal" role="dialog"><div class="modal-header"><div class="modal-title" id="modal-partner-title">Partner werden</div><button aria-label="Schließen" class="modal-close">✕</button></div><div class="modal-body">
+<p>Interesse an einer Partnerschaft oder Affiliate‑Zusammenarbeit?</p>
+<ul>
+<li>Schreib uns per E‑Mail: <a href="mailto:info@momentumplus.tech">info@momentumplus.tech</a></li>
+<li>Oder via Telegram: <a href="https://t.me/ki_supporter" target="_blank">@ki_supporter</a></li>
+</ul>
+<p>Bitte stelle dich kurz vor (Name, Projekt, Reichweite) – wir melden uns zeitnah.</p>
+</div></div></div><div class="modal-overlay" id="modal-risk"><div aria-labelledby="modal-risk-title" aria-modal="true" class="modal" role="dialog"><div class="modal-header"><div class="modal-title" id="modal-risk-title">Risikohinweise</div><button aria-label="Schließen" class="modal-close">✕</button></div><div class="modal-body">
+<p>Der Handel mit Finanzinstrumenten ist mit erheblichen Risiken verbunden und nicht für jeden Anleger geeignet.</p>
+<ul>
+<li>Es besteht das Risiko eines teilweisen oder vollständigen Kapitalverlustes.</li>
+<li>Ergebnisse der Vergangenheit sind keine Garantie für zukünftige Entwicklungen.</li>
+<li>Setze nur Kapital ein, dessen Verlust du dir leisten kannst.</li>
+</ul>
+<p>Durch die Nutzung unserer Informationen stimmst du zu, diese Hinweise gelesen zu haben.</p>
+</div></div></div><script>
+(function(){
+  function openModal(id){
+    var el = document.querySelector(id);
+    if(!el) return;
+    el.classList.add('open');
+    document.documentElement.style.overflow = 'hidden';
+  }
+  function closeModal(el){
+    el.classList.remove('open');
+    document.documentElement.style.overflow = '';
+  }
+  document.addEventListener('click', function(e){
+    var t = e.target;
+    // open
+    var link = t.closest('a[data-modal]');
+    if(link){
+      e.preventDefault();
+      openModal(link.getAttribute('data-modal'));
+      return;
+    }
+    // close via button
+    if(t.classList.contains('modal-close')){
+      var overlay = t.closest('.modal-overlay');
+      if(overlay){ closeModal(overlay); }
+      return;
+    }
+    // close by clicking background
+    if(t.classList.contains('modal-overlay')){
+      closeModal(t);
+      return;
+    }
+  });
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'Escape'){
+      var open = document.querySelector('.modal-overlay.open');
+      if(open){ closeModal(open); }
+    }
+  });
+})();
+</script><script>
+(function(){
+  var wrap = document.querySelector('.hero-lite');
+  if(!wrap) return;
+  var holder = wrap.querySelector('.hero-lite__iframe');
+  var btn = wrap.querySelector('.hero-lite__button');
+  var PLAYED = false;
+  var isFile = location.protocol === 'file:';
+  function load(){
+    if(PLAYED) return;
+    PLAYED = true;
+    wrap.classList.add('loading');
+    var iframe = document.createElement('iframe');
+    var vid = (wrap.getAttribute('data-video') || 'emUNNQQPkCM');
+    var params = ['controls=1','modestbranding=1','rel=0','playsinline=1'];
+    if (!isFile) params.push('autoplay=1');
+    iframe.src = 'https://www.youtube-nocookie.com/embed/' + vid + '?' + params.join('&');
+    iframe.title = 'Hero Video';
+    iframe.allow = 'autoplay; fullscreen; picture-in-picture';
+    iframe.setAttribute('allowfullscreen','');
+    // Force size to fill container regardless of external CSS
+    iframe.style.position = 'absolute';
+    iframe.style.inset = '0';
+    iframe.style.width = '100%';
+    iframe.style.height = '100%';
+    iframe.style.border = '0';
+    holder.appendChild(iframe);
+  }
+  wrap.addEventListener('click', function(e){
+    if(e.target.closest('.hero-lite')) load();
+  }, {passive:true});
+  if(btn){
+    btn.addEventListener('keydown', function(e){
+      if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); load(); }
+    });
+  }
+})();</script><script>
+(function(){
+  var nav = document.querySelector('nav.nav');
+  if(!nav) return;
+
+  // Shorten label on mobile
+  function updateNavLabels(){
+    var link = Array.from(nav.querySelectorAll('a')).find(a => /Erfolgsgeschichten/i.test(a.textContent));
+    if(!link) return;
+    if (window.matchMedia('(max-width: 768px)').matches) {
+      if (!link.dataset.originalText) link.dataset.originalText = link.textContent.trim();
+      link.textContent = 'Erfolge';
+    } else if (link.dataset.originalText) {
+      link.textContent = link.dataset.originalText;
+    }
+  }
+  updateNavLabels();
+  window.addEventListener('resize', updateNavLabels);
+
+  // Robust scroll hide/show for mobile
+  var lastY = window.pageYOffset || document.documentElement.scrollTop;
+  var lastDir = 0; // 1 = down, -1 = up
+  var threshold = 8; // minimal delta to react
+  var ticking = false;
+
+  function applyState(dir, y){
+    if (!window.matchMedia('(max-width: 768px)').matches) {
+      nav.classList.remove('nav-hide');
+      return;
+    }
+    if (y <= 24) {
+      nav.classList.remove('nav-hide');
+      return;
+    }
+    if (dir > 0) { // scrolling down
+      nav.classList.add('nav-hide');
+    } else if (dir < 0) { // scrolling up
+      nav.classList.remove('nav-hide');
+    }
+  }
+
+  function onScroll(){
+    var y = window.pageYOffset || document.documentElement.scrollTop;
+    var delta = y - lastY;
+    var dir = delta > threshold ? 1 : (delta < -threshold ? -1 : lastDir);
+    if (dir !== lastDir) lastDir = dir;
+    applyState(dir, y);
+    lastY = y;
+    ticking = false;
+  }
+
+  window.addEventListener('scroll', function(){
+    if (!ticking) {
+      window.requestAnimationFrame(onScroll);
+      ticking = true;
+    }
+  }, {passive:true});
+})();</script></body>
+</html>
