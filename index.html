@@ -1,4 +1,5 @@
 
+
 <!DOCTYPE html>
 
 <html lang="de">
@@ -2971,7 +2972,26 @@ html { scroll-behavior: smooth; }
     pointer-events: none;
   }
 }
-</style><link as_="image" href="momentum-thumb.png" rel="preload"/><link as_="image" href="momentum-thumb.png" rel="preload"/></head>
+</style><link as_="image" href="momentum-thumb.png" rel="preload"/><link as_="image" href="momentum-thumb.png" rel="preload"/>
+<style>
+/* Force the Momentum toast to be centered on all screens */
+.toast.momentum-toast {
+  position: fixed !important;
+  top: 50% !important;
+  left: 50% !important;
+  right: auto !important;
+  bottom: auto !important;
+  transform: translate(-50%, -50%) !important;
+  max-width: 90vw !important;
+  text-align: center !important;
+  padding: 1rem 1.25rem !important;
+  border-radius: 12px !important;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.35) !important;
+  z-index: 4000 !important;
+}
+</style>
+
+</head>
 <body>
 <div class="bg-effects">
 <div class="bg-gradient"></div>
@@ -4658,5 +4678,66 @@ html { scroll-behavior: smooth; }
       ticking = true;
     }
   }, {passive:true});
-})();</script></body>
+})();</script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  // Helper: create toast
+  function showContactToast(message) {
+    // Remove existing toasts first to avoid stacking
+    document.querySelectorAll('.toast.momentum-toast').forEach(t => t.remove());
+    const toast = document.createElement('div');
+    toast.className = 'toast momentum-toast fade-in';
+    toast.style.zIndex = '2000';
+    toast.innerHTML = '<i class="fas fa-info-circle"></i>' + message;
+
+    // Position near top-right
+    toast.style.position = 'fixed';
+    // Center on all screens
+    toast.style.top = '50%';
+    toast.style.left = '50%';
+    toast.style.transform = 'translate(-50%, -50%)';
+    toast.style.right = 'auto';
+    toast.style.bottom = 'auto';
+    
+    toast.style.maxWidth = '90vw';
+    toast.style.textAlign = 'center';
+    toast.style.padding = '1rem 1.25rem';
+    toast.style.borderRadius = '12px';
+    toast.style.boxShadow = '0 10px 30px rgba(0,0,0,0.35)';
+
+    document.body.appendChild(toast);
+    setTimeout(() => { toast.remove(); }, 4500);
+  }
+
+  // Case-insensitive match helper
+  function includesCI(haystack, needle) {
+    return (haystack || '').toLowerCase().includes((needle || '').toLowerCase());
+  }
+
+  const TARGET_TEXT = 'MIT MOMENTUM PLUS STARTEN';
+
+  // Find candidates: buttons or links that contain the target text (directly or in a span)
+  const candidates = Array.from(document.querySelectorAll('a, button')).filter(el => {
+    const text = el.textContent && el.textContent.trim();
+    return includesCI(text, TARGET_TEXT);
+  });
+
+  candidates.forEach(el => {
+    // Neutralize navigation
+    if (el.tagName === 'A') {
+      el.setAttribute('href', 'javascript:void(0)');
+    }
+    el.style.cursor = 'pointer';
+
+    // Add handler
+    el.addEventListener('click', function (e) {
+      e.preventDefault();
+      e.stopPropagation();
+      showContactToast('Bitte melde dich bei deinem Ansprechpartner für den Start mit Momentum Plus.');
+    }, { capture: true });
+  });
+});
+</script>
+
+</body>
 </html>
