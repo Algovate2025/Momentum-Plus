@@ -3697,10 +3697,10 @@ html { scroll-behavior: smooth; }
 <h2>Maximiere dein Potenzial: Trading-KI trifft Prop Trading</h2>
 <p>Nutze unser bewährtes System und starte noch heute mit bis zu 200.000 € Fremdkapital. Deine KI-Strategien, multipliziert mit professionellem Kapital – für maximale Rendite.</p>
 <div class="cta-buttons">
-<a class="btn btn-secondary" href="https://calendly.com/infoalgovate/30min" rel="noopener" target="_blank">
+<button class="btn btn-secondary" type="button" onclick="showContactToast()">
                             Kostenloses Beratungsgespräch buchen
                             <i class="fas fa-calendar-alt"></i>
-</a>
+</button>
 </div>
 </div>
 </div>
@@ -4737,6 +4737,71 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 });
 </script>
+
+
+<script>
+function showContactToast() {
+  // Remove existing overlay/toast to avoid duplicates
+  document.querySelectorAll('.toast-overlay').forEach(el => el.remove());
+
+  const overlay = document.createElement('div');
+  overlay.className = 'toast-overlay';
+  overlay.addEventListener('click', () => overlay.remove());
+
+  const toast = document.createElement('div');
+  toast.setAttribute('role','alert');
+  toast.setAttribute('aria-live','polite');
+  toast.className = 'toast-center fade-in';
+  toast.innerHTML = '<i class="fas fa-info-circle"></i><span>Bitte wenden Sie sich an Ihren Ansprechpartner.</span>';
+
+  overlay.appendChild(toast);
+  document.body.appendChild(overlay);
+
+  setTimeout(() => overlay.remove(), 4000);
+}
+</script>
+<style>
+.toast-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  z-index: 1999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.toast-center {
+  position: relative;
+  z-index: 2000;
+  max-width: min(92vw, 640px);
+  width: fit-content;
+  background: rgba(15, 23, 42, 0.96);
+  border: 1px solid var(--border-accent);
+  border-radius: var(--radius-2xl);
+  padding: 1.25rem 1.75rem;
+  backdrop-filter: blur(8px);
+  box-shadow: var(--shadow-2xl), 0 0 30px rgba(26, 158, 255, 0.35);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  color: var(--text-secondary);
+  font-weight: var(--font-weight-semibold);
+  text-align: center;
+  font-size: 1.1rem;
+}
+.toast-center i {
+  color: var(--primary-400);
+  font-size: 1.5rem;
+}
+.fade-in {
+  animation: fadeIn 0.25s ease forwards;
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.98); }
+  to { opacity: 1; transform: scale(1); }
+}
+</style>
 
 </body>
 </html>
