@@ -1,0 +1,2606 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="description" content="Echte Ergebnisse von Momentum Plus Nutzern. Payout Certificates, Trading-Ergebnisse und Community-Feedback."/>
+    <title>Ergebnisse – Momentum Plus | Echte Resultate unserer Nutzer</title>
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website"/>
+    <meta property="og:url" content="https://momentumplus.de/ergebnisse"/>
+    <meta property="og:title" content="Echte Ergebnisse – Momentum Plus"/>
+    <meta property="og:description" content="Sieh dir echte Auszahlungen und Trading-Ergebnisse unserer Nutzer an."/>
+    
+    <!-- Theme Color -->
+    <meta name="theme-color" content="#0a0a0f"/>
+    
+    <!-- Preconnect for performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+    
+    <!-- Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+    
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet"/>
+
+    <style>
+        /* ═══════════════════════════════════════════════════════════════
+           DESIGN SYSTEM - MATCHING MAIN PAGE
+           ═══════════════════════════════════════════════════════════════ */
+        
+        :root {
+            --bg-dark: #0a0a0f;
+            --bg-card: #12121a;
+            --bg-card-hover: #1a1a24;
+            --bg-elevated: #1f1f2a;
+            
+            --white: #ffffff;
+            --white-soft: #f0f0f5;
+            --white-muted: #a0a0b0;
+            --white-dim: #6b6b7a;
+            
+            --primary: #3b82f6;
+            --primary-light: #60a5fa;
+            --primary-dark: #2563eb;
+            --primary-glow: rgba(59, 130, 246, 0.4);
+            
+            --success: #22c55e;
+            --success-light: #4ade80;
+            --success-glow: rgba(34, 197, 94, 0.3);
+            
+            --warning: #f59e0b;
+            
+            --grad-primary: linear-gradient(135deg, #3b82f6 0%, #60a5fa 100%);
+            --grad-card: linear-gradient(180deg, rgba(59, 130, 246, 0.08) 0%, transparent 100%);
+            
+            --font: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            --radius-sm: 8px;
+            --radius-md: 12px;
+            --radius-lg: 16px;
+            --radius-xl: 24px;
+            --ease: cubic-bezier(0.16, 1, 0.3, 1);
+            
+            --focus-ring: 0 0 0 3px rgba(59, 130, 246, 0.5);
+        }
+
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        body {
+            font-family: var(--font);
+            font-size: 16px;
+            line-height: 1.6;
+            color: var(--white-muted);
+            background: var(--bg-dark);
+            overflow-x: hidden;
+        }
+        
+        body.menu-open {
+            overflow: hidden;
+            position: fixed;
+            width: 100%;
+        }
+
+        ::selection {
+            background: var(--primary);
+            color: var(--white);
+        }
+
+        a { 
+            color: inherit; 
+            text-decoration: none; 
+        }
+        
+        a:focus-visible,
+        button:focus-visible {
+            outline: none;
+            box-shadow: var(--focus-ring);
+        }
+        
+        img { 
+            max-width: 100%; 
+            height: auto; 
+            display: block; 
+        }
+        
+        button { 
+            font-family: inherit; 
+        }
+
+        /* ═══════════════════════════════════════════════════════════════
+           BACKGROUND EFFECTS
+           ═══════════════════════════════════════════════════════════════ */
+        .bg-glow {
+            position: fixed;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at 30% 30%, rgba(59, 130, 246, 0.08) 0%, transparent 50%),
+                        radial-gradient(circle at 70% 70%, rgba(34, 197, 94, 0.05) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        /* ═══════════════════════════════════════════════════════════════
+           CONTAINER
+           ═══════════════════════════════════════════════════════════════ */
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 clamp(16px, 5vw, 24px);
+        }
+
+        .container-lg { max-width: 1400px; }
+
+        /* ═══════════════════════════════════════════════════════════════
+           HEADER
+           ═══════════════════════════════════════════════════════════════ */
+        .header-wrapper {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+        }
+
+        .nav {
+            padding: 16px 0;
+            background: linear-gradient(180deg, 
+                rgba(10, 10, 15, 0.8) 0%, 
+                rgba(10, 10, 15, 0.4) 100%);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .nav.scrolled {
+            background: rgba(10, 10, 15, 0.92);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            box-shadow: 
+                0 1px 0 rgba(255, 255, 255, 0.03),
+                0 4px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .nav-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 32px;
+            min-height: 36px;
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            z-index: 102;
+            text-decoration: none;
+        }
+
+        .nav-logo-icon {
+            width: 30px;
+            height: 30px;
+            background: linear-gradient(135deg, 
+                rgba(59, 130, 246, 0.12) 0%, 
+                rgba(96, 165, 250, 0.06) 100%);
+            border: 1px solid rgba(59, 130, 246, 0.18);
+            border-radius: 7px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 11px;
+            font-weight: 700;
+            color: var(--primary);
+            flex-shrink: 0;
+            letter-spacing: -0.03em;
+            transition: all 0.2s ease;
+        }
+        
+        .nav-logo-text {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--white);
+            letter-spacing: -0.025em;
+            line-height: 1;
+            transition: color 0.2s ease;
+        }
+        
+        .nav-logo:hover .nav-logo-icon {
+            border-color: rgba(59, 130, 246, 0.3);
+            background: linear-gradient(135deg, 
+                rgba(59, 130, 246, 0.18) 0%, 
+                rgba(96, 165, 250, 0.1) 100%);
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .nav-link {
+            padding: 8px 16px;
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--white-muted);
+            border-radius: 6px;
+            transition: all 0.2s ease;
+        }
+
+        .nav-link:hover {
+            color: var(--white);
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .nav-btn {
+            padding: 10px 20px;
+            font-size: 14px;
+            font-weight: 600;
+            border-radius: 8px;
+            transition: all 0.2s ease;
+            white-space: nowrap;
+        }
+
+        .nav-btn-primary {
+            background: var(--white);
+            color: var(--bg-dark);
+        }
+
+        .nav-btn-primary:hover {
+            background: var(--white-soft);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .nav-toggle {
+            display: none;
+            width: 44px;
+            height: 44px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            z-index: 102;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+        }
+
+        .nav-toggle span {
+            width: 22px;
+            height: 2px;
+            background: var(--white);
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-toggle.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        .nav-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .nav-toggle.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(5px, -5px);
+        }
+
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--bg-dark);
+            z-index: 101;
+            padding: 100px 24px 40px;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+        
+        .mobile-menu.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .mobile-menu .nav-link {
+            font-size: 20px;
+            padding: 12px 24px;
+            min-height: 48px;
+            color: var(--white-muted);
+        }
+        
+        .mobile-menu .nav-btn {
+            width: 100%;
+            max-width: 260px;
+            padding: 14px 28px;
+            font-size: 15px;
+            margin-top: 8px;
+        }
+
+        .mobile-menu-close {
+            position: absolute;
+            top: 24px;
+            right: 24px;
+            width: 48px;
+            height: 48px;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 50%;
+            color: var(--white);
+            font-size: 24px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+            z-index: 110;
+        }
+
+        .mobile-menu-close:hover {
+            background: rgba(255,255,255,0.2);
+            border-color: rgba(255,255,255,0.3);
+            transform: rotate(90deg);
+        }
+
+        @media (max-width: 968px) {
+            .nav-links, 
+            .nav-actions { 
+                display: none; 
+            }
+            .nav-toggle { 
+                display: flex; 
+            }
+            .mobile-menu {
+                display: flex;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .nav-logo-icon {
+                width: 28px;
+                height: 28px;
+                font-size: 10px;
+            }
+            .nav-logo-text {
+                font-size: 16px;
+            }
+        }
+
+        /* ═══════════════════════════════════════════════════════════════
+           BUTTONS
+           ═══════════════════════════════════════════════════════════════ */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 16px 32px;
+            font-family: var(--font);
+            font-weight: 600;
+            font-size: 15px;
+            border-radius: var(--radius-sm);
+            border: none;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            min-height: 52px;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background: var(--white);
+            color: var(--bg-dark);
+        }
+
+        .btn-primary:hover {
+            background: var(--white-soft);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--white);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .btn-outline:hover {
+            background: rgba(255,255,255,0.05);
+            border-color: rgba(255,255,255,0.3);
+        }
+
+        .btn-lg {
+            padding: 18px 40px;
+            font-size: 16px;
+            min-height: 56px;
+        }
+
+        /* ═══════════════════════════════════════════════════════════════
+           HERO SECTION
+           ═══════════════════════════════════════════════════════════════ */
+        .hero {
+            padding: 160px 0 80px;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 200%;
+            height: 100%;
+            background: radial-gradient(ellipse at 50% 0%, rgba(59, 130, 246, 0.12) 0%, transparent 60%);
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero-eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
+            background: rgba(34, 197, 94, 0.1);
+            border: 1px solid rgba(34, 197, 94, 0.2);
+            border-radius: 100px;
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--success);
+            margin-bottom: 24px;
+        }
+
+        .hero-eyebrow i {
+            font-size: 10px;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        .hero-title {
+            font-size: clamp(36px, 6vw, 64px);
+            font-weight: 800;
+            color: var(--white);
+            line-height: 1.1;
+            margin-bottom: 24px;
+            letter-spacing: -0.03em;
+        }
+
+        .hero-title-highlight {
+            background: var(--grad-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(16px, 2vw, 18px);
+            color: var(--white-muted);
+            margin-bottom: 40px;
+            line-height: 1.7;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: clamp(32px, 6vw, 64px);
+            flex-wrap: wrap;
+        }
+
+        .hero-stat {
+            text-align: center;
+        }
+
+        .hero-stat-value {
+            font-size: clamp(28px, 4vw, 40px);
+            font-weight: 800;
+            color: var(--white);
+            margin-bottom: 4px;
+        }
+
+        .hero-stat-value.highlight {
+            color: var(--success);
+        }
+
+        .hero-stat-label {
+            font-size: 13px;
+            color: var(--white-dim);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* ═══════════════════════════════════════════════════════════════
+           FILTER TABS
+           ═══════════════════════════════════════════════════════════════ */
+        .filter-section {
+            padding: 40px 0;
+            position: sticky;
+            top: 68px;
+            background: rgba(10, 10, 15, 0.9);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            z-index: 50;
+            border-bottom: 1px solid rgba(255,255,255,0.04);
+        }
+
+        .filter-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .filter-tab {
+            padding: 12px 24px;
+            background: transparent;
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 100px;
+            font-family: var(--font);
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--white-muted);
+            cursor: pointer;
+            transition: all 0.2s ease;
+            min-height: 44px;
+        }
+
+        .filter-tab:hover {
+            border-color: rgba(255,255,255,0.2);
+            color: var(--white);
+        }
+
+        .filter-tab.active {
+            background: var(--white);
+            border-color: var(--white);
+            color: var(--bg-dark);
+        }
+
+        .filter-tab .count {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 20px;
+            height: 20px;
+            padding: 0 6px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 10px;
+            font-size: 11px;
+            margin-left: 8px;
+        }
+
+        .filter-tab.active .count {
+            background: rgba(0,0,0,0.1);
+        }
+
+        /* Mobile: Horizontal scrollbar statt wrap */
+        @media (max-width: 768px) {
+            .filter-section {
+                padding: 16px 0;
+            }
+            
+            .filter-tabs {
+                flex-wrap: nowrap;
+                justify-content: flex-start;
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+                scrollbar-width: none;
+                -ms-overflow-style: none;
+                padding: 0 16px;
+                gap: 8px;
+            }
+            
+            .filter-tabs::-webkit-scrollbar {
+                display: none;
+            }
+            
+            .filter-tab {
+                flex-shrink: 0;
+                padding: 8px 14px;
+                font-size: 13px;
+                min-height: 36px;
+            }
+            
+            .filter-tab i {
+                display: none;
+            }
+            
+            .filter-tab .count {
+                min-width: 18px;
+                height: 18px;
+                font-size: 10px;
+                margin-left: 6px;
+            }
+        }
+
+        /* ═══════════════════════════════════════════════════════════════
+           RESULTS GRID
+           ═══════════════════════════════════════════════════════════════ */
+        .results-section {
+            padding: 60px 0 100px;
+        }
+
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        @media (max-width: 1024px) {
+            .results-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 640px) {
+            .results-grid {
+                grid-template-columns: 1fr;
+                max-width: 400px;
+                margin: 0 auto;
+            }
+        }
+
+        /* ═══════════════════════════════════════════════════════════════
+           RESULT CARD
+           ═══════════════════════════════════════════════════════════════ */
+        .result-card {
+            background: var(--bg-card);
+            border: 1px solid rgba(255,255,255,0.06);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            transition: all 0.3s var(--ease);
+            cursor: pointer;
+        }
+
+        .result-card:hover {
+            border-color: rgba(59, 130, 246, 0.3);
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .result-card[data-category="payout"] {
+            border-color: rgba(34, 197, 94, 0.15);
+        }
+
+        .result-card[data-category="payout"]:hover {
+            border-color: rgba(34, 197, 94, 0.4);
+        }
+
+        .result-image {
+            position: relative;
+            background: var(--bg-elevated);
+            overflow: hidden;
+        }
+
+        .result-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.5s var(--ease);
+        }
+
+        .result-card:hover .result-image img {
+            transform: scale(1.03);
+        }
+
+        .result-badge {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            padding: 6px 12px;
+            background: rgba(0,0,0,0.7);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border-radius: 100px;
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--white);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .result-badge.payout {
+            background: rgba(34, 197, 94, 0.9);
+        }
+
+        .result-badge.trading {
+            background: rgba(59, 130, 246, 0.9);
+        }
+
+        .result-badge.community {
+            background: rgba(139, 92, 246, 0.9);
+        }
+
+        .result-amount {
+            position: absolute;
+            bottom: 12px;
+            right: 12px;
+            padding: 8px 14px;
+            background: rgba(34, 197, 94, 0.95);
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--white);
+        }
+
+        .result-meta {
+            padding: 16px;
+        }
+
+        .result-quote {
+            font-size: 14px;
+            color: var(--white-muted);
+            line-height: 1.6;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .result-reactions {
+            display: flex;
+            gap: 12px;
+            margin-top: 12px;
+            padding-top: 12px;
+            border-top: 1px solid rgba(255,255,255,0.06);
+        }
+
+        .result-reaction {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            font-size: 12px;
+            color: var(--white-dim);
+        }
+
+        .result-reaction i {
+            font-size: 14px;
+        }
+
+        .result-reaction.heart i { color: #ef4444; }
+        .result-reaction.thumbs i { color: #f59e0b; }
+        .result-reaction.fire i { color: #f97316; }
+
+        /* ═══════════════════════════════════════════════════════════════
+           LIGHTBOX
+           ═══════════════════════════════════════════════════════════════ */
+        .lightbox {
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.95);
+            z-index: 9999;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .lightbox.active {
+            display: flex;
+            opacity: 1;
+        }
+
+        .lightbox-content {
+            max-width: 90vw;
+            max-height: 90vh;
+            position: relative;
+        }
+
+        .lightbox-content img {
+            max-width: 100%;
+            max-height: 85vh;
+            border-radius: var(--radius-lg);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.5);
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: -50px;
+            right: 0;
+            width: 44px;
+            height: 44px;
+            background: rgba(255,255,255,0.1);
+            border: none;
+            border-radius: 50%;
+            color: var(--white);
+            font-size: 24px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.2s ease;
+        }
+
+        .lightbox-close:hover {
+            background: rgba(255,255,255,0.2);
+        }
+
+        .lightbox-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 48px;
+            height: 48px;
+            background: rgba(255,255,255,0.1);
+            border: none;
+            border-radius: 50%;
+            color: var(--white);
+            font-size: 20px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.2s ease;
+        }
+
+        .lightbox-nav:hover {
+            background: rgba(255,255,255,0.2);
+        }
+
+        .lightbox-prev { left: -70px; }
+        .lightbox-next { right: -70px; }
+
+        @media (max-width: 768px) {
+            .lightbox-prev { left: 10px; }
+            .lightbox-next { right: 10px; }
+            .lightbox-close { top: 10px; right: 10px; }
+        }
+
+        /* ═══════════════════════════════════════════════════════════════
+           CTA SECTION
+           ═══════════════════════════════════════════════════════════════ */
+        .cta-section {
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+            background: linear-gradient(180deg, transparent 0%, rgba(59, 130, 246, 0.05) 50%, transparent 100%);
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 200%;
+            height: 100%;
+            background: radial-gradient(ellipse at 50% 50%, rgba(59, 130, 246, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 1;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .cta-title {
+            font-size: clamp(28px, 5vw, 44px);
+            font-weight: 800;
+            color: var(--white);
+            margin-bottom: 16px;
+            letter-spacing: -0.02em;
+        }
+
+        .cta-text {
+            font-size: clamp(16px, 2vw, 18px);
+            color: var(--white-muted);
+            margin-bottom: 32px;
+            line-height: 1.7;
+        }
+
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        /* ═══════════════════════════════════════════════════════════════
+           FOOTER
+           ═══════════════════════════════════════════════════════════════ */
+        .footer {
+            background: var(--bg-card);
+            border-top: 1px solid rgba(255,255,255,0.04);
+            padding: 48px 0 32px;
+        }
+
+        .footer-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 24px;
+        }
+
+        .footer-copy {
+            font-size: 13px;
+            color: var(--white-dim);
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 24px;
+        }
+
+        .footer-link {
+            font-size: 13px;
+            color: var(--white-dim);
+            transition: color 0.2s ease;
+        }
+
+        .footer-link:hover {
+            color: var(--white);
+        }
+
+        @media (max-width: 640px) {
+            .footer-inner {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+
+        /* ═══════════════════════════════════════════════════════════════
+           ANIMATIONS
+           ═══════════════════════════════════════════════════════════════ */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.7s var(--ease), transform 0.7s var(--ease);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .reveal-delay-1 { transition-delay: 0.1s; }
+        .reveal-delay-2 { transition-delay: 0.2s; }
+        .reveal-delay-3 { transition-delay: 0.3s; }
+
+        /* Hidden class for filtering */
+        .result-card.hidden {
+            display: none;
+        }
+
+        /* ═══════════════════════════════════════════════════════════════
+           STICKY MOBILE CTA BUTTON
+           ═══════════════════════════════════════════════════════════════ */
+        .mobile-sticky-cta {
+            display: none;
+            position: fixed;
+            bottom: 24px;
+            right: 20px;
+            z-index: 90;
+            padding: 14px 24px;
+            background: var(--white);
+            color: var(--bg-dark);
+            font-family: var(--font);
+            font-size: 14px;
+            font-weight: 700;
+            border: none;
+            border-radius: 100px;
+            cursor: pointer;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(255,255,255,0.1);
+            transition: all 0.3s var(--ease);
+            text-decoration: none;
+        }
+
+        .mobile-sticky-cta i {
+            margin-left: 8px;
+            font-size: 12px;
+            transition: transform 0.2s ease;
+        }
+
+        .mobile-sticky-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255,255,255,0.15);
+        }
+
+        .mobile-sticky-cta:active {
+            transform: scale(0.98);
+        }
+
+        /* Pulse animation für Aufmerksamkeit */
+        .mobile-sticky-cta::before {
+            content: '';
+            position: absolute;
+            inset: -3px;
+            border-radius: 100px;
+            background: var(--white);
+            opacity: 0;
+            z-index: -1;
+            animation: cta-pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes cta-pulse {
+            0%, 100% { opacity: 0; transform: scale(1); }
+            50% { opacity: 0.15; transform: scale(1.05); }
+        }
+
+        /* Nur auf Mobile anzeigen */
+        @media (max-width: 768px) {
+            .mobile-sticky-cta {
+                display: inline-flex;
+                align-items: center;
+            }
+        }
+
+        /* Auf sehr kleinen Screens etwas kleiner */
+        @media (max-width: 380px) {
+            .mobile-sticky-cta {
+                padding: 12px 20px;
+                font-size: 13px;
+                bottom: 20px;
+                right: 16px;
+            }
+        }
+
+        /* Lazy load - initially hidden */
+        .result-card.lazy-hidden,
+        .result-card.load-hidden {
+            display: none;
+        }
+
+        /* Load more button */
+        .load-more-container {
+            display: flex;
+            justify-content: center;
+            padding: 40px 0 20px;
+        }
+
+        .load-more-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 16px 32px;
+            background: transparent;
+            border: 1px solid rgba(255,255,255,0.15);
+            border-radius: 100px;
+            font-family: var(--font);
+            font-size: 15px;
+            font-weight: 500;
+            color: var(--white-muted);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .load-more-btn:hover {
+            background: rgba(255,255,255,0.05);
+            border-color: rgba(255,255,255,0.25);
+            color: var(--white);
+        }
+
+        .load-more-btn.loading {
+            pointer-events: none;
+            opacity: 0.7;
+        }
+
+        .load-more-btn .spinner {
+            display: none;
+            width: 18px;
+            height: 18px;
+            border: 2px solid rgba(255,255,255,0.2);
+            border-top-color: var(--white);
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+        }
+
+        .load-more-btn.loading .spinner {
+            display: block;
+        }
+
+        .load-more-btn.loading .btn-text {
+            display: none;
+        }
+
+        .load-more-btn .loaded-count {
+            font-size: 13px;
+            color: var(--white-dim);
+            margin-left: 4px;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        .load-more-btn.all-loaded {
+            display: none;
+        }
+
+        /* Infinite Scroll - Initially hidden cards */
+        .result-card.load-hidden {
+            display: none;
+        }
+
+        /* Load More Button */
+        .load-more-container {
+            display: flex;
+            justify-content: center;
+            padding: 40px 0 20px;
+        }
+
+        .load-more-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 16px 40px;
+            background: transparent;
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 100px;
+            color: var(--white);
+            font-family: var(--font);
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .load-more-btn:hover {
+            background: rgba(255,255,255,0.05);
+            border-color: rgba(255,255,255,0.3);
+            transform: translateY(-2px);
+        }
+
+        .load-more-btn i {
+            transition: transform 0.3s ease;
+        }
+
+        .load-more-btn:hover i {
+            transform: translateY(3px);
+        }
+
+        .load-more-btn.hidden {
+            display: none;
+        }
+
+        .load-more-btn .loader {
+            width: 18px;
+            height: 18px;
+            border: 2px solid rgba(255,255,255,0.2);
+            border-top-color: var(--white);
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+            display: none;
+        }
+
+        .load-more-btn.loading .loader {
+            display: block;
+        }
+
+        .load-more-btn.loading span {
+            display: none;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* ═══════════════════════════════════════════════════════════════
+           MODAL
+           ═══════════════════════════════════════════════════════════════ */
+        .modal-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 200;
+            padding: 24px;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal-content {
+            background: var(--bg-card);
+            border-radius: 24px;
+            padding: 40px;
+            max-width: 420px;
+            width: 100%;
+            position: relative;
+            border: 1px solid rgba(255,255,255,0.08);
+            box-shadow: 0 32px 64px rgba(0, 0, 0, 0.5);
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            width: 36px;
+            height: 36px;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 50%;
+            color: var(--white-muted);
+            font-size: 24px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+            line-height: 1;
+        }
+
+        .modal-close:hover {
+            background: rgba(255,255,255,0.1);
+            color: var(--white);
+        }
+
+        .modal-emoji {
+            font-size: 48px;
+            margin-bottom: 16px;
+        }
+
+        .modal-title {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: var(--white);
+        }
+
+        .modal-text {
+            color: var(--white-muted);
+            line-height: 1.7;
+            margin-bottom: 16px;
+        }
+
+        .modal-text strong {
+            color: var(--white);
+        }
+
+        .modal-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 14px 28px;
+            background: var(--white);
+            color: var(--bg-dark);
+            font-family: var(--font);
+            font-size: 15px;
+            font-weight: 600;
+            border: none;
+            border-radius: 100px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-decoration: none;
+            margin-top: 8px;
+        }
+
+        .modal-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(255, 255, 255, 0.15);
+        }
+
+        @media (max-width: 480px) {
+            .modal-content {
+                padding: 32px 24px;
+            }
+
+            .modal-title {
+                font-size: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-glow" aria-hidden="true"></div>
+
+    <!-- Header -->
+    <header class="header-wrapper" id="header">
+        <nav class="nav" id="nav" role="navigation" aria-label="Hauptnavigation">
+            <div class="container container-lg">
+                <div class="nav-inner">
+                    <a href="index.html" class="nav-logo" aria-label="Momentum Plus - Startseite">
+                        <span class="nav-logo-icon" aria-hidden="true">M+</span>
+                        <span class="nav-logo-text">Momentum Plus</span>
+                    </a>
+                    
+                    <div class="nav-links">
+                        <a href="index.html" class="nav-link">Startseite</a>
+                        <a href="index.html#so-gehts" class="nav-link">So geht's</a>
+                        <a href="index.html#faq" class="nav-link">FAQ</a>
+                    </div>
+                    
+                    <div class="nav-actions">
+                        <a href="#" class="nav-btn nav-btn-primary" data-modal="telegram">Jetzt starten</a>
+                    </div>
+                    
+                    <button class="nav-toggle" id="nav-toggle" aria-label="Menü öffnen" aria-expanded="false" aria-controls="mobile-menu">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>
+            </div>
+        </nav>
+    </header>
+    
+    <div class="mobile-menu" id="mobile-menu" role="dialog" aria-label="Mobile Navigation">
+        <button class="mobile-menu-close" id="mobile-menu-close" aria-label="Menü schließen">
+            <i class="fas fa-times"></i>
+        </button>
+        <a href="index.html" class="nav-link">Startseite</a>
+        <a href="index.html#so-gehts" class="nav-link">So geht's</a>
+        <a href="index.html#faq" class="nav-link">FAQ</a>
+        <a href="#" class="nav-btn nav-btn-primary" data-modal="telegram">Jetzt starten</a>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-eyebrow reveal">
+                    <i class="fas fa-circle" aria-hidden="true"></i>
+                    Verifizierte Ergebnisse
+                </div>
+                
+                <h1 class="hero-title reveal reveal-delay-1">
+                    Echte Menschen.<br>
+                    <span class="hero-title-highlight">Echte Ergebnisse.</span>
+                </h1>
+                
+                <p class="hero-subtitle reveal reveal-delay-2">
+                    Keine Fake-Screenshots, keine leeren Versprechen. Sieh dir an, was unsere Nutzer mit Momentum Plus erreicht haben.
+                </p>
+                
+                <div class="hero-stats reveal reveal-delay-3">
+                    <div class="hero-stat">
+                        <div class="hero-stat-value highlight">$50.000+</div>
+                        <div class="hero-stat-label">Ausgezahlt</div>
+                    </div>
+                    <div class="hero-stat">
+                        <div class="hero-stat-value">200+</div>
+                        <div class="hero-stat-label">Aktive Nutzer</div>
+                    </div>
+                    <div class="hero-stat">
+                        <div class="hero-stat-value">98%</div>
+                        <div class="hero-stat-label">Zufriedenheit</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Filter Section -->
+    <section class="filter-section">
+        <div class="container">
+            <div class="filter-tabs">
+                <button class="filter-tab active" data-filter="all">
+                    Alle <span class="count">47</span>
+                </button>
+                <button class="filter-tab" data-filter="payout">
+                    <i class="fas fa-trophy"></i> Auszahlungen <span class="count">12</span>
+                </button>
+                <button class="filter-tab" data-filter="trading">
+                    <i class="fas fa-chart-line"></i> Trading-Ergebnisse <span class="count">24</span>
+                </button>
+                <button class="filter-tab" data-filter="community">
+                    <i class="fas fa-users"></i> Community <span class="count">13</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Results Grid -->
+    <section class="results-section">
+        <div class="container container-lg">
+            <div class="results-grid" id="results-grid">
+                
+                <!-- Payout Certificate - Kai-Uwe $2753 -->
+                <article class="result-card reveal" data-category="payout">
+                    <div class="result-image">
+                        <img src="results/result-01.png" alt="Payout Certificate $2753" loading="lazy">
+                        <span class="result-badge payout"><i class="fas fa-trophy"></i> Auszahlung</span>
+                        <span class="result-amount">$2.753</span>
+                    </div>
+                    <div class="result-meta">
+                        <p class="result-quote">"Ich bin stolz mit euch mein letztes Payout durch Fremdkapital zu teilen 😎 Für die letzten 2 Wochen echt ein top Ergebnis!"</p>
+                        <div class="result-reactions">
+                            <span class="result-reaction heart"><i class="fas fa-heart"></i> 31</span>
+                            <span class="result-reaction thumbs"><i class="fas fa-thumbs-up"></i> 13</span>
+                            <span class="result-reaction fire"><i class="fas fa-fire"></i> 11</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Payout Certificate - Luke $4439 -->
+                <article class="result-card reveal" data-category="payout">
+                    <div class="result-image">
+                        <img src="results/result-02.png" alt="Payout Certificate $4439" loading="lazy">
+                        <span class="result-badge payout"><i class="fas fa-trophy"></i> Auszahlung</span>
+                        <span class="result-amount">$4.439</span>
+                    </div>
+                    <div class="result-meta">
+                        <p class="result-quote">"Meine letzten 2 Wochen mit Fremdkapital 🚀 Bin mehr als happy mit dem Service und werde von dem Geld mein nächsten Urlaub bezahlen 💪"</p>
+                        <div class="result-reactions">
+                            <span class="result-reaction heart"><i class="fas fa-heart"></i> 23</span>
+                            <span class="result-reaction thumbs"><i class="fas fa-thumbs-up"></i> 9</span>
+                            <span class="result-reaction fire"><i class="fas fa-fire"></i> 7</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Payout Certificate - Anton $3231 -->
+                <article class="result-card reveal" data-category="payout">
+                    <div class="result-image">
+                        <img src="results/result-03.png" alt="Payout Certificate $3231" loading="lazy">
+                        <span class="result-badge payout"><i class="fas fa-trophy"></i> Auszahlung</span>
+                        <span class="result-amount">$3.231</span>
+                    </div>
+                    <div class="result-meta">
+                        <p class="result-quote">"Ich bin wirklich unglaublich dankbar für diese Chance. Das motiviert mich jedes Mal aufs Neue! 🙏"</p>
+                        <div class="result-reactions">
+                            <span class="result-reaction heart"><i class="fas fa-heart"></i> 30</span>
+                            <span class="result-reaction thumbs"><i class="fas fa-thumbs-up"></i> 18</span>
+                            <span class="result-reaction fire"><i class="fas fa-fire"></i> 8</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Payout Certificate - $948 -->
+                <article class="result-card reveal" data-category="payout">
+                    <div class="result-image">
+                        <img src="results/result-04.png" alt="Payout Certificate $948" loading="lazy">
+                        <span class="result-badge payout"><i class="fas fa-trophy"></i> Auszahlung</span>
+                        <span class="result-amount">$948</span>
+                    </div>
+                    <div class="result-meta">
+                        <p class="result-quote">"Habe mir wieder über 900$ ausgezahlt von meinen Gewinnen mit Fremdkapital 🥳😍"</p>
+                        <div class="result-reactions">
+                            <span class="result-reaction fire"><i class="fas fa-fire"></i> 24</span>
+                            <span class="result-reaction heart"><i class="fas fa-heart"></i> 8</span>
+                            <span class="result-reaction thumbs"><i class="fas fa-thumbs-up"></i> 7</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Trading Result - $100+ -->
+                <article class="result-card reveal" data-category="trading">
+                    <div class="result-image">
+                        <img src="results/result-05.png" alt="Trading Ergebnis $100+" loading="lazy">
+                        <span class="result-badge trading"><i class="fas fa-chart-line"></i> Trading</span>
+                        <span class="result-amount">+$123</span>
+                    </div>
+                    <div class="result-meta">
+                        <p class="result-quote">"Durch die Impuls Trades habe ich schon wieder mehr als 100€ heute drin 😎👍"</p>
+                        <div class="result-reactions">
+                            <span class="result-reaction heart"><i class="fas fa-heart"></i> 15</span>
+                            <span class="result-reaction thumbs"><i class="fas fa-thumbs-up"></i> 12</span>
+                            <span class="result-reaction fire"><i class="fas fa-fire"></i> 5</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Trading Result - $300+ USDCHF -->
+                <article class="result-card reveal" data-category="trading">
+                    <div class="result-image">
+                        <img src="results/result-06.png" alt="Trading Ergebnis $300+" loading="lazy">
+                        <span class="result-badge trading"><i class="fas fa-chart-line"></i> Trading</span>
+                        <span class="result-amount">+$316</span>
+                    </div>
+                    <div class="result-meta">
+                        <p class="result-quote">"Die letzten Trades waren echt gut 👍 Habe alleine mit dem USDCHF über 300$ Rendite gemacht 💪🤗"</p>
+                        <div class="result-reactions">
+                            <span class="result-reaction heart"><i class="fas fa-heart"></i> 21</span>
+                            <span class="result-reaction thumbs"><i class="fas fa-thumbs-up"></i> 9</span>
+                            <span class="result-reaction fire"><i class="fas fa-fire"></i> 3</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Trading Result - $210 -->
+                <article class="result-card reveal" data-category="trading">
+                    <div class="result-image">
+                        <img src="results/result-07.png" alt="Trading Ergebnis $210" loading="lazy">
+                        <span class="result-badge trading"><i class="fas fa-chart-line"></i> Trading</span>
+                        <span class="result-amount">+$275</span>
+                    </div>
+                    <div class="result-meta">
+                        <p class="result-quote">"Abend Freunde, die neuen Trades laufen sehr gut 🚀 So kann's weitergehen!"</p>
+                        <div class="result-reactions">
+                            <span class="result-reaction heart"><i class="fas fa-heart"></i> 22</span>
+                            <span class="result-reaction fire"><i class="fas fa-fire"></i> 11</span>
+                            <span class="result-reaction thumbs"><i class="fas fa-thumbs-up"></i> 6</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Trading Result - Montag -->
+                <article class="result-card reveal" data-category="trading">
+                    <div class="result-image">
+                        <img src="results/result-08.png" alt="Trading Ergebnis Montag" loading="lazy">
+                        <span class="result-badge trading"><i class="fas fa-chart-line"></i> Trading</span>
+                        <span class="result-amount">+$154</span>
+                    </div>
+                    <div class="result-meta">
+                        <p class="result-quote">"Hab gerade das neue Signal geschlossen 😍😍 So kann ein Montag starten!!!"</p>
+                        <div class="result-reactions">
+                            <span class="result-reaction heart"><i class="fas fa-heart"></i> 23</span>
+                            <span class="result-reaction thumbs"><i class="fas fa-thumbs-up"></i> 16</span>
+                            <span class="result-reaction fire"><i class="fas fa-fire"></i> 2</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Trading Result - Impuls -->
+                <article class="result-card reveal" data-category="trading">
+                    <div class="result-image">
+                        <img src="results/result-09.png" alt="Trading Ergebnis Impuls" loading="lazy">
+                        <span class="result-badge trading"><i class="fas fa-chart-line"></i> Trading</span>
+                        <span class="result-amount">+$90</span>
+                    </div>
+                    <div class="result-meta">
+                        <p class="result-quote">"Moin, zwei Impulse einmal buy und einmal Sell und beide sind aufgegangen 💪 Guten Rutsch wünsche ich schonmal!"</p>
+                        <div class="result-reactions">
+                            <span class="result-reaction heart"><i class="fas fa-heart"></i> 30</span>
+                            <span class="result-reaction thumbs"><i class="fas fa-thumbs-up"></i> 12</span>
+                            <span class="result-reaction fire"><i class="fas fa-fire"></i> 2</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Trading Result - $1134 -->
+                <article class="result-card reveal" data-category="trading">
+                    <div class="result-image">
+                        <img src="results/result-10.png" alt="Trading Ergebnis $1134" loading="lazy">
+                        <span class="result-badge trading"><i class="fas fa-chart-line"></i> Trading</span>
+                        <span class="result-amount">+$1.134</span>
+                    </div>
+                    <div class="result-meta">
+                        <p class="result-quote">"Impuls Ergebnisse von mir 🐔 Schöne 1100$ zusätzlich 😉"</p>
+                        <div class="result-reactions">
+                            <span class="result-reaction thumbs"><i class="fas fa-thumbs-up"></i> 35</span>
+                            <span class="result-reaction heart"><i class="fas fa-heart"></i> 5</span>
+                            <span class="result-reaction fire"><i class="fas fa-fire"></i> 4</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Trading Result - $400+ -->
+                <article class="result-card reveal" data-category="trading">
+                    <div class="result-image">
+                        <img src="results/result-11.png" alt="Trading Ergebnis $400+" loading="lazy">
+                        <span class="result-badge trading"><i class="fas fa-chart-line"></i> Trading</span>
+                        <span class="result-amount">+$419</span>
+                    </div>
+                    <div class="result-meta">
+                        <p class="result-quote">"Letzte Woche mit Hilfe der Impulse 💥🤟 Über 400$ sind für mich super 👍"</p>
+                        <div class="result-reactions">
+                            <span class="result-reaction heart"><i class="fas fa-heart"></i> 24</span>
+                            <span class="result-reaction thumbs"><i class="fas fa-thumbs-up"></i> 12</span>
+                            <span class="result-reaction fire"><i class="fas fa-fire"></i> 2</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Community - WhatsApp $6764 -->
+                <article class="result-card reveal" data-category="community">
+                    <div class="result-image">
+                        <img src="results/result-12.jpeg" alt="Community Feedback" loading="lazy">
+                        <span class="result-badge community"><i class="fas fa-users"></i> Community</span>
+                        <span class="result-amount">$6.764</span>
+                    </div>
+                    <div class="result-meta">
+                        <p class="result-quote">"Kam noch ein Trade hinzu. Sind sogar 6764 € geworden. 🤑"</p>
+                        <div class="result-reactions">
+                            <span class="result-reaction heart"><i class="fas fa-heart"></i> 45</span>
+                            <span class="result-reaction fire"><i class="fas fa-fire"></i> 28</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Community - Certificate Achievement -->
+                <article class="result-card reveal" data-category="community">
+                    <div class="result-image">
+                        <img src="results/result-13.jpeg" alt="Certificate of Achievement" loading="lazy">
+                        <span class="result-badge community"><i class="fas fa-users"></i> Community</span>
+                    </div>
+                    <div class="result-meta">
+                        <p class="result-quote">"Yeah! Das nenne ich mal einen guten Start ins neue Jahr!! 👍💪"</p>
+                        <div class="result-reactions">
+                            <span class="result-reaction heart"><i class="fas fa-heart"></i> 38</span>
+                            <span class="result-reaction thumbs"><i class="fas fa-thumbs-up"></i> 22</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Community - Silvester -->
+                <article class="result-card reveal" data-category="community">
+                    <div class="result-image">
+                        <img src="results/result-14.jpeg" alt="Silvester Ergebnis" loading="lazy">
+                        <span class="result-badge community"><i class="fas fa-users"></i> Community</span>
+                        <span class="result-amount">+$106</span>
+                    </div>
+                    <div class="result-meta">
+                        <p class="result-quote">"Hab erst ein paar Impulse mitgemacht. Heute lief's aber sehr gut! Herzlichen Dank! Toller Jahresabschluss!"</p>
+                        <div class="result-reactions">
+                            <span class="result-reaction heart"><i class="fas fa-heart"></i> 32</span>
+                            <span class="result-reaction thumbs"><i class="fas fa-thumbs-up"></i> 19</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Community - Bot fleißig -->
+                <article class="result-card reveal" data-category="community">
+                    <div class="result-image">
+                        <img src="results/result-15.jpeg" alt="Bot Trading" loading="lazy">
+                        <span class="result-badge community"><i class="fas fa-users"></i> Community</span>
+                        <span class="result-amount">+$191</span>
+                    </div>
+                    <div class="result-meta">
+                        <p class="result-quote">"Wenn man nachmittags in die App schaut und feststellt, dass der bot heute schon fleißig war 😁"</p>
+                        <div class="result-reactions">
+                            <span class="result-reaction fire"><i class="fas fa-fire"></i> 18</span>
+                            <span class="result-reaction heart"><i class="fas fa-heart"></i> 14</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Community - $1400 in einer Woche -->
+                <article class="result-card reveal" data-category="community">
+                    <div class="result-image">
+                        <img src="results/result-16.jpeg" alt="$1400 Ergebnis" loading="lazy">
+                        <span class="result-badge community"><i class="fas fa-users"></i> Community</span>
+                        <span class="result-amount">$1.400</span>
+                    </div>
+                    <div class="result-meta">
+                        <p class="result-quote">"Ich bin begeistert, in weniger als einer Woche schon 1400usd 😍"</p>
+                        <div class="result-reactions">
+                            <span class="result-reaction heart"><i class="fas fa-heart"></i> 41</span>
+                            <span class="result-reaction fire"><i class="fas fa-fire"></i> 27</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Payout Certificate - $6764 (detailed) -->
+                <article class="result-card reveal" data-category="payout">
+                    <div class="result-image">
+                        <img src="results/result-17.jpeg" alt="Trading Details $6764" loading="lazy">
+                        <span class="result-badge payout"><i class="fas fa-trophy"></i> Auszahlung</span>
+                        <span class="result-amount">$6.764</span>
+                    </div>
+                    <div class="result-meta">
+                        <p class="result-quote">"Wow das kann sich sehen lassen 🥹🥹🥹 Profit: 6.764,00 bei 200.000 Fremdkapital"</p>
+                        <div class="result-reactions">
+                            <span class="result-reaction heart"><i class="fas fa-heart"></i> 52</span>
+                            <span class="result-reaction fire"><i class="fas fa-fire"></i> 34</span>
+                            <span class="result-reaction thumbs"><i class="fas fa-thumbs-up"></i> 21</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Trading Result - Weihnachten -->
+                <article class="result-card reveal" data-category="trading">
+                    <div class="result-image">
+                        <img src="results/result-18.jpeg" alt="Weihnachts-Trading" loading="lazy">
+                        <span class="result-badge trading"><i class="fas fa-chart-line"></i> Trading</span>
+                        <span class="result-amount">+$458</span>
+                    </div>
+                    <div class="result-meta">
+                        <p class="result-quote">"Super die Impulse. Das läuft gut. Schöne Weihnachten!"</p>
+                        <div class="result-reactions">
+                            <span class="result-reaction heart"><i class="fas fa-heart"></i> 29</span>
+                            <span class="result-reaction thumbs"><i class="fas fa-thumbs-up"></i> 17</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Trading Result - $567 Woche -->
+                <article class="result-card reveal" data-category="trading">
+                    <div class="result-image">
+                        <img src="results/result-19.png" alt="Trading Wochenergebnis $567" loading="lazy">
+                        <span class="result-badge trading"><i class="fas fa-chart-line"></i> Trading</span>
+                        <span class="result-amount">+$567</span>
+                    </div>
+                    <div class="result-meta">
+                        <p class="result-quote">"Meine komplette letzte Woche mit den Impulsen 👍 Genial die Trefferquote! Danke für den Service!!!"</p>
+                        <div class="result-reactions">
+                            <span class="result-reaction heart"><i class="fas fa-heart"></i> 30</span>
+                            <span class="result-reaction fire"><i class="fas fa-fire"></i> 6</span>
+                            <span class="result-reaction thumbs"><i class="fas fa-thumbs-up"></i> 4</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Trading Result - $829 -->
+                <article class="result-card reveal" data-category="trading">
+                    <div class="result-image">
+                        <img src="results/result-20.png" alt="Trading Ergebnis $829" loading="lazy">
+                        <span class="result-badge trading"><i class="fas fa-chart-line"></i> Trading</span>
+                        <span class="result-amount">+$829</span>
+                    </div>
+                    <div class="result-meta">
+                        <p class="result-quote">"Guten Morgen ☀️ Über 800€ mit einem Trade und das an einem Tag! Einfach Hammer 🤟"</p>
+                        <div class="result-reactions">
+                            <span class="result-reaction fire"><i class="fas fa-fire"></i> 22</span>
+                            <span class="result-reaction heart"><i class="fas fa-heart"></i> 9</span>
+                            <span class="result-reaction thumbs"><i class="fas fa-thumbs-up"></i> 7</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Payout Certificate - $2,100 -->
+                <article class="result-card reveal" data-category="payout">
+                    <div class="result-image">
+                        <img src="results/result-21.png" alt="Payout Certificate $2,100" loading="lazy">
+                        <span class="result-badge payout"><i class="fas fa-trophy"></i> Auszahlung</span>
+                        <span class="result-amount">$2.100</span>
+                    </div>
+                    <div class="result-meta">
+                        <p class="result-quote">"Boom mein nächstes Payout durch Fremdkapital Trading 💥 Danke an den Service & an das Team!"</p>
+                        <div class="result-reactions">
+                            <span class="result-reaction heart"><i class="fas fa-heart"></i> 25</span>
+                            <span class="result-reaction thumbs"><i class="fas fa-thumbs-up"></i> 13</span>
+                            <span class="result-reaction fire"><i class="fas fa-fire"></i> 6</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Payout Certificate - $4,985 -->
+                <article class="result-card reveal" data-category="payout">
+                    <div class="result-image">
+                        <img src="results/result-22.png" alt="Payout Certificate $4,985" loading="lazy">
+                        <span class="result-badge payout"><i class="fas fa-trophy"></i> Auszahlung</span>
+                        <span class="result-amount">$4.985</span>
+                    </div>
+                    <div class="result-meta">
+                        <p class="result-quote">"Meine letzte Auszahlung vom Fremdkapital Trading 🤝 Hätte nicht erwartet, dass ich hier so viel verdiene wie in meinem Hauptjob 🙏"</p>
+                        <div class="result-reactions">
+                            <span class="result-reaction heart"><i class="fas fa-heart"></i> 19</span>
+                            <span class="result-reaction fire"><i class="fas fa-fire"></i> 12</span>
+                            <span class="result-reaction thumbs"><i class="fas fa-thumbs-up"></i> 8</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Trading Result - $534 -->
+                <article class="result-card reveal" data-category="trading">
+                    <div class="result-image">
+                        <img src="results/result-23.png" alt="Trading Ergebnis $534" loading="lazy">
+                        <span class="result-badge trading"><i class="fas fa-chart-line"></i> Trading</span>
+                        <span class="result-amount">+$534</span>
+                    </div>
+                    <div class="result-meta">
+                        <p class="result-quote">"Mein Start in den Tag Dank Fremdkapital 😍 Hätte ich früher niemals gedacht das sowas möglich ist 😅🚀 Lg Wladi"</p>
+                        <div class="result-reactions">
+                            <span class="result-reaction fire"><i class="fas fa-fire"></i> 16</span>
+                            <span class="result-reaction thumbs"><i class="fas fa-thumbs-up"></i> 7</span>
+                            <span class="result-reaction heart"><i class="fas fa-heart"></i> 6</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Trading Result - $523 -->
+                <article class="result-card reveal" data-category="trading">
+                    <div class="result-image">
+                        <img src="results/result-24.png" alt="Trading Ergebnis $523" loading="lazy">
+                        <span class="result-badge trading"><i class="fas fa-chart-line"></i> Trading</span>
+                        <span class="result-amount">+$523</span>
+                    </div>
+                    <div class="result-meta">
+                        <p class="result-quote">"Habe mich gerade entschlossen die Gewinne des Eurchf Signals mitzunehmen und habe 520€ Profit gemacht 👌 Mega Tag 😎🚀"</p>
+                        <div class="result-reactions">
+                            <span class="result-reaction heart"><i class="fas fa-heart"></i> 19</span>
+                            <span class="result-reaction fire"><i class="fas fa-fire"></i> 8</span>
+                            <span class="result-reaction thumbs"><i class="fas fa-thumbs-up"></i> 7</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Payout Certificate - $1,845 -->
+                <article class="result-card reveal" data-category="payout">
+                    <div class="result-image">
+                        <img src="results/result-25.png" alt="Payout Certificate $1,845" loading="lazy">
+                        <span class="result-badge payout"><i class="fas fa-trophy"></i> Auszahlung</span>
+                        <span class="result-amount">$1.845</span>
+                    </div>
+                    <div class="result-meta">
+                        <p class="result-quote">"Meine letzte Auszahlung durch das Fremdkapital Trading. Alles nur möglich, da die KI mir die Challenge bestanden hat 🙏"</p>
+                        <div class="result-reactions">
+                            <span class="result-reaction heart"><i class="fas fa-heart"></i> 20</span>
+                            <span class="result-reaction thumbs"><i class="fas fa-thumbs-up"></i> 8</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Trading Result - $1,200 -->
+                <article class="result-card reveal" data-category="trading">
+                    <div class="result-image">
+                        <img src="results/result-26.png" alt="Trading Ergebnis $1,200" loading="lazy">
+                        <span class="result-badge trading"><i class="fas fa-chart-line"></i> Trading</span>
+                        <span class="result-amount">+$1.200</span>
+                    </div>
+                    <div class="result-meta">
+                        <p class="result-quote">"In meiner aktuellen Periode bin ich mit 1200$ im Profit und aktuell laufen schon die nächsten Trades 💪"</p>
+                        <div class="result-reactions">
+                            <span class="result-reaction heart"><i class="fas fa-heart"></i> 18</span>
+                            <span class="result-reaction fire"><i class="fas fa-fire"></i> 4</span>
+                            <span class="result-reaction thumbs"><i class="fas fa-thumbs-up"></i> 2</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Payout Certificate - $776 -->
+                <article class="result-card reveal" data-category="payout">
+                    <div class="result-image">
+                        <img src="results/result-27.png" alt="Payout Certificate $776" loading="lazy">
+                        <span class="result-badge payout"><i class="fas fa-trophy"></i> Auszahlung</span>
+                        <span class="result-amount">$776</span>
+                    </div>
+                    <div class="result-meta">
+                        <p class="result-quote">"Mein letzte Auszahlung nochmal über 700$ 💪"</p>
+                        <div class="result-reactions">
+                            <span class="result-reaction heart"><i class="fas fa-heart"></i> 16</span>
+                            <span class="result-reaction thumbs"><i class="fas fa-thumbs-up"></i> 6</span>
+                            <span class="result-reaction fire"><i class="fas fa-fire"></i> 1</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Trading Result - $1,009 -->
+                <article class="result-card reveal" data-category="trading">
+                    <div class="result-image">
+                        <img src="results/result-28.png" alt="Trading Ergebnis $1,009" loading="lazy">
+                        <span class="result-badge trading"><i class="fas fa-chart-line"></i> Trading</span>
+                        <span class="result-amount">+$1.009</span>
+                    </div>
+                    <div class="result-meta">
+                        <p class="result-quote">"Einfach verrückt was passieren kann wenn man sich mit Fremdkapital beschäftigt. 1000€ an einem Tag und es ist erst Montag! 😍"</p>
+                        <div class="result-reactions">
+                            <span class="result-reaction heart"><i class="fas fa-heart"></i> 15</span>
+                            <span class="result-reaction fire"><i class="fas fa-fire"></i> 4</span>
+                            <span class="result-reaction thumbs"><i class="fas fa-thumbs-up"></i> 4</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Trading Result - $487 -->
+                <article class="result-card reveal" data-category="trading">
+                    <div class="result-image">
+                        <img src="results/result-29.png" alt="Trading Ergebnis $487" loading="lazy">
+                        <span class="result-badge trading"><i class="fas fa-chart-line"></i> Trading</span>
+                        <span class="result-amount">+$487</span>
+                    </div>
+                    <div class="result-meta">
+                        <p class="result-quote">"Servus ✌️ Der nächste Trade ist aufgegangen bei mir und ich konnte schon knapp 500€ Gewinn mitnehmen!"</p>
+                        <div class="result-reactions">
+                            <span class="result-reaction thumbs"><i class="fas fa-thumbs-up"></i> 20</span>
+                            <span class="result-reaction heart"><i class="fas fa-heart"></i> 4</span>
+                            <span class="result-reaction fire"><i class="fas fa-fire"></i> 2</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Payout Certificate - $1,141 -->
+                <article class="result-card reveal" data-category="payout">
+                    <div class="result-image">
+                        <img src="results/result-30.png" alt="Payout Certificate $1,141" loading="lazy">
+                        <span class="result-badge payout"><i class="fas fa-trophy"></i> Auszahlung</span>
+                        <span class="result-amount">$1.141</span>
+                    </div>
+                    <div class="result-meta">
+                        <p class="result-quote">"Mein letztes Payout von Oktober 🤝 Schöner Extraverdienst! Grüße aus Köln!"</p>
+                        <div class="result-reactions">
+                            <span class="result-reaction heart"><i class="fas fa-heart"></i> 21</span>
+                            <span class="result-reaction thumbs"><i class="fas fa-thumbs-up"></i> 9</span>
+                            <span class="result-reaction fire"><i class="fas fa-fire"></i> 5</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Trading Result - $963 -->
+                <article class="result-card reveal" data-category="trading">
+                    <div class="result-image">
+                        <img src="results/result-31.png" alt="Trading Ergebnis $963" loading="lazy">
+                        <span class="result-badge trading"><i class="fas fa-chart-line"></i> Trading</span>
+                        <span class="result-amount">+$963</span>
+                    </div>
+                    <div class="result-meta">
+                        <p class="result-quote">"Hallo meine Lieben 🥰 Ich habe heute einige Trades geschlossen mit Profit 🤩"</p>
+                        <div class="result-reactions">
+                            <span class="result-reaction heart"><i class="fas fa-heart"></i> 18</span>
+                            <span class="result-reaction thumbs"><i class="fas fa-thumbs-up"></i> 8</span>
+                            <span class="result-reaction fire"><i class="fas fa-fire"></i> 4</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Trading Result - $4,368 Monat -->
+                <article class="result-card reveal" data-category="trading">
+                    <div class="result-image">
+                        <img src="results/result-32.png" alt="Trading Monatsergebnis $4,368" loading="lazy">
+                        <span class="result-badge trading"><i class="fas fa-chart-line"></i> Trading</span>
+                        <span class="result-amount">+$4.368</span>
+                    </div>
+                    <div class="result-meta">
+                        <p class="result-quote">"Mein letzter Monat mit FK in Summe über 4000€ Profit 🤓 Langsam wird das was bei mir!!"</p>
+                        <div class="result-reactions">
+                            <span class="result-reaction heart"><i class="fas fa-heart"></i> 25</span>
+                            <span class="result-reaction fire"><i class="fas fa-fire"></i> 8</span>
+                            <span class="result-reaction thumbs"><i class="fas fa-thumbs-up"></i> 5</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Trading Result - $912 -->
+                <article class="result-card reveal" data-category="trading">
+                    <div class="result-image">
+                        <img src="results/result-33.png" alt="Trading Ergebnis $912" loading="lazy">
+                        <span class="result-badge trading"><i class="fas fa-chart-line"></i> Trading</span>
+                        <span class="result-amount">+$912</span>
+                    </div>
+                    <div class="result-meta">
+                        <p class="result-quote">"Durch das Thema Fremdkapital bin ich Mega dankbar 🙏 Geduld hat sich ausgezahlt mit einem Gewinn von rund 900€ 👍"</p>
+                        <div class="result-reactions">
+                            <span class="result-reaction fire"><i class="fas fa-fire"></i> 25</span>
+                            <span class="result-reaction heart"><i class="fas fa-heart"></i> 5</span>
+                            <span class="result-reaction thumbs"><i class="fas fa-thumbs-up"></i> 5</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Trading Result - $733 -->
+                <article class="result-card reveal" data-category="trading">
+                    <div class="result-image">
+                        <img src="results/result-34.png" alt="Trading Ergebnis $733" loading="lazy">
+                        <span class="result-badge trading"><i class="fas fa-chart-line"></i> Trading</span>
+                        <span class="result-amount">+$733</span>
+                    </div>
+                    <div class="result-meta">
+                        <p class="result-quote">"Hi Leute hier mal mein Ergebnis von letzter Woche. Bin echt begeistert 🤝 Wer Fragen hat kann sich gerne bei mir melden 🙏"</p>
+                        <div class="result-reactions">
+                            <span class="result-reaction heart"><i class="fas fa-heart"></i> 24</span>
+                            <span class="result-reaction fire"><i class="fas fa-fire"></i> 6</span>
+                            <span class="result-reaction thumbs"><i class="fas fa-thumbs-up"></i> 2</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Community - $1,720 -->
+                <article class="result-card reveal" data-category="community">
+                    <div class="result-image">
+                        <img src="results/result-35.jpeg" alt="Community Feedback $1,720" loading="lazy">
+                        <span class="result-badge community"><i class="fas fa-users"></i> Community</span>
+                        <span class="result-amount">$1.720</span>
+                    </div>
+                    <div class="result-meta">
+                        <p class="result-quote">"Das ist wirklich der Hammer, KI steht jetzt bei 1.700 €. Macht konsequent ihr Ding no matter what!! Echt GENIAL!"</p>
+                        <div class="result-reactions">
+                            <span class="result-reaction fire"><i class="fas fa-fire"></i> 38</span>
+                            <span class="result-reaction heart"><i class="fas fa-heart"></i> 24</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Trading Result - $841 -->
+                <article class="result-card reveal" data-category="trading">
+                    <div class="result-image">
+                        <img src="results/result-36.jpeg" alt="Trading Ergebnis $841" loading="lazy">
+                        <span class="result-badge trading"><i class="fas fa-chart-line"></i> Trading</span>
+                        <span class="result-amount">+$841</span>
+                    </div>
+                    <div class="result-meta">
+                        <p class="result-quote">"Waren gute Signal, konnte leider nicht alle mitnehmen, die wo Nachts kommen."</p>
+                        <div class="result-reactions">
+                            <span class="result-reaction heart"><i class="fas fa-heart"></i> 18</span>
+                            <span class="result-reaction fire"><i class="fas fa-fire"></i> 8</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Community - Certificate Marco -->
+                <article class="result-card reveal" data-category="community">
+                    <div class="result-image">
+                        <img src="results/result-37.jpeg" alt="Certificate of Achievement" loading="lazy">
+                        <span class="result-badge community"><i class="fas fa-users"></i> Community</span>
+                    </div>
+                    <div class="result-meta">
+                        <p class="result-quote">"Guten Morgen, die Challenge ist abgeschlossen. Vielen Dank bis hierhin. 🙂"</p>
+                        <div class="result-reactions">
+                            <span class="result-reaction heart"><i class="fas fa-heart"></i> 32</span>
+                            <span class="result-reaction thumbs"><i class="fas fa-thumbs-up"></i> 18</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Trading Result - $951 -->
+                <article class="result-card reveal" data-category="trading">
+                    <div class="result-image">
+                        <img src="results/result-38.jpeg" alt="Trading Ergebnis $951" loading="lazy">
+                        <span class="result-badge trading"><i class="fas fa-chart-line"></i> Trading</span>
+                        <span class="result-amount">+$951</span>
+                    </div>
+                    <div class="result-meta">
+                        <p class="result-quote">"Von gestern 🥱"</p>
+                        <div class="result-reactions">
+                            <span class="result-reaction heart"><i class="fas fa-heart"></i> 22</span>
+                            <span class="result-reaction fire"><i class="fas fa-fire"></i> 14</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Community - Lob Impulse -->
+                <article class="result-card reveal" data-category="community">
+                    <div class="result-image">
+                        <img src="results/result-39.jpeg" alt="Community Feedback Impulse" loading="lazy">
+                        <span class="result-badge community"><i class="fas fa-users"></i> Community</span>
+                    </div>
+                    <div class="result-meta">
+                        <p class="result-quote">"Großes Lob an die Impulse bis jetzt kein Impuls gewesen der Verlust gemacht hat!"</p>
+                        <div class="result-reactions">
+                            <span class="result-reaction heart"><i class="fas fa-heart"></i> 28</span>
+                            <span class="result-reaction fire"><i class="fas fa-fire"></i> 15</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Trading Result - $631 -->
+                <article class="result-card reveal" data-category="trading">
+                    <div class="result-image">
+                        <img src="results/result-40.jpeg" alt="Trading Ergebnis $631" loading="lazy">
+                        <span class="result-badge trading"><i class="fas fa-chart-line"></i> Trading</span>
+                        <span class="result-amount">+$631</span>
+                    </div>
+                    <div class="result-meta">
+                        <p class="result-quote">"Konzentriert arbeiten, bringt konzentrierte Ergebnisse 🤗"</p>
+                        <div class="result-reactions">
+                            <span class="result-reaction heart"><i class="fas fa-heart"></i> 19</span>
+                            <span class="result-reaction fire"><i class="fas fa-fire"></i> 11</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Trading Result - $1,321 -->
+                <article class="result-card reveal" data-category="trading">
+                    <div class="result-image">
+                        <img src="results/result-41.jpeg" alt="Trading Ergebnis $1,321" loading="lazy">
+                        <span class="result-badge trading"><i class="fas fa-chart-line"></i> Trading</span>
+                        <span class="result-amount">+$1.321</span>
+                    </div>
+                    <div class="result-meta">
+                        <p class="result-quote">"200.000 € Fremdkapital - Kontostand: 201.321,55 € 🚀"</p>
+                        <div class="result-reactions">
+                            <span class="result-reaction heart"><i class="fas fa-heart"></i> 35</span>
+                            <span class="result-reaction fire"><i class="fas fa-fire"></i> 22</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Community - KI wie Uhrwerk -->
+                <article class="result-card reveal" data-category="community">
+                    <div class="result-image">
+                        <img src="results/result-42.jpeg" alt="Community Feedback KI" loading="lazy">
+                        <span class="result-badge community"><i class="fas fa-users"></i> Community</span>
+                        <span class="result-amount">$1.300</span>
+                    </div>
+                    <div class="result-meta">
+                        <p class="result-quote">"Momentum plus KI arbeitet wie ein Uhrwerk. Schon über 1300 € - Darf gerne geteilt werden"</p>
+                        <div class="result-reactions">
+                            <span class="result-reaction heart"><i class="fas fa-heart"></i> 41</span>
+                            <span class="result-reaction fire"><i class="fas fa-fire"></i> 26</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Community - Dank Team -->
+                <article class="result-card reveal" data-category="community">
+                    <div class="result-image">
+                        <img src="results/result-43.jpeg" alt="Community Feedback Team" loading="lazy">
+                        <span class="result-badge community"><i class="fas fa-users"></i> Community</span>
+                    </div>
+                    <div class="result-meta">
+                        <p class="result-quote">"Vielen Dank an das ganze Momentum Team! Eure KIs erwirtschaften für mich Gewinne - besser und zuverlässiger, als ich es wohl je können werde!"</p>
+                        <div class="result-reactions">
+                            <span class="result-reaction heart"><i class="fas fa-heart"></i> 38</span>
+                            <span class="result-reaction thumbs"><i class="fas fa-thumbs-up"></i> 21</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Community - Kurs unbezahlbar -->
+                <article class="result-card reveal" data-category="community">
+                    <div class="result-image">
+                        <img src="results/result-44.jpeg" alt="Community Feedback Kurs" loading="lazy">
+                        <span class="result-badge community"><i class="fas fa-users"></i> Community</span>
+                    </div>
+                    <div class="result-meta">
+                        <p class="result-quote">"Ihr bietet so vielen Leuten eine Möglichkeit aus dem 9/5 zu kommen. Was ihr bietet mit dem Kurs ist unbezahlbar - das kommt von Herzen ❤️"</p>
+                        <div class="result-reactions">
+                            <span class="result-reaction heart"><i class="fas fa-heart"></i> 45</span>
+                            <span class="result-reaction thumbs"><i class="fas fa-thumbs-up"></i> 28</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Community - Bester Kurs -->
+                <article class="result-card reveal" data-category="community">
+                    <div class="result-image">
+                        <img src="results/result-45.jpeg" alt="Community Feedback Bester Kurs" loading="lazy">
+                        <span class="result-badge community"><i class="fas fa-users"></i> Community</span>
+                    </div>
+                    <div class="result-meta">
+                        <p class="result-quote">"Dies ist mit Abstand der beste Trading Kurs!! 😃 So macht Lernen Spass! Grosses Kompliment und herzlichen Dank!! ❤️"</p>
+                        <div class="result-reactions">
+                            <span class="result-reaction heart"><i class="fas fa-heart"></i> 42</span>
+                            <span class="result-reaction thumbs"><i class="fas fa-thumbs-up"></i> 24</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Community - Service & Support -->
+                <article class="result-card reveal" data-category="community">
+                    <div class="result-image">
+                        <img src="results/result-46.jpeg" alt="Community Feedback Service" loading="lazy">
+                        <span class="result-badge community"><i class="fas fa-users"></i> Community</span>
+                    </div>
+                    <div class="result-meta">
+                        <p class="result-quote">"Hey Team, ich wollte einfach mal Danke sagen für den verdammt guten Service & Support!!! Mit den Anleitungsvideos & dem Kurs habt ihr euch selbst übertroffen! 🙏"</p>
+                        <div class="result-reactions">
+                            <span class="result-reaction heart"><i class="fas fa-heart"></i> 39</span>
+                            <span class="result-reaction thumbs"><i class="fas fa-thumbs-up"></i> 22</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Trading Result - $81 -->
+                <article class="result-card reveal" data-category="trading">
+                    <div class="result-image">
+                        <img src="results/result-47.jpeg" alt="Trading Ergebnis $81" loading="lazy">
+                        <span class="result-badge trading"><i class="fas fa-chart-line"></i> Trading</span>
+                        <span class="result-amount">+$81</span>
+                    </div>
+                    <div class="result-meta">
+                        <p class="result-quote">"100.000 € Fremdkapital - Kontostand: 100.071,93 € 🚀 Hammer!"</p>
+                        <div class="result-reactions">
+                            <span class="result-reaction heart"><i class="fas fa-heart"></i> 16</span>
+                            <span class="result-reaction fire"><i class="fas fa-fire"></i> 9</span>
+                        </div>
+                    </div>
+                </article>
+
+            </div>
+            
+            <!-- Load More Button -->
+            <div class="load-more-container">
+                <button class="load-more-btn" id="load-more-btn">
+                    <span class="spinner"></span>
+                    <span class="btn-text">Mehr Ergebnisse laden</span>
+                    <span class="loaded-count" id="loaded-count"></span>
+                    <i class="fas fa-chevron-down btn-text"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2 class="cta-title reveal">Bereit für deine ersten Ergebnisse?</h2>
+                <p class="cta-text reveal reveal-delay-1">
+                    Starte jetzt mit Momentum Plus und werde Teil einer Community, die echte Resultate erzielt. Kein Vorwissen nötig.
+                </p>
+                <div class="cta-buttons reveal reveal-delay-2">
+                    <a href="#" class="btn btn-primary btn-lg" data-modal="telegram">
+                        Jetzt starten
+                        <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                    </a>
+                    <a href="index.html" class="btn btn-outline btn-lg">
+                        Mehr erfahren
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-inner">
+                <p class="footer-copy">© 2026 Momentum Plus. Alle Rechte vorbehalten.</p>
+                <div class="footer-links">
+                    <a href="index.html" class="footer-link">Startseite</a>
+                    <a href="mailto:info.momentumplus@gmail.com" class="footer-link">Kontakt</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Mobile Sticky CTA -->
+    <a href="#" class="mobile-sticky-cta" id="mobile-sticky-cta" data-modal="telegram">
+        Jetzt starten
+        <i class="fas fa-arrow-right" aria-hidden="true"></i>
+    </a>
+
+    <!-- Telegram Info Modal -->
+    <div class="modal-overlay" id="modal-telegram">
+        <div class="modal-content" style="text-align: center; padding: 48px 40px;">
+            <button class="modal-close" aria-label="Schließen">&times;</button>
+            <div style="font-size: 64px; margin-bottom: 24px; line-height: 1;">💬</div>
+            <h3 style="font-size: 28px; font-weight: 700; margin-bottom: 20px; color: #ffffff;">Dein nächster Schritt</h3>
+            <div style="text-align: center;">
+                <p style="color: rgba(255,255,255,0.75); line-height: 1.8; font-size: 16px;">
+                    Für weitere Informationen und den Start wende dich bitte an deinen <strong style="color: #ffffff;">persönlichen Ansprechpartner auf Telegram</strong>.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+        <div class="lightbox-content">
+            <button class="lightbox-close" aria-label="Schließen">&times;</button>
+            <button class="lightbox-nav lightbox-prev" aria-label="Vorheriges Bild"><i class="fas fa-chevron-left"></i></button>
+            <img src="" alt="Vergrößerte Ansicht" id="lightbox-img">
+            <button class="lightbox-nav lightbox-next" aria-label="Nächstes Bild"><i class="fas fa-chevron-right"></i></button>
+        </div>
+    </div>
+
+    <script>
+    (function() {
+        'use strict';
+        
+        const $ = (sel, ctx = document) => ctx.querySelector(sel);
+        const $$ = (sel, ctx = document) => [...ctx.querySelectorAll(sel)];
+
+        // Navigation scroll effect
+        function initNavigation() {
+            const nav = $('#nav');
+            const navToggle = $('#nav-toggle');
+            const mobileMenu = $('#mobile-menu');
+            const mobileMenuClose = $('#mobile-menu-close');
+            
+            let lastScroll = 0;
+            
+            window.addEventListener('scroll', () => {
+                const currentScroll = window.pageYOffset;
+                
+                if (currentScroll > 50) {
+                    nav.classList.add('scrolled');
+                } else {
+                    nav.classList.remove('scrolled');
+                }
+                
+                lastScroll = currentScroll;
+            }, { passive: true });
+            
+            function closeMenu() {
+                mobileMenu.classList.remove('active');
+                navToggle.classList.remove('active');
+                document.body.classList.remove('menu-open');
+                navToggle.setAttribute('aria-expanded', 'false');
+            }
+            
+            if (navToggle && mobileMenu) {
+                navToggle.addEventListener('click', () => {
+                    const isOpen = mobileMenu.classList.contains('active');
+                    
+                    mobileMenu.classList.toggle('active');
+                    navToggle.classList.toggle('active');
+                    document.body.classList.toggle('menu-open');
+                    
+                    navToggle.setAttribute('aria-expanded', !isOpen);
+                });
+                
+                // X-Button zum Schließen
+                if (mobileMenuClose) {
+                    mobileMenuClose.addEventListener('click', closeMenu);
+                }
+                
+                $$('.nav-link, .nav-btn', mobileMenu).forEach(link => {
+                    link.addEventListener('click', closeMenu);
+                });
+            }
+        }
+
+        // Infinite Scroll / Load More functionality
+        function initInfiniteScroll() {
+            const cards = $$('.result-card');
+            const loadMoreBtn = $('#load-more-btn');
+            const loadedCount = $('#loaded-count');
+            const INITIAL_COUNT = 12;
+            const LOAD_COUNT = 12;
+            let currentlyShown = INITIAL_COUNT;
+            
+            // Alle Cards initial verstecken, außer den ersten 12
+            cards.forEach((card, index) => {
+                if (index >= INITIAL_COUNT) {
+                    card.classList.add('load-hidden');
+                }
+            });
+            
+            // Counter und Button Status aktualisieren
+            function updateButtonVisibility() {
+                const visibleCards = cards.filter(card => 
+                    !card.classList.contains('hidden') && 
+                    !card.classList.contains('load-hidden')
+                );
+                const hiddenCards = cards.filter(card => 
+                    !card.classList.contains('hidden') && 
+                    card.classList.contains('load-hidden')
+                );
+                const totalFiltered = visibleCards.length + hiddenCards.length;
+                
+                // Update counter
+                if (loadedCount) {
+                    loadedCount.textContent = `(${visibleCards.length} von ${totalFiltered})`;
+                }
+                
+                if (hiddenCards.length === 0) {
+                    loadMoreBtn.classList.add('all-loaded');
+                } else {
+                    loadMoreBtn.classList.remove('all-loaded');
+                }
+            }
+            
+            // Mehr Cards laden
+            function loadMore() {
+                loadMoreBtn.classList.add('loading');
+                
+                // Simuliere kurze Ladezeit für bessere UX
+                setTimeout(() => {
+                    let loaded = 0;
+                    
+                    cards.forEach((card, index) => {
+                        if (card.classList.contains('load-hidden') && 
+                            !card.classList.contains('hidden') && 
+                            loaded < LOAD_COUNT) {
+                            card.classList.remove('load-hidden');
+                            // Trigger reveal animation
+                            setTimeout(() => {
+                                card.classList.add('active');
+                            }, loaded * 50);
+                            loaded++;
+                        }
+                    });
+                    
+                    currentlyShown += loaded;
+                    loadMoreBtn.classList.remove('loading');
+                    updateButtonVisibility();
+                }, 400);
+            }
+            
+            loadMoreBtn.addEventListener('click', loadMore);
+            updateButtonVisibility();
+            
+            // Bei Filter-Änderung: Reset und neu berechnen
+            $$('.filter-tab').forEach(tab => {
+                tab.addEventListener('click', () => {
+                    // Kurze Verzögerung, damit Filter zuerst angewendet wird
+                    setTimeout(() => {
+                        // Alle nicht-gefilterten Cards wieder load-hidden setzen (außer erste 12)
+                        let visibleCount = 0;
+                        cards.forEach(card => {
+                            if (!card.classList.contains('hidden')) {
+                                if (visibleCount >= INITIAL_COUNT) {
+                                    card.classList.add('load-hidden');
+                                } else {
+                                    card.classList.remove('load-hidden');
+                                }
+                                visibleCount++;
+                            }
+                        });
+                        currentlyShown = Math.min(INITIAL_COUNT, visibleCount);
+                        updateButtonVisibility();
+                    }, 50);
+                });
+            });
+        }
+
+        // Filter functionality
+        function initFilters() {
+            const tabs = $$('.filter-tab');
+            const cards = $$('.result-card');
+            
+            tabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    const filter = tab.dataset.filter;
+                    
+                    // Update active tab
+                    tabs.forEach(t => t.classList.remove('active'));
+                    tab.classList.add('active');
+                    
+                    // Filter cards
+                    cards.forEach(card => {
+                        if (filter === 'all' || card.dataset.category === filter) {
+                            card.classList.remove('hidden');
+                        } else {
+                            card.classList.add('hidden');
+                        }
+                    });
+                });
+            });
+        }
+
+        // Lightbox functionality
+        function initLightbox() {
+            const lightbox = $('#lightbox');
+            const lightboxImg = $('#lightbox-img');
+            const cards = $$('.result-card');
+            let currentIndex = 0;
+            let visibleCards = [];
+            
+            function updateVisibleCards() {
+                visibleCards = cards.filter(card => !card.classList.contains('hidden'));
+            }
+            
+            function openLightbox(index) {
+                updateVisibleCards();
+                currentIndex = index;
+                const img = visibleCards[index].querySelector('.result-image img');
+                lightboxImg.src = img.src;
+                lightbox.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+            
+            function closeLightbox() {
+                lightbox.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+            
+            function navigate(direction) {
+                updateVisibleCards();
+                currentIndex = (currentIndex + direction + visibleCards.length) % visibleCards.length;
+                const img = visibleCards[currentIndex].querySelector('.result-image img');
+                lightboxImg.src = img.src;
+            }
+            
+            cards.forEach((card, index) => {
+                card.addEventListener('click', () => {
+                    updateVisibleCards();
+                    const visibleIndex = visibleCards.indexOf(card);
+                    if (visibleIndex !== -1) {
+                        openLightbox(visibleIndex);
+                    }
+                });
+            });
+            
+            $('.lightbox-close').addEventListener('click', closeLightbox);
+            $('.lightbox-prev').addEventListener('click', () => navigate(-1));
+            $('.lightbox-next').addEventListener('click', () => navigate(1));
+            
+            lightbox.addEventListener('click', (e) => {
+                if (e.target === lightbox) closeLightbox();
+            });
+            
+            document.addEventListener('keydown', (e) => {
+                if (!lightbox.classList.contains('active')) return;
+                
+                if (e.key === 'Escape') closeLightbox();
+                if (e.key === 'ArrowLeft') navigate(-1);
+                if (e.key === 'ArrowRight') navigate(1);
+            });
+        }
+
+        // Scroll animations
+        function initScrollAnimations() {
+            const reveals = $$('.reveal');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                    }
+                });
+            }, {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            });
+            
+            reveals.forEach(el => observer.observe(el));
+        }
+
+        // Modal functionality
+        function initModals() {
+            // Open modal on link click
+            document.querySelectorAll('[data-modal]').forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const modalId = 'modal-' + link.getAttribute('data-modal');
+                    const modal = document.getElementById(modalId);
+                    if (modal) {
+                        modal.classList.add('active');
+                        document.body.style.overflow = 'hidden';
+                    }
+                });
+            });
+            
+            // Close modal on X button click
+            document.querySelectorAll('.modal-close').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    btn.closest('.modal-overlay').classList.remove('active');
+                    document.body.style.overflow = '';
+                });
+            });
+            
+            // Close modal on overlay click
+            document.querySelectorAll('.modal-overlay').forEach(overlay => {
+                overlay.addEventListener('click', (e) => {
+                    if (e.target === overlay) {
+                        overlay.classList.remove('active');
+                        document.body.style.overflow = '';
+                    }
+                });
+            });
+            
+            // Close modal on ESC key
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') {
+                    document.querySelectorAll('.modal-overlay.active').forEach(modal => {
+                        modal.classList.remove('active');
+                        document.body.style.overflow = '';
+                    });
+                }
+            });
+        }
+
+        function init() {
+            initNavigation();
+            initFilters();
+            initInfiniteScroll();
+            initLightbox();
+            initScrollAnimations();
+            initModals();
+        }
+        
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', init);
+        } else {
+            init();
+        }
+    })();
+    </script>
+</body>
+</html>
